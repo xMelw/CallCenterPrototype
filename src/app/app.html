@@ -1,0 +1,16 @@
+<div class="main flex flex-1">
+    
+    <div class="menu-container flex h-full" [class.collapsed]="isCollasped">
+        <app-menu (collapsedChange)="onCollapsedChange($event)" /> 
+    </div>
+
+    <div class="content-container flex" >
+        <app-header />
+
+        <div class="content flex flex-1">
+            <router-outlet />
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,40 @@
+<div class="recent-main flex flex-col" [class.collapsed]="isCollapsed">
+    
+    @if(!isCollapsed){
+    <p class="title" >RECENTS - {{ this.getActive() === 'INBOX' ? 'Messages' : 'Calls'}}</p> <!-- Titulo varia dependendo da view -->
+    }
+    
+    <div class="recent-container flex flex-col gap-2" >
+        @for (client of atualRecents; track client){
+            <div class="recent-card flex">
+                @if(!isCollapsed){
+                <div class="recent-card-icon flex">
+                    <span class="recent-span-icon flex" [style.border-left]="getPriorityColor(client.priority)">
+                        <i class="{{ client.icon }} flex" style="margin: 0;"></i>
+                    </span>
+                </div>
+                
+                <div class="recent-info flex flex-col w-full">
+                    <div class="recent-client flex" style="justify-content: space-between; align-items: end;">
+                        <p >{{ client.name || client.number }}</p>
+                        <p style="font-weight: 200; font-size: 12px;">{{ client.hora || client.duration}}</p>
+                    </div>
+                    <div class="recent-message flex" style="font-weight: 200;">
+                        <p>{{client.message || client.note}}</p>
+                    </div>
+                </div>
+                }
+                @else {
+                    <div class="recent-card-icon flex w-full">
+                        <span class="recent-span-icon flex" style="border-radius:50px; background-color: white;">
+                            <i class="{{ client.icon }} flex" style="margin: 0;"></i>
+                        </span>
+                </div>
+                }
+            </div>
+        }
+    </div>
+    
+
+</div>    
+

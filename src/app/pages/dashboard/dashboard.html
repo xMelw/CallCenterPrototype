@@ -1,0 +1,232 @@
+<div class="flex flex-col flex-1 p-2 gap-2">
+    <!-- ROW 1 - STATS -->
+    <section class="flex justify-between h-25">
+        
+        @for (kpiInfo of KPI; track kpiInfo) {
+            <div class="flex flex-row w-75 rounded-2xl items-center justify-between p-2 border-[1.5px] hover:drop-shadow-md"
+            [ngClass]="{
+                'bg-lime-200/70 border-lime-400' : kpiInfo.title === 'Incoming Calls',
+                'bg-teal-200/70 border-teal-400' : kpiInfo.title === 'Answered Calls',
+                'bg-indigo-200/70 border-indigo-400' : kpiInfo.title === 'Missed Calls',
+                'bg-[#F8F7FC] border-dashed' : kpiInfo.title === 'Online time',
+            }">
+                <div class=" flex flex-col">
+                    <p class="text-sm">{{kpiInfo.title}}</p>
+                    <p class="text-xs font-thin text-slate-500"><i>{{kpiInfo.time}}</i></p>
+                    <div class="flex w-16.25 bg-slate-50 h-full items-center justify-center rounded-lg mt-2">
+                        <p class="text-sm">{{kpiInfo.compare}}</p>
+                    </div>
+                </div>
+                <div class="flex h-full items-center">
+                    <span class="flex text-6xl m-0 p-0"
+                    [ngClass]="{
+                        'text-lime-400' : kpiInfo.title === 'Incoming Calls',
+                        'text-teal-400' : kpiInfo.title === 'Answered Calls',
+                        'text-indigo-400' : kpiInfo.title === 'Missed Calls',
+                        '' : kpiInfo.title === 'Online time',
+                    }">{{kpiInfo.number}}{{kpiInfo.onlineTime}}
+                    @if(kpiInfo.onlineTime){
+                        <span class="text-xl self-end pb-2">h</span>
+                    }
+                    </span>
+                </div>
+            </div>
+        }
+
+    </section>
+
+    <section class="grid-span-2 grid grid-cols-2 gap-2">
+        <div class="col-span-1">
+            <div class="rounded-[28px] bg-white p-5 shadow-sm flex flex-col h-full border border-slate-100">
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold tracking-tight">Volume Calls</h3>
+
+                    <div class="flex bg-slate-100/80 p-0.5 rounded-xl text-xs font-medium text-slate-600">
+                        <button class="px-3 py-1.5 bg-white text-slate-800 rounded-lg shadow-sm transition-all duration-200">Daily</button>
+                        <button class="px-3 py-1.5 hover:text-sllate-800 transition-all duration-200">Monthly</button>
+                    </div>
+                </div>
+
+                <div class="flex-1 w-full min-h-60">
+                    <apx-chart
+                        [series]="volumeCallsChart.series"
+                        [chart]="volumeCallsChart.chart"
+                        [colors]="volumeCallsChart.colors"
+                        [dataLabels]="volumeCallsChart.dataLabels"
+                        [stroke]="volumeCallsChart.stroke"
+                        [fill]="volumeCallsChart.fill"
+                        [grid]="volumeCallsChart.grid"
+                        [xaxis]="volumeCallsChart.xaxis"
+                        [yaxis]="volumeCallsChart.yaxis"
+                        [tooltip]="volumeCallsChart.tooltip"
+                        [legend]="volumeCallsChart.legend"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUNA RADIUSCHART  -->
+        
+        <div class="col-start-2 col-end-3">
+            <div class="rounded-[28px] bg-white p-5 shadow-sm flex flex-col h-full justify-between" (mouseleave)="resetReason()">
+        
+                <div class="mb-2">
+                    <h3 class="text-lg font-semibold text-[#4b4b4b]">Call Reasons</h3>
+                </div>
+
+                <div class="flex flex-row items-center justify-between gap-4 w-full">
+            
+                    <div class="relative flex flex-1 items-center justify-center min-h-65">
+                
+                        <div class="absolute flex flex-col items-center justify-center pointer-events-none text-center z-20">
+                            <span class="tabular-nums text-4xl font-bold leading-none tracking-tight text-slate-800">{{displayValue}}%</span>
+                            <span class="mt-1 text-xs font-medium tracking-wide uppercase text-slate-400 max-w-30 truncate">{{selectedReason.name}}</span>
+                        </div>
+
+                        <div class="pointer-events-none z-10">
+                            <apx-chart
+                                [series]="topCallReasonsChart.series"
+                                [chart]="topCallReasonsChart.chart"
+                                [plotOptions]="topCallReasonsChart.plotOptions"
+                                [colors]="topCallReasonsChart.colors"
+                                [stroke]="topCallReasonsChart.stroke"
+                                [fill]="topCallReasonsChart.fill"
+                                [tooltip]="topCallReasonsChart.tooltip"
+                                [responsive]="topCallReasonsChart.responsive"
+                            ></apx-chart>
+                        </div>
+                    </div>
+
+                    <div class="w-60 flex flex-col gap-2">
+                        @for(reason of callReasons; track $index){
+                            <div (mouseenter)="hoverReason(reason)" 
+                                class="relative flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2 transition-all duration-300"
+                                [ngClass]="{'bg-slate-50 shadow-sm': selectedReason.name === reason.name}">
+
+                                @if(selectedReason.name === reason.name) {
+                                    <div class="absolute left-0 top-2 bottom-2 w-1 rounded-full" [style.background]="reason.color"></div>
+                                }
+
+                                <div class="w-2.5 h-2.5 rounded-full shrink-0" [style.background]="reason.color" [class.scale-125]="selectedReason.name === reason.name"></div>
+
+                                <div class="flex flex-col flex-1 min-w-0">
+                                    <div class="flex justify-between items-center mb-0.5">
+                                        <span class="text-xs font-medium truncate"
+                                            [class.text-slate-900]="selectedReason.name === reason.name"
+                                            [class.text-slate-500]="selectedReason.name !== reason.name">{{reason.name}}</span>
+                                        <span class="text-xs font-semibold"
+                                            [class.text-slate-600]="selectedReason.name === reason.name"
+                                            [class.text-slate-400]="selectedReason.name !== reason.name">{{reason.value}}%</span>
+                                    </div>
+                                    
+                                    <div class="h-0.75 rounded-full bg-slate-100 overflow-hidden">
+                                        <div class="h-full rounded-full transition-all duration-500"
+                                            [style.background]="reason.color"
+                                            [style.width.%]="reason.value">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>              
+            </div>
+        </div>
+
+    </section>
+
+    <section class="grid grid-cols-2 gap-2 mt-2">
+        <div class="col-span-1">
+            <div class="rounded-[28px] bg-white p-6 shadow-sm flex flex-col h-full border border-slate-100">
+                <div class="mb-5">
+                    <h3 class="text-lg font-semibold tracking-tight">Best Agents This Week</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Performance tracking based on total calls and satisfaction rating</p>
+                </div>
+                <div class="overflow-x-auto flex-1">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-100 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                                <th class="pb-3 pl-2">Agent</th>
+                                <th class="pb-3 text-center">Calls</th>
+                                <th class="pb-3 text-center">Satisfaction</th>
+                                <th class="pb-3 text-right pr-2">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-50 text-sm">
+                            @for (agent of bestAgents; track agent.name) {
+                                <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                                    <td class="py-3 pl-2 flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-semibold text-xs shrink-0">
+                                            {{agent.avatar}}
+                                        </div>
+                                        <div class="flex flex-col min-w-0">
+                                            <span class="font-medium text-slate-800 truncate">{{agent.name}}</span>
+                                            <span class="text-xs text-slate-400 truncate">{{agent.role}}</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 text-center font-medium text-slate-700">{{agent.calls}}</td>
+                                    <td class="py-3 text-center">
+                                        <div class="flex items-center justify-center gap-1">
+                                            <span class="text-amber-500 text-xs">★</span>
+                                            <span class="font-semibold text-slate-700">{{agent.rating}}</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 text-right pr-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium"
+                                            [ngClass]="{
+                                                'bg-emerald-50 text-emerald-700': agent.status === 'Optimal',
+                                                'bg-sky-50 text-sky-700': agent.status === 'Good'
+                                            }">
+                                            {{agent.status}}
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- REAL TIME ACTIVITY  -->
+        <div class="col-start-2 col-end-3">
+            <div class="rounded-[28px] bg-white p-6 shadow-sm flex flex-col h-full border border-slate-100">
+                <div class="mb-5 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold tracking-tight">Real-Time Activity</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Live operational event stream</p>
+                    </div>
+                    <div class="flex bg-slate-100/80 p-0.5 rounded-xl text-xs font-medium text-slate-600">
+                        <button class="px-3 py-1.5 bg-white text-slate-800 rounded-lg shadow-sm transition-all duration-200">All</button>
+                        <button class="px-3 py-1.5 hover:text-slate-800 transition-all duration-200">Team</button>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 flex-1 overflow-y-auto max-h-62.5 pr-1">
+                    @for (log of realTimeLogs; track $index) {
+                        <div class="flex items-start gap-3 p-3 rounded-xl border border-slate-50 hover:bg-slate-50/40 transition-colors duration-150">
+                            <div class="w-2 h-2 rounded-full mt-1.5 shrink-0"
+                                [ngClass]="{
+                                    'bg-indigo-500': log.type === 'incoming',
+                                    'bg-emerald-500': log.type === 'resolved',
+                                    'bg-red-500': log.type === 'missed',
+                                    'bg-amber-500': log.type === 'transfer'
+                                }">
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <p class="text-xs text-slate-600 leading-normal">
+                                    <span class="font-semibold text-slate-800">{{log.agent}}</span> 
+                                    {{log.action}} 
+                                    <span class="font-medium text-slate-700 bg-slate-100 px-1 py-0.5 rounded text-[11px]">{{log.target}}</span>
+                                </p>
+                            </div>
+                            <span class="text-xs font-medium text-slate-400 tabular-nums shrink-0">{{log.time}}</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+

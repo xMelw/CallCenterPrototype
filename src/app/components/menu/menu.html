@@ -1,0 +1,36 @@
+<div class="sidebar bg-sky-700 flex flex-col" [ngClass]="{'collapsed': isCollapsed, 'mobile-hidden':isMobile && isCollapsed}">
+
+    <button class="toggle" (click)="toggle()">{{ isCollapsed ? '>' : '<'}}</button>
+
+    <div class="logo text-center">LOGO</div>
+
+    <nav class="menu text-sm p-2">
+        @for (item of menuItems; track item.title){
+           @if (item.type == 'recents'){
+                <div class="recent-content flex-1 m-2" >
+                    <app-recents [getActive]="getActive.bind(this)" [isCollapsed]="isCollapsed" />
+                </div>
+            }
+
+            @if (item.type == 'link'){
+            <!-- MenuItem com Selector -->
+            <button class="menu-item text-sm"  
+                [routerLink]="item.route"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+                >
+                <span class="selector sel-top"></span>
+                <a class="menu-a flex items-center p-0">
+                    <span class="icon material-symbols-outlined">{{item.icon}}</span>
+                    @if(!isCollapsed){
+                        <span class="text p-0 m-0">{{ item.title }}</span>
+                    }
+                </a>
+                <span class="selector sel-bottom"></span>
+            </button>
+            }    
+        }
+        
+    </nav>
+
+</div>

@@ -1,0 +1,132 @@
+<!-- CHAT COLUMN (MIDDLE) -->
+    
+    <!-- HEADER -->
+    <div class="flex flex-col flex-1 min-h-0 justify-between shrink-0">
+        @if(type === 'client'){
+        <div class="flex flex-col gap-2">
+            <div class="flex flex-row justify-between items-center">
+                <div class="flex flex-row items-center gap-2">
+                    <div class="avatar"><i class="flex {{chatData.icon}}"></i></div>
+                    <p>{{chatData.nome}} <span class="font-thin text-sm"> • via {{chatData.tipo_app}} </span></p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="px-1.5 py-0.5 text-sm rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 active:scale-95 transition"><i class="bi bi-telephone"></i></button>
+                    <button class="px-1.5 py-0.5 text-sm rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 active:scale-95 transition"><i class="bi bi-camera-video"></i></button>
+                </div>
+            </div>
+            <hr class="text-gray-300">
+            <div class="flex flex-row gap-2">
+                @for (tag of chatData.tags | keyvalue; track tag.key){
+                        <span class="rounded-full px-2 py-0.5 text-sm border" [class]="getTagClass(tag)">
+                            {{ tag.value }}
+                        </span>
+                    }
+                    <button class="px-1.5 py-0.5 text-sm rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 active:scale-95 transition"><i class="bi bi-plus"></i></button>
+            </div>
+
+        </div>
+
+        }
+        @if(type === 'team'){
+            <div class="flex flex-col gap-2">
+            <div class="flex flex-row justify-between items-center">
+                <div class="flex flex-row items-center gap-2">
+                    <div class="avatar"><i class="flex {{chatData.icon}}"></i></div>
+                    <p>{{chatData.group_name || chatData.nome }}</p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="px-1.5 py-0.5 text-sm rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 active:scale-95 transition"><i class="bi bi-telephone"></i></button>
+                    <button class="px-1.5 py-0.5 text-sm rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 active:scale-95 transition"><i class="bi bi-camera-video"></i></button>
+                </div>
+            </div>
+            <hr class="text-gray-300">
+        </div>
+        }
+        <!-- CHAT -->
+        
+        <div class="overflow-y-auto flex flex-col gap-2 min-h-0" style="height: 58vh; max-height: 100vh;">
+            @if(!chatData || !chatData.chat?.length){
+
+                <div class="flex flex-col items-center justify-center flex-1 text-gray-400">
+                    <p class="text-lg font-medium">Nenhuma conversa aberta</p>
+                    <p class="text-sm">Selecione uma conversa para ver as mensagens</p>
+                </div>  
+
+            } @else {
+
+                @for (msg of chatData.chat; track $index){
+
+                    <div class="flex" [ngClass]="{
+                        'justify-start' : msg.sender !== 'agent',
+                        'justify-end' : msg.sender === 'agent',
+                    }">
+
+                    <div class="max-w-[70%]">
+
+                        <!-- HEADER -->
+                        <div class="flex w-full text-xs mb-1 justify-between" [ngClass]="{
+                            'text-left': msg.sender !== 'agent',
+                            'text-right flex-row-reverse' : msg.sender === 'agent'
+                        }">
+
+                            <span class="font-medium">{{ msg.sender}}</span>
+                            <span class="text-slate-400">{{ msg.time }}</span>
+
+                        </div>
+
+                        <!-- MESSAGE  -->
+                         <div class="rounded-2xl px-4 py-2 text-sm" [ngClass]="{
+                            'bg-slate-100 text-slate-800' : msg.sender !== 'agent',
+                            'bg-blue-600 text-white' : msg.sender === 'agent'
+                         }"
+                         >{{ msg.message }}</div>
+
+                    </div>
+
+                    </div>
+
+                }            
+            }            
+        </div>
+        <div class="flex flex-row w-full">
+            <div class="flex gap-2 mb-2">
+            @for(file of selectedFiles; track $index){
+                <div class="text-xs bg-slate-100 px-2 py-1 rounded">
+                    {{ file.name }}
+                </div>
+            }
+            </div>
+            <div class="flex flex-1 items-center gap-2 text-gray-300 justify-between">
+            
+                <label class="cursor-pointer p-2 rounded-full hover:bg-slate-200 active:scale-95 transition">
+                    <i class="bi bi-plus"></i>
+                    <input
+                        type="file"
+                        class="hidden"
+                        (change)="onFileSelected($event)"
+                        multiple
+                    />
+                </label>
+            
+                <input
+                    type="text"
+                    class="flex-1 border rounded-full px-4 py-2 text-sm
+                            focus:outline-none focus:ring-0 focus:ring-blue-400 focus:border-blue-400 transition"
+                    placeholder=" '/' para snippets "
+
+                    [value]="newMessage()"
+                    (input)="updateMessage($event)"
+
+                    (keydown.enter)="sendMessage()"
+                />
+
+                <button
+                    class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm
+                            hover:bg-blue-700 transition shadow-sm"
+                    (click)="sendMessage()">Enviar
+                </button>
+
+            </div>
+        </div>
+        
+    </div>

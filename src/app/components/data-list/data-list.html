@@ -1,0 +1,254 @@
+@if (type === 'contacts'){
+    <div class="flex flex-col flex-1 bg-white rounded-[15px] p-4 gap-2.5 drop-shadow-lg">
+        @if(contact){
+            <!-- PREMIUM || STANDARD || NEW (TYPE USER) && AGENT LVL (AGENT and TEAM)-->
+            <div class="absolute h-5 w-auto flex justify-center self-end  pr-1 pl-1 -mr-1 -mt-1.5"
+            >
+            
+            @if(contact.id){
+                <span class="flex m-0 p-0 text-xs italic self-center pr-1 pl-1 -mr-1 -mt-1.5"
+                [ngClass]="{
+                    ' font-thin text-gray-400' : contact.nivel_do_agente !== 'Supervisor'
+                }">{{contact.nivel_do_agente}}</span>
+            }
+            @else{
+                <span class="flex m-0 p-0 text-xs self-center pr-1 pl-1 -mr-1 -mt-1.5 rounded-md border"
+                [ngClass]="{
+                'bg-lime-100 text-lime-400 border-lime-400' : contact.type === 'new',
+                'bg-amber-100 text-amber-400 border-amber-400' : contact.type === 'premium',
+                'bg-cyan-100 text-cyan-400 border-cyan-400' : contact.type === 'standard',
+            }">{{contact.type}}</span>
+            }
+            </div>
+            <!-- HEADER  -->
+            <div class="flex flex-row w-full gap-2 items-center">
+                <div class="avatar"><i class="flex bi bi-person"></i></div>
+                <div class="flex flex-col h-10 flex-1 text-sm">
+                    <p class="flex m-0 p-0">{{ contact.nome }}
+                        <span class="text-xs font-thin flex ml-2 items-center">
+                            <div class="flex gap-1 text-[10px]">
+                                @for (star of getStars(contact.ranking); track $index){
+                                    @if (star === 'full'){
+                                        <i class="bi bi-star-fill text-yellow-400 m-0 p-0 flex"></i>
+                                    }
+                                    @if (star === 'half'){
+                                        <i class="bi bi-star-half text-yellow-400 m-0 p-0 flex"></i>
+                                    }
+                                    @if (star === 'empty'){
+                                        <i class="bi bi-star text-amber-300 m-0 p-0 flex"></i>
+                                    }
+                                }
+                            </div>
+                        </span></p>
+                    <div class="flex flex-row justify-between">
+                        <p class="font-thin flex m-0 p-0">
+                            @if(contact.id){{{contact.id}}}
+                            @else{{{ contact.location }}}
+                        </p>
+                        <p class="text-xs font-thin flex m-0 p-0 items-end"><i>{{contact.since}}</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACTS  -->
+            <div class="flex flex-row flex-wrap text-sm font-thin justify-evenly gap-0.5">
+                <p><i class="bi bi-telephone"></i> {{contact.numero_de_tel}}</p>
+                <p><i class="bi bi-envelope"></i> {{contact.email}}</p>
+            </div>
+
+            <!-- PREFERENCE  -->
+            <div class="flex w-full h-7.5 font-thin items-center justify-center rounded-sm text-sm" style="background-color: #F8F7FC;">
+                <p>Prefers email follow-ups</p>
+            </div>
+
+            <!-- INTERACTIONS INFO -->
+            <div class="flex flex-col justify-end gap-2">
+                <div class="grid grid-cols-3 text-center flex-1 -mr-2 -ml-2">
+                <!-- TOTAL INTERACTIONS (CLIENTS) || TOTAL CALLS (AGENTS/TEAM) -->
+                    <div class="flex-col flex rounded-[5px] truncate text-ellipsis items-center">
+                        <p class="flex m-0 p-0 h-5">
+                            @if(contact.id){{{contact.total_calls}}}
+                            @else{{{contact.num_of_interactions}}}
+
+                        </p>
+                        <span class="text-xs text-gray-400 items-center font-thin" >
+                            @if(contact.id){{{"Calls"}}}
+                            @else{{{"Interactions"}}}
+                        </span>
+                    </div>
+                    <!-- ------------------ -->
+                    <!-- TOTAL TICKETS (CLIENTS) || TOTAL TALK TIME (AGENTS/TEAM)-->
+                    <div class="flex-col flex rounded-[5px] truncate text-ellipsis h-11.25 items-center">
+                        <span class="flex m-0 p-0 h-5">
+                            @if(contact.id){{{contact.talk_time}}}
+                            @else{{{contact.num_of_tickets}}}
+                        </span>
+                        <span class="flex text-xs text-gray-400 font-thin" >
+                            @if(contact.id){{{"Talk Time"}}}
+                            @else{{{"Tickets"}}}
+                        </span>
+                    </div>
+                    <!-- ------------------ -->
+                    <!-- CHAT DURATION (CLIENTS) || RESOLUTION (AGENTS/TEAM) -->
+                    <div class="flex-col flex rounded-[5px] truncate text-ellipsis items-center">
+                        <p class="flex m-0 p-0 h-5">
+                            @if(contact.id){{{contact.taxa_de_sucesso}}}
+                            @else{{{contact.num_of_calls}}}
+                        </p>
+                        <span class="flex text-xs text-gray-400 font-thin m-0 p-0" >
+                            @if(contact.id){{{"Resolution"}}}
+                            @else{{{"Calls"}}}
+                        </span>
+                    </div>
+                    <!-- ------------------ -->
+                </div>
+            </div>
+
+            <hr class="text-gray-300">
+
+            @if(contact.id){
+            <div class="flex gap-2 flex-col text-sm">
+                <p>Skills</p>
+                @for(skill of contact.skills; track skill){
+                    <div class="grid grid-cols-2 m-0 p-0">
+                        <p class="flex col-span-1 font-thin m-0 p-0 self-end h-4">{{skill.category}}</p>
+                        <div>
+                            <p class="flex justify-end text-xs">{{skill.level}}</p>
+                            <div class="h-2 rounded-full w-full bg-slate-100">
+                                <div class="h-2 rounded-full"
+                                    [style.width]="skill.proficiency" [ngClass]="colors[$index % colors.length]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            }
+
+            @else{
+            <!-- TIMELINE  -->
+            <div class="p-1.5 text-sm">
+                <p><i class="bi bi-clock-history"></i> Timeline</p>
+                <div class="flex flex-col gap-2 pl-1.5">
+                    @for(timeline of contact.timeline; track timeline){
+                        <div class="flex items-center gap-2">
+                            <div class="h-6 w-0.5 rounded-full bg-gray-300"></div>
+                            <div class="flex flex-col">
+                                <p class="text-sm">{{timeline.type}}</p>
+                                <p class="text-xs text-gray-400 font-thin "> {{timeline.reason}} • {{timeline.date | date: 'dd LLL'}}</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="flex flex-col overflow-y-auto gap-2">
+                <!-- AI NOTE  -->
+                <div class="text-sm">
+                    <p>AI Note</p>
+                    <p class="font-thin">{{contact.ia_note}}</p>
+                </div>
+
+                <!-- SUGGESTION  -->
+                <div class="text-sm">
+                    <p>Suggestion</p>
+                    <p class="font-thin">{{contact.sugestao_ia}}</p>
+                </div>
+            </div>}
+
+        } @else {
+        <div class="flex justify-center items-center flex-1 text-center text-gray-400">
+            <p>Selecione um contacto para mais detalhes</p>
+        </div>
+        }
+    </div>
+}
+
+@if (type === 'history'){
+    <div class="flex flex-col flex-1 bg-white rounded-[15px] p-4 gap-2.5 drop-shadow-lg">
+        @if(call){
+            <!-- PREMIUM || STANDARD || NEW (TYPE USER) && AGENT LVL (AGENT and TEAM)-->
+            <div class="absolute h-5 w-auto flex justify-center self-end  pr-1 pl-1 -mr-1 -mt-1.5">
+                <span class="flex m-0 p-0 text-xs self-center pr-1 pl-1 -mr-1 -mt-1.5 rounded-md border"
+                [ngClass]="{
+                'bg-lime-100 text-lime-400 border-lime-400' : call.type === 'new',
+                'bg-amber-100 text-amber-400 border-amber-400' : call.type === 'premium',
+                'bg-cyan-100 text-cyan-400 border-cyan-400' : call.type === 'standard',
+                }">{{call.type}}</span>
+            </div>
+            <!-- HEADER  -->
+            <div class="flex flex-row w-full gap-2 items-center">
+                <div class="avatar"><i class="flex bi bi-person"></i></div>
+                <div class="flex flex-col h-10 flex-1 text-sm">
+                    <p class="flex m-0 p-0">{{ call.nome_do_user }}
+                        <span class="text-xs font-thin flex ml-2 items-center">
+                            <div class="flex gap-1 text-[10px]">
+                                @for (star of getStars(call.ranking); track $index){
+                                    @if (star === 'full'){
+                                        <i class="bi bi-star-fill text-yellow-400 m-0 p-0 flex"></i>
+                                    }
+                                    @if (star === 'half'){
+                                        <i class="bi bi-star-half text-yellow-400 m-0 p-0 flex"></i>
+                                    }
+                                    @if (star === 'empty'){
+                                        <i class="bi bi-star text-amber-300 m-0 p-0 flex"></i>
+                                    }
+                                }
+                            </div>
+                        </span></p>
+                    <div class="flex flex-row justify-between">
+                        <p class="font-thin flex m-0 p-0">{{ call.location }}</p>
+                        <p class="text-xs font-thin flex m-0 p-0 items-end"><i>{{call.since}}</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACTS  -->
+            <div class="flex flex-row flex-wrap text-sm font-thin justify-evenly gap-0.5">
+                <p><i class="bi bi-telephone"></i> {{call.numero_do_user}}</p>
+                <p><i class="bi bi-envelope"></i> {{call.email}}</p>
+            </div>
+
+            <!-- PREFERENCE  -->
+            <div class="flex w-full h-7.5 font-thin items-center justify-center rounded-sm text-sm" style="background-color: #F8F7FC;">
+                <p>Prefers email follow-ups</p>
+            </div>
+
+            <hr class="text-gray-300">
+
+            <!-- TIMELINE  -->
+            <div class="p-1.5 text-sm">
+                <p><i class="bi bi-clock-history"></i> Timeline</p>
+                <div class="flex flex-col gap-2 pl-1.5">
+                    @for(timeline of call.call_history; track timeline){
+                        <div class="flex items-center gap-2">
+                            <div class="h-6 w-0.5 rounded-full bg-gray-300"></div>
+                            <div class="flex flex-col">
+                                <p class="text-sm">{{timeline.tipo}}</p>
+                                <p class="text-xs text-gray-400 font-thin "> {{timeline.motivo}} • {{timeline.date | date: 'dd LLL'}}</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="flex flex-col overflow-y-auto gap-2">
+                <!-- AI NOTE  -->
+                <div class="text-sm">
+                    <p>AI Note</p>
+                    <p class="font-thin">{{call.ai_note_detailed}}</p>
+                </div>
+
+                <!-- SUGGESTION  -->
+                <div class="text-sm">
+                    <p>Suggestion</p>
+                    <p class="font-thin">{{call.suggestions}}</p>
+                </div>
+            </div>
+        } @else {
+        <div class="flex justify-center items-center flex-1 text-center text-gray-400">
+            <p>Selecione um registo para ver os detalhes da chamada</p>
+        </div>
+        }
+    </div>
+}

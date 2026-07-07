@@ -1,0 +1,142 @@
+<div class="grid grid-cols-7 flex-1">
+
+    <!-- LEFT MAIN COL  -->
+    <div class="flex flex-col col-span-5 flex-1 p-2 gap-2">
+        
+        <!-- HEADER BUTTONS (FILTER) -->
+        <div class="flex flex-row justify-end gap-2">
+            <select class="flex border rounded-full pr-2 pl-2 pt-1 pb-1 text-sm">
+                <option value="Recents">Recents</option>
+                <option value="Earlier">Earlier</option>
+            </select>
+            <button class="rounded-full w-7.5 h-7.5 justify-center items-center flex"><i class="bi bi-filter m-0 p-0 flex"></i></button>
+        </div>
+        <!-- END HEADER BUTTONS (FILTER) -->
+
+        <!-- MAIN CALL HISTORY  -->
+        <div class="flex flex-col flex-1 gap-2">
+            @for (call of paginatedHistory; track call) {
+                
+                <!-- CALL ITEM -->
+                <div class="flex flex-col w-full h-25 p-1.5 gap-2 border-2 rounded-md bg-white transition hover:drop-shadow-md"
+                    [ngClass]="{
+                        'border-sky-500 drop-shadow-md': selectedCall === call,
+                        'border-transparent': selectedCall !== call 
+                    }">
+                    
+                    <!-- ITEM HEADER  -->
+                    <button class="flex flex-row w-full justify-between" (click)="selectCall(call)">
+                        <div class="flex flex-row items-center gap-1">
+                            <div class="avatar"><i class="flex bi bi-person"></i></div>
+                            <div class="flex flex-col text-sm">
+                                <p>{{call.nome_do_user}} <span class="text-xs" 
+                                    [ngClass]="{
+                                       'text-blue-600' : call.tipo_de_chamada === 'outgoing',
+                                       'text-green-600' : call.tipo_de_chamada === 'incoming'
+                                    }">
+                                    <i class="self-center text-[10px] bi"
+                                        [ngClass]="{
+                                            'bi-arrow-up-right' : call.tipo_de_chamada === 'outgoing',
+                                            'bi-arrow-down-left ' : call.tipo_de_chamada === 'incoming'
+                                        }">{{call.tipo_de_chamada}}
+                                    </i></span></p>
+                                <p class="flex text-gray-400">{{call.numero_do_user}}</p>
+                            </div>
+                        </div>
+                        <!-- BUTTONS  -->
+                        <div class="flex items-center gap-2">
+                            <button class="flex rounded-full w-8 h-8 justify-center" style="background-color: #F8F7FC;"><i class="flex bi bi-telephone items-center p-0 m-0"></i></button>
+                            <button class="flex rounded-full w-8 h-8 justify-center" style="background-color: #F8F7FC;"><i class="flex bi bi-camera-video items-center p-0 m-0"></i></button>
+                        </div>
+                        <!-- END BUTTONS  -->
+                    </button>
+                    <!-- END ITEMS HEADER  -->
+
+                    <hr class="text-gray-300">
+                     
+                    <!-- ITEM BOTTOM  -->
+                    <div class="grid grid-cols-5 text-sm items-center">
+
+                        <!-- AI NOTE  -->
+                        <div class="col-span-3">
+                            <p>AI Note: <span class="font-thin">{{call.ia_note}}</span></p>
+                        </div>
+                        <!-- END AI NOTE  -->
+
+                        <!-- DATE HOUR OTHER INFO  -->
+                         <div class="flex flex-row col-start-4 col-end-6 text-xs justify-end gap-2">
+                            <p class="text-gray-400"><i class="bi bi-calendar"></i> {{call.data_hora}}</p>
+                            <p class="text-gray-400"><i class="bi bi-clock"></i> {{call.tempo_de_ligacao}}</p>
+                            <p class="rounded-full border" style="padding: 0 10px;" [ngClass]="{
+                                'bg-green-100 text-green-500 border-green-500' : call.status === 'complete',
+                                'bg-amber-100 text-amber-500 border-amber-500' : call.status === 'occupied',
+                                'bg-red-100 text-red-500 border-red-500' : call.status === 'lost',
+                            }">{{call.status}}</p>
+                         </div>
+                        <!-- END DATE HOUR OTHER INFO  -->
+
+                    </div>
+                    <!-- END ITEM BOTTOM -->
+
+                </div>
+                <!-- END CALL ITEM -->
+            }
+        </div>
+        <!-- END MAIN CALL HISTORY  -->
+
+        <!-- PAGINATION  -->
+         @if(totalPages > 1){
+            <div class="flex items-center justify-end ">
+                <div class="flex bg-white h-7 w-60 gap-2 mt-6 text-sm rounded-3xl items-center justify-evenly">
+                    <button
+                        (click)="firstPage()"
+                        [disabled]="currentPage === 1">
+                        <i class="bi bi-chevron-double-left flex m-0 p-0"></i>
+                    </button>
+
+                    <button
+                        (click)="previousPage()"
+                        [disabled]="currentPage === 1">
+                        <i class="bi bi-chevron-left flex m-0 p-0"></i>
+                    </button>
+
+                    @for(page of pages; track page){
+                        <button
+                        (click)="goToPage(page)"
+                        class="h-7 w-7 rounded-lg"
+                        [class.bg-sky-600]="currentPage === page"
+                        [class.text-white]="currentPage === page">
+
+                        {{ page }}
+
+                        </button>
+                    }
+
+                    <button
+                        (click)="nextPage()"
+                        [disabled]="currentPage === totalPages">
+                        <i class="bi bi-chevron-right flex m-0 p-0"></i>
+                    </button>
+
+                    <button
+                    (click)="lastPage()"
+                    [disabled]="currentPage === totalPages">
+                        <i class="bi bi-chevron-double-right flex m-0 p-0"></i>
+                    </button>
+                </div>
+            </div>
+        }
+        <!-- --------- -->
+
+
+    </div>
+    <!-- END LEFT MAIN COL  -->
+
+    <!-- RIGHT MAIN COL  -->
+    <div class="flex flex-col col-start-6 col-end-8 justify-between p-2">
+        <app-data-list type="history" [call]="selectedCall"/>
+    </div>
+    <!-- END RIGHT MAIN COL  -->
+
+</div>
+

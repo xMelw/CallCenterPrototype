@@ -1,0 +1,183 @@
+<!-- CLIENT INFO || AGENT VERSION -->
+        <div class="leftCol flex flex-col col-start-1 col-end-2 bg-white rounded-[20px] p-3 gap-2" >
+        @if(type === 'client'){
+            <div class="grid grid-cols-3 gap-2" >
+                <!-- TOTAL INTERACTIONS -->
+                <div class="rounded-[5px] pl-2 truncate text-ellipsis" style="background-color: #F8F7FC;">
+                    <p class="text-[20px]">{{chatData.total_interactions}}</p>
+                    <span class="text-[12px] text-gray-400 items-center font-thin" >Total Interactions</span>
+                </div>
+                <!-- ------------------ -->
+                <!-- TOTAL TICKETS -->
+                <div class="rounded-[5px] pl-2 truncate text-ellipsis" style="background-color: #F8F7FC;">
+                    <p class="text-[20px]">{{chatData.total_tickets}}</p>
+                    <span class="text-[12px] text-gray-400 font-thin" >Total Tickets</span>
+                </div>
+                <!-- ------------------ -->
+                <!-- CHAT DURATION -->
+                <div class="rounded-[5px] pl-2 truncate text-ellipsis" style="background-color: #F8F7FC;">
+                    <p class="text-[20px]">{{chatData.chat_duration}}</p>
+                    <span class="text-[12px] text-gray-400 font-thin" >Chat Duration</span>
+                </div>
+                <!-- ------------------ -->
+                <!-- STATUS -->
+                <div class="divStatus grid grid-cols-3 col-span-full rounded-[5px] p-1.5 " style="background-color: #F8F7FC;">
+                    <div class="col-span-1 flex flex-col" >
+                        <p class="m-0 p-0" >Status</p>
+                        <span class="text-[12px] text-gray-400 m-0 p-0 font-thin">{{chatData.data_mensagem | date:'yyyy / MM / dd' }}</span>
+                    </div>
+                    <div class="col-start-2 col-end-4 flex justify-end gap-2 items-center text-[14px]">
+                        <button class="statusButton border border-green-300 bg-green-100 p-1 dark:border-green-300/10 dark:bg-green-400/10 text-green-700 dark:text-green-500">Solved</button>
+                        <button class="statusButton border border-red-300 bg-red-100 dark:border-red-300/10 dark:bg-red-400/10 text-red-700 dark:text-red-500">Cancel</button>
+                    </div>
+                </div>
+                <!-- ------------------ -->
+                <!-- COSTUMER STATUS && ASSIGNEE -->
+                <div class="grid col-span-full grid-cols-2 text-sm">
+                    <div class="col-span-1">
+                        <p>Costumer Status</p>
+                        <p>Assignee</p>
+                    </div>
+                    <div class="col-start-2 col-end-3 text-end text-gray-400 font-thin">
+                        <p>{{chatData.customer_status}}</p>
+                        <p>{{chatData.assignee}}</p>
+                    </div>
+                </div>
+                <!-- ------------------ -->
+            </div>
+
+            <hr class="text-gray-300">
+
+            <!-- COSTUMER INFORMATION -->
+            <div class="userInfo">
+                <div class="flex flex-col">
+                    <div class="flex flex-row justify-between">
+                        <p>Costumer Information</p>
+                        <!-- <button class="rounded-full bg-blue-800 text-white w-5 h-5"><i class="bi bi-pencil text-xs m-0 p-0 text-center"></i></button> -->
+                    </div>
+                    <div class="">
+                        @for (info of chatData.customer_information | keyvalue; track info.key){
+                            <div class="flex flex-row justify-between text-sm gap-2 text-gray-400">
+                                <p>
+                                    <i class="bi mb-0.5"
+                                    [class.bi-person]="info.key === 'name'"
+                                    [class.bi-phone]="info.key === 'phone'"
+                                    [class.bi-envelope]="info.key === 'email'"
+                                    [class.bi-geo-alt]="info.key === 'location'"
+                                    ></i> {{info.key}}
+                                </p>
+                                <p class=" font-thin">{{info.value}}</p>
+                            </div>
+                        }
+                    </div>
+                </div>             
+            </div>
+            <!-- --------------------- -->
+
+            <hr class="text-gray-300">
+
+            <!-- NOTE -->
+            <div>
+                
+                <div class="flex mb-2 gap-2">
+                    <button
+                    (click)="activeTab.set('notes')"
+                    [class.border-b-2]="activeTab() === 'notes'"
+                    class="p-0.5"
+                    >Notes</button>
+                    <button
+                    (click)="activeTab.set('new')"
+                    [class.border-b-2]="activeTab() === 'new'"
+                    class="p-0.5"
+                    ><i class="bi bi-plus"></i> Add Note</button>
+                </div>
+                
+                @if (activeTab() === 'notes'){
+                    <p>testing</p>
+                }
+                @if (activeTab() === 'new'){
+                <div class="grid grid-cols-2 text-sm items-center gap-1.5">
+                    <!-- DATE -->
+                    <div class="col-start-1 col-end-2 text-gray-400">
+                        <p>Date <span class="p-1 font-thin rounded-md px-2 py-2" style="background-color: #F8F7FC;">{{chatData.data_mensagem | date: 'yyyy - MM - dd'}}</span></p>
+                    </div>
+                    <!-- PRIORITY -->
+                    <div class="grid grid-cols-2 col-start-2 items-center gap-1">
+                         <p class="text-gray-400 text-end">Priority</p>
+                         <select 
+                         [value]="priority()"
+                         (change)="setPriority($event)"
+                         class="filter-select border rounded-md px-2 py-2" 
+                         [ngClass]="{
+                            'bg-green-100 text-green-800' : priority() === 'low',
+                            'bg-yellow-100 text-yello-800' : priority() === 'medium',
+                            'bg-red-100 text-red-800' : priority() === 'high'
+                         }"
+                         >
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <!-- TITLE -->
+                    <input type="text" placeholder="Title" class="col-span-full rounded-md px-2 py-2" style="background-color: #F8F7FC;"/>
+                    <input type="text" placeholder="Text here..." class="col-span-full rounded-md px-2 py-2" style="background-color: #F8F7FC;"/>
+                    <div class="col-span-full rounded-md px-2 py-2 flex flex-row justify-between" style="background-color: #F8F7FC;">
+                        <p>Tags</p>
+                        <button><i class="bi bi-plus"></i></button>
+                    </div>
+                    <div class="col-span-full rounded-md px-2 py-2 flex flex-row justify-between" style="background-color: #F8F7FC;">
+                        <p>Files</p>
+                        <button><i class="bi bi-plus"></i></button>
+                    </div>
+
+                </div>
+                }
+                
+            </div>
+            <!-- --------------------- -->
+
+        }
+        @if(type === 'team'){
+            <div class="flex flex-col gap-2.5">
+
+                <div class="flex flex-row justify-between">
+                    <p>Group</p>
+                    <button><i class="bi bi-filter"></i></button>
+                </div>
+                @for (group of teamChatData.group; track $index){
+                    <button class="cursor-pointer text-left" (click)="onGroupClick(group)">
+                        <div class="rounded-lg px-1 py-1 flex flex-row gap-2 items-center">  
+                            <div class="avatar"><i class="flex"></i></div>
+                            <div class="flex flex-col w-full">
+                                <p>{{group.group_name}}</p>
+                                <div class="grid grid-cols-4 flex-1 justify-between text-sm text-gray-400 font-thin">
+                                    <p class="col-start-1 col-end-4 truncate text-ellipsis">{{ getLastMessage(group.chat)?.message }}</p>
+                                    <p class="col-start-5">{{ getLastMessage(group.chat)?.time }}</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </button>
+                }
+                <hr class="text-gray-300">
+
+                <p>Person</p>
+
+                @for (person of teamChatData.person; track $index){
+                    <button class="cursor-pointer text-left" (click)="onPersonClick(person)">
+                        <div class="rounded-lg px-1 py-1 flex flex-row gap-2 items-center">  
+                            <div class="avatar"><i class="flex"></i></div>
+                            <div class="flex flex-col w-full">
+                                <p>{{person.nome}}</p>
+                                <div class="grid grid-cols-4 flex-1 justify-between text-sm text-gray-400 font-thin">
+                                    <p class="col-start-1 col-end-4 truncate text-ellipsis">{{ getLastMessage(person.chat)?.message }}</p>
+                                    <p class="col-start-5">{{ getLastMessage(person.chat)?.time }}</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </button>
+                }
+            </div>
+        }
+        </div>
+        <!-- --------------------- -->

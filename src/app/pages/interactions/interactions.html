@@ -1,0 +1,50 @@
+<div class=" main w-full flex flex-row justify-between items-center mb-1.5 ">
+    <div class="button-container flex flex-row">
+        <button class="button-clients text-sm" (click)="activeSection = 'clients'; setView('clientsList')" [class.active]="activeSection === 'clients'" >Clients</button>
+        <button class="button-Team text-sm" (click)="activeSection = 'team'; setView('teamChat')" [class.active]="activeSection === 'team'"  >Team</button>
+    </div>
+    <div class="filter-container flex flex-row">
+        <select class="filter-select flex">
+            <option value="all">All</option>
+            <option value="recents">Recents</option>
+            <option value="latest">Latest</option>
+        </select>
+        <button><i class="bi bi-filter flex"></i></button>
+    </div>
+</div>
+
+@if (currentView){
+    @switch (currentView){
+        @case ('clientsList'){
+            <app-chat-list [conversations]="clients" (selectedChat)="openClientChat($event)"/>
+        }
+        @case ('clientChat') {
+            <div class="grid grid-cols-4 gap-2 flex-1" >
+                <div class="leftCol flex flex-col col-start-1 col-end-2 bg-white rounded-[20px] gap-2" >
+                    <app-client-info type="client" [chatData]="selectedClient"/>
+                </div>
+                <div class="middleCol col-start-2 col-end-4 bg-white rounded-[20px] p-3 gap-2 flex flex-col justify-between">
+                    <app-chat-view type="client" mode="client" [chatData]="selectedClient"/>
+                </div>
+                <div class="rightCol col-start-4 col-end-5 bg-white rounded-[20px] flex flex-col justify-between">
+                    <app-bot-box type="client" [chatData]="selectedClient"/>
+                </div>
+            </div>
+        }
+        @case ('teamChat') {
+            
+            <div class="grid grid-cols-4 gap-2 flex-1" >
+                <div class="leftCol flex flex-col col-start-1 col-end-2 bg-white rounded-[20px] gap-2" >
+                    <app-client-info type="team" [teamChatData]="teamData" (groupSelected)="selectTeamItem($event, 'group')" (personSelected)="selectTeamItem($event, 'person')" />
+                </div>
+                <div class="middleCol col-start-2 col-end-4 bg-white rounded-[20px] p-3 gap-2 flex flex-col justify-between">
+                    <app-chat-view type="team" mode="team" [chatData]="selectedTeamItem" /> 
+                </div>
+                <div class="rightCol col-start-4 col-end-5 bg-white rounded-[20px] flex flex-col justify-between">
+                    <app-bot-box type="team" [chatData]="selectedTeamItem" />
+                </div>
+            </div>
+        }
+    }
+}
+    

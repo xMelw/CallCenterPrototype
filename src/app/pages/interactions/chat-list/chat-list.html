@@ -1,0 +1,37 @@
+<div class="@container chat-container flex flex-col gap-4">
+    @for (chat of conversations; track chat){
+
+        <div class="chat-item-main flex flex-col gap-2 ">
+            <div class="chat-top-row flex flex-row justify-between">
+                <div class="flex flex-row gap-2 w-full mr-2 cursor-pointer" (click)="selectClient(chat)">
+                    <div class="avatar"><i class="flex {{chat.icon}}"></i></div>
+                    <div class="flex flex-col gap-1 items-start">
+                        <p class="title">{{chat.nome}} • {{chat.tipo_app}}</p>
+                        <p class="msg text-gray-400 text-sm">{{chat.mensagem_recebida}}</p>
+                    </div>
+                </div>
+                <div class="flex gap-10 items-center">
+                    <div class="flex flex-col gap-1 items-center">
+                        <span class="time" style="font-size: 12px;">{{chat.data_mensagem | date:'HH:mm'}}</span>
+                    @if(chat.mensagens_nao_lidas > 0){
+                        <div class="unread">{{chat.mensagens_nao_lidas}}</div>
+                    }
+                    </div>
+                    <div class="buttons flex gap-2 text-sm">
+                        <button><i class="bi bi-telephone"></i></button>
+                        <button><i class="bi bi-camera-video"></i></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-gray-300">
+            <div class="chat-bottom-row flex flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm" ><span class="text-gray-700">AI Note: </span>{{chat.ai_note}}</p>
+                <div class="tags flex gap-2">
+                    <span class="tag-category" style="background-color: rgba(0, 0, 255, 0.2); color: blue;">{{chat.tags?.categoria}}</span>
+                    <span class="tag-priority" style="background-color: rgba(255, 0, 0, 0.2); color: red; ">{{chat.tags?.prioridade}}</span>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

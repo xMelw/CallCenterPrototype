@@ -1,0 +1,421 @@
+<!-- settings.component.html -->
+<div class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl font-semibold tracking-tight">{{ t('pageTitle') }}</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ t('pageSubtitle') }}</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Seletor de idioma (DeepL) -->
+        <div class="relative">
+          <select
+            class="appearance-none pl-3 pr-8 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700
+                   bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-600
+                   focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer disabled:opacity-50"
+            [disabled]="translation.isLoading()"
+            [ngModel]="translation.currentLang()"
+            (ngModelChange)="onLanguageChange($event)"
+            aria-label="Selecionar idioma da página"
+          >
+            <option *ngFor="let lang of langs" [value]="lang.code">
+              {{ lang.flag }} {{ lang.label }}
+            </option>
+          </select>
+          <svg *ngIf="translation.isLoading()" class="absolute right-2 top-2.5 w-4 h-4 animate-spin text-sky-500" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+          </svg>
+        </div>
+
+        <!-- Toggle Dark Mode -->
+        <button
+          type="button"
+          (click)="toggleTheme()"
+          class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900
+                 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          [attr.aria-label]="theme.theme() === 'dark' ? t('themeLight') : t('themeDark')"
+        >
+          <svg *ngIf="theme.theme() === 'light'" class="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg *ngIf="theme.theme() === 'dark'" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Aviso de erro de tradução -->
+    <div *ngIf="translation.error()" class="mb-6 px-4 py-3 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300 text-sm">
+      {{ translation.error() }}
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-6">
+
+      <!-- Navegação lateral de tabs -->
+      <nav class="lg:w-56 flex-shrink-0">
+        <ul class="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+          <li *ngFor="let tab of tabs" class="flex-shrink-0">
+            <button
+              type="button"
+              (click)="setTab(tab.id)"
+              class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors"
+              [class.bg-sky-600]="activeTab() === tab.id"
+              [class.text-white]="activeTab() === tab.id"
+              [class.text-slate-600]="activeTab() !== tab.id"
+              [class.dark:text-slate-300]="activeTab() !== tab.id"
+              [class.hover:bg-slate-100]="activeTab() !== tab.id"
+              [class.dark:hover:bg-slate-800]="activeTab() !== tab.id"
+            >
+              {{ t(tab.labelKey) }}
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Conteúdo -->
+      <main class="flex-1 space-y-6">
+
+        <!-- TAB: GERAL -->
+        <section *ngIf="activeTab() === 'general'" class="space-y-6">
+
+          <!-- Aparência -->
+          <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+            <h2 class="text-base font-semibold">{{ t('themeSectionTitle') }}</h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5 mb-4">{{ t('themeSectionDesc') }}</p>
+            <div class="flex gap-3">
+              <button
+                type="button"
+                (click)="theme.setTheme('light')"
+                class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm font-medium transition-colors"
+                [class.border-sky-500]="theme.theme() === 'light'"
+                [class.bg-sky-50]="theme.theme() === 'light'"
+                [class.dark:bg-sky-950]="theme.theme() === 'light'"
+                [class.text-sky-700]="theme.theme() === 'light'"
+                [class.dark:text-sky-300]="theme.theme() === 'light'"
+                [class.border-slate-200]="theme.theme() !== 'light'"
+                [class.dark:border-slate-700]="theme.theme() !== 'light'"
+              >
+                ☀️ {{ t('themeLight') }}
+              </button>
+              <button
+                type="button"
+                (click)="theme.setTheme('dark')"
+                class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm font-medium transition-colors"
+                [class.border-sky-500]="theme.theme() === 'dark'"
+                [class.bg-sky-50]="theme.theme() === 'dark'"
+                [class.dark:bg-sky-950]="theme.theme() === 'dark'"
+                [class.text-sky-700]="theme.theme() === 'dark'"
+                [class.dark:text-sky-300]="theme.theme() === 'dark'"
+                [class.border-slate-200]="theme.theme() !== 'dark'"
+                [class.dark:border-slate-700]="theme.theme() !== 'dark'"
+              >
+                🌙 {{ t('themeDark') }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Estado do agente -->
+          <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+            <h2 class="text-base font-semibold">{{ t('statusSectionTitle') }}</h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5 mb-4">{{ t('statusSectionDesc') }}</p>
+            <div class="flex flex-wrap gap-3">
+              <button type="button" (click)="setStatus('available')"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-colors"
+                [class.border-emerald-500]="agentStatus() === 'available'"
+                [class.bg-emerald-50]="agentStatus() === 'available'"
+                [class.dark:bg-emerald-950]="agentStatus() === 'available'"
+                [class.text-emerald-700]="agentStatus() === 'available'"
+                [class.dark:text-emerald-300]="agentStatus() === 'available'"
+                [class.border-slate-200]="agentStatus() !== 'available'"
+                [class.dark:border-slate-700]="agentStatus() !== 'available'">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                {{ t('statusAvailable') }}
+              </button>
+              <button type="button" (click)="setStatus('away')"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-colors"
+                [class.border-amber-500]="agentStatus() === 'away'"
+                [class.bg-amber-50]="agentStatus() === 'away'"
+                [class.dark:bg-amber-950]="agentStatus() === 'away'"
+                [class.text-amber-700]="agentStatus() === 'away'"
+                [class.dark:text-amber-300]="agentStatus() === 'away'"
+                [class.border-slate-200]="agentStatus() !== 'away'"
+                [class.dark:border-slate-700]="agentStatus() !== 'away'">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                {{ t('statusAway') }}
+              </button>
+              <button type="button" (click)="setStatus('busy')"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-colors"
+                [class.border-rose-500]="agentStatus() === 'busy'"
+                [class.bg-rose-50]="agentStatus() === 'busy'"
+                [class.dark:bg-rose-950]="agentStatus() === 'busy'"
+                [class.text-rose-700]="agentStatus() === 'busy'"
+                [class.dark:text-rose-300]="agentStatus() === 'busy'"
+                [class.border-slate-200]="agentStatus() !== 'busy'"
+                [class.dark:border-slate-700]="agentStatus() !== 'busy'">
+                <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                {{ t('statusBusy') }}
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB: SNIPPETS -->
+        <section *ngIf="activeTab() === 'snippets'" class="space-y-4">
+          <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h2 class="text-base font-semibold">{{ t('snippetsSectionTitle') }}</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{{ t('snippetsSectionDesc') }}</p>
+              </div>
+              <button
+                type="button"
+                (click)="openNewSnippetForm()"
+                class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+                {{ t('snippetAddBtn') }}
+              </button>
+            </div>
+
+            <!-- Formulário inline de novo/editar snippet -->
+            <div *ngIf="isSnippetFormOpen()" class="mb-4 p-4 rounded-lg border border-sky-200 dark:border-sky-900 bg-sky-50/50 dark:bg-sky-950/30 space-y-3">
+              <div class="grid sm:grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  [ngModel]="snippetForm().title"
+                  (ngModelChange)="updateSnippetFormField('title', $event)"
+                  [placeholder]="t('snippetTitlePlaceholder')"
+                  class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                />
+                <input
+                  type="text"
+                  [ngModel]="snippetForm().shortcut"
+                  (ngModelChange)="updateSnippetFormField('shortcut', $event)"
+                  [placeholder]="t('snippetShortcutPlaceholder')"
+                  class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-sky-500"
+                />
+              </div>
+              <textarea
+                rows="3"
+                [ngModel]="snippetForm().body"
+                (ngModelChange)="updateSnippetFormField('body', $event)"
+                [placeholder]="t('snippetBodyPlaceholder')"
+                class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none"
+              ></textarea>
+              <div class="flex justify-end gap-2">
+                <button type="button" (click)="closeSnippetForm()"
+                  class="px-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                  {{ t('snippetCancel') }}
+                </button>
+                <button type="button" (click)="saveSnippet()"
+                  class="px-3 py-1.5 rounded-lg text-sm font-medium bg-sky-600 hover:bg-sky-700 text-white">
+                  {{ t('snippetSave') }}
+                </button>
+              </div>
+            </div>
+
+            <!-- Lista de snippets -->
+            <div *ngIf="snippetsSvc.snippets().length === 0" class="text-sm text-slate-400 dark:text-slate-500 text-center py-8">
+              {{ t('snippetEmpty') }}
+            </div>
+
+            <ul class="space-y-2">
+              <li *ngFor="let snippet of snippetsSvc.snippets()"
+                  class="flex items-start justify-between gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <span class="text-sm font-medium truncate">{{ snippet.title }}</span>
+                    <code class="text-xs px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-sky-600 dark:text-sky-400 flex-shrink-0">{{ snippet.shortcut }}</code>
+                  </div>
+                  <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">{{ snippet.body }}</p>
+                </div>
+                <div class="flex items-center gap-1 flex-shrink-0">
+                  <button type="button" (click)="openEditSnippetForm(snippet)"
+                    class="p-1.5 rounded-md text-slate-400 hover:text-sky-600 hover:bg-sky-50 dark:hover:bg-sky-950" [attr.aria-label]="t('snippetEdit')">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                  </button>
+                  <button type="button" (click)="deleteSnippet(snippet.id)"
+                    class="p-1.5 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950" [attr.aria-label]="t('snippetDelete')">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- TAB: NOTIFICAÇÕES -->
+        <section *ngIf="activeTab() === 'notifications'" class="space-y-4">
+          <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+            <h2 class="text-base font-semibold">{{ t('notifSectionTitle') }}</h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5 mb-4">{{ t('notifSectionDesc') }}</p>
+
+            <div class="divide-y divide-slate-100 dark:divide-slate-800">
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('notifNewCall') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="notifPrefs().newCall" (click)="toggleNotif('newCall')"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="notifPrefs().newCall" [class.bg-slate-200]="!notifPrefs().newCall" [class.dark:bg-slate-700]="!notifPrefs().newCall">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="notifPrefs().newCall" [class.translate-x-1]="!notifPrefs().newCall"></span>
+                </button>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('notifNewChat') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="notifPrefs().newChat" (click)="toggleNotif('newChat')"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="notifPrefs().newChat" [class.bg-slate-200]="!notifPrefs().newChat" [class.dark:bg-slate-700]="!notifPrefs().newChat">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="notifPrefs().newChat" [class.translate-x-1]="!notifPrefs().newChat"></span>
+                </button>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('notifQueueAlert') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="notifPrefs().queueAlert" (click)="toggleNotif('queueAlert')"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="notifPrefs().queueAlert" [class.bg-slate-200]="!notifPrefs().queueAlert" [class.dark:bg-slate-700]="!notifPrefs().queueAlert">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="notifPrefs().queueAlert" [class.translate-x-1]="!notifPrefs().queueAlert"></span>
+                </button>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('notifSound') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="notifPrefs().sound" (click)="toggleNotif('sound')"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="notifPrefs().sound" [class.bg-slate-200]="!notifPrefs().sound" [class.dark:bg-slate-700]="!notifPrefs().sound">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="notifPrefs().sound" [class.translate-x-1]="!notifPrefs().sound"></span>
+                </button>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('notifDesktop') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="notifPrefs().desktop" (click)="toggleNotif('desktop')"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="notifPrefs().desktop" [class.bg-slate-200]="!notifPrefs().desktop" [class.dark:bg-slate-700]="!notifPrefs().desktop">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="notifPrefs().desktop" [class.translate-x-1]="!notifPrefs().desktop"></span>
+                </button>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('notifEmail') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="notifPrefs().email" (click)="toggleNotif('email')"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="notifPrefs().email" [class.bg-slate-200]="!notifPrefs().email" [class.dark:bg-slate-700]="!notifPrefs().email">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="notifPrefs().email" [class.translate-x-1]="!notifPrefs().email"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB: ÁUDIO -->
+        <section *ngIf="activeTab() === 'audio'" class="space-y-4">
+          <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 space-y-4">
+            <div>
+              <h2 class="text-base font-semibold">{{ t('audioSectionTitle') }}</h2>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{{ t('audioSectionDesc') }}</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">{{ t('audioMic') }}</label>
+                <select
+                  [ngModel]="audioPrefs().micId"
+                  (ngModelChange)="updateAudioField('micId', $event)"
+                  class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                >
+                  <option value="default">Microfone predefinido do sistema</option>
+                  <option value="headset">Headset USB</option>
+                  <option value="builtin">Microfone interno</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">{{ t('audioSpeaker') }}</label>
+                <select
+                  [ngModel]="audioPrefs().speakerId"
+                  (ngModelChange)="updateAudioField('speakerId', $event)"
+                  class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                >
+                  <option value="default">Altifalante predefinido do sistema</option>
+                  <option value="headset">Headset USB</option>
+                  <option value="builtin">Altifalantes internos</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">{{ t('audioRingtone') }}</label>
+                <select
+                  [ngModel]="audioPrefs().ringtone"
+                  (ngModelChange)="updateAudioField('ringtone', $event)"
+                  class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                >
+                  <option value="classic">Clássico</option>
+                  <option value="chime">Sino</option>
+                  <option value="digital">Digital</option>
+                </select>
+              </div>
+
+              <div class="flex items-end">
+                <button type="button" (click)="testAudio()"
+                  class="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                  {{ t('audioTestBtn') }}
+                </button>
+              </div>
+            </div>
+
+            <div class="divide-y divide-slate-100 dark:divide-slate-800 pt-2">
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('audioAutoAnswer') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="audioPrefs().autoAnswer" (click)="toggleAutoAnswer()"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="audioPrefs().autoAnswer" [class.bg-slate-200]="!audioPrefs().autoAnswer" [class.dark:bg-slate-700]="!audioPrefs().autoAnswer">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="audioPrefs().autoAnswer" [class.translate-x-1]="!audioPrefs().autoAnswer"></span>
+                </button>
+              </div>
+              <div class="flex items-center justify-between py-3">
+                <span class="text-sm">{{ t('audioNoiseSuppression') }}</span>
+                <button type="button" role="switch" [attr.aria-checked]="audioPrefs().noiseSuppression" (click)="toggleNoiseSuppression()"
+                  class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                  [class.bg-sky-600]="audioPrefs().noiseSuppression" [class.bg-slate-200]="!audioPrefs().noiseSuppression" [class.dark:bg-slate-700]="!audioPrefs().noiseSuppression">
+                  <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+                        [class.translate-x-6]="audioPrefs().noiseSuppression" [class.translate-x-1]="!audioPrefs().noiseSuppression"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Botão Guardar (comum a todos os tabs) -->
+        <div class="flex justify-end pt-2">
+          <button type="button" (click)="saveAll()"
+            class="px-5 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold shadow-sm transition-colors">
+            {{ t('saveAllBtn') }}
+          </button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast de confirmação -->
+  <div
+    *ngIf="toastVisible()"
+    class="fixed bottom-6 right-6 px-4 py-3 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-medium shadow-lg transition-opacity"
+  >
+    {{ toastMessage() }}
+  </div>
+</div>
