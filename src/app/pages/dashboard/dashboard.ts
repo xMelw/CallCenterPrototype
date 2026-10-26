@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { NgClass } from '@angular/common';
 import { ChartComponent } from "ng-apexcharts";
 import {
@@ -16,9 +15,7 @@ import {
   ApexXAxis,
   ApexYAxis,
   ApexGrid,
-  ApexStates
 } from "ng-apexcharts";
-import { FormsModule } from "@angular/forms";
 
 export type VolumeCallsChartOptions = {
   series: ApexAxisChartSeries;
@@ -50,28 +47,25 @@ export type TopCallReasonsChartOptions = {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgClass, ChartComponent, FormsModule],
+  imports: [NgClass, ChartComponent],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
 export class Dashboard implements OnInit {
 
-  constructor(
-    private http: HttpClient,
-    private cdr: ChangeDetectorRef
-  ){
+  constructor(private cdr: ChangeDetectorRef){
     this.volumeCallsChart = { // Configuração do gráfico (Volume de Chamadas)
       series: [
         {
-          name: 'Incoming',
+            name: 'Recebidas',
           data: [12, 18, 24, 29, 22, 34, 31]
         },
         {
-          name: 'Answered',
+            name: 'Atendidas',
           data: [10, 15, 21, 25, 19, 26, 28]
         },
         {
-          name: 'Missed',
+            name: 'Perdidas',
           data: [2, 3, 4, 4, 3, 8, 5]
         }
       ],
@@ -161,8 +155,8 @@ export class Dashboard implements OnInit {
         style: {
           fontSize: '12px'
         },
-        y: {
-          formatter: (val) => `${val} calls`
+      y: {
+          formatter: (val) => `${val} chamadas`
         }
       },
       legend: {
@@ -269,46 +263,43 @@ export class Dashboard implements OnInit {
   }
 
   KPI = [
-    {title: 'Incoming Calls', time: 'Last 7 days', number: '34', compare:'+5%'},
-    {title: 'Answered Calls', time: 'Last 7 days', number: '26', compare:'+7%'},
-    {title: 'Missed Calls', time: 'Last 7 days', number: '11', compare:'-2%'},
-    {title: 'Online time', time: 'per day', onlineTime: '8.2'}
+    {title: 'Chamadas recebidas', time: 'Últimos 7 dias', number: '184', compare:'+5%'},
+    {title: 'Chamadas atendidas', time: 'Últimos 7 dias', number: '163', compare:'+7%'},
+    {title: 'Chamadas perdidas', time: 'Últimos 7 dias', number: '21', compare:'-2%'},
+    {title: 'Tempo online', time: 'média diária', onlineTime: '7,8'}
   ]
 
   callReasons = [
-    {name: 'Technical Support', value: 76, color: '#4F8CFF'},
-    {name: 'Billing Issues', value: 68, color: '#F97316'},
-    {name: 'Order Traking', value: 57, color: '#8B5CF6'},
-    {name: 'Returns & Refunds', value: 43, color: '#10B981'},
-    {name: 'General Inquiry', value: 30, color: '#ef4444'}
+    {name: 'Suporte técnico', value: 76, color: '#4F8CFF'},
+    {name: 'Faturação', value: 68, color: '#F97316'},
+    {name: 'Encomendas', value: 57, color: '#8B5CF6'},
+    {name: 'Devoluções', value: 43, color: '#10B981'},
+    {name: 'Informações gerais', value: 30, color: '#ef4444'}
   ]
 
   bestAgents = [
-    {name: 'Diana Silva', role: 'Technical Support', calls: 142, rating: 4.9, avatar: 'DS', status: 'Optimal'},
-    {name: 'Tiago Ribeiro', role: 'Billing Issues', calls: 128, rating: 4.8, avatar: 'TR', status: 'Optimal'},
-    {name: 'Beatriz Costa', role: 'Technical Support', calls: 115, rating: 4.7, avatar: 'BC', status: 'Good'},
-    {name: 'João Santos', role: 'General Inquiry', calls: 98, rating: 4.6, avatar: 'JS', status: 'Good'},
+    {name: 'Mariana Costa', role: 'Apoio ao Cliente', calls: 142, rating: 4.9, avatar: 'MC', status: 'Excelente'},
+    {name: 'Pedro Santos', role: 'Suporte Técnico', calls: 128, rating: 4.8, avatar: 'PS', status: 'Excelente'},
+    {name: 'Inês Ferreira', role: 'Faturação e Contas', calls: 115, rating: 4.7, avatar: 'IF', status: 'Muito bom'},
+    {name: 'Catarina Rocha', role: 'Retenção e Vendas', calls: 98, rating: 4.6, avatar: 'CR', status: 'Muito bom'},
   ]
 
   realTimeLogs = [
-    {time: '15:04', agent: 'Diana Silva', action: 'answered call from', target:'+351 912 *** 456', type: 'incoming'},
-    {time: '14:59', agent: 'Tiago Ribeiro', action: 'resolved billing ticket from', target:'ABC Company', type: 'resolved'},
-    {time: '14:55', agent: 'Beatriz Costa', action: 'missed call from', target:'+351 933 *** 789', type: 'missed'},
-    {time: '14:48', agent: 'João Santos', action: 'transferred call to', target:'Supervisor', type: 'transfer'},
+    {time: '15:04', agent: 'Mariana Costa', action: 'atendeu a chamada de', target:'+351 912 *** 456', type: 'incoming'},
+    {time: '14:59', agent: 'Inês Ferreira', action: 'resolveu um pedido de faturação de', target:'TechVentures', type: 'resolved'},
+    {time: '14:55', agent: 'Pedro Santos', action: 'não conseguiu atender', target:'+351 933 *** 789', type: 'missed'},
+    {time: '14:48', agent: 'Ricardo Silva', action: 'encaminhou a chamada para', target:'Supervisão', type: 'transfer'},
   ]
 
   volumeCallsChart!: VolumeCallsChartOptions;
   topCallReasonsChart!: TopCallReasonsChartOptions;
 
   displayValue = 0;
-  currentActualValue = 0;
   selectedReason = this.callReasons[0];
-  private animationFrame: any = null;
 
   ngOnInit(){
     this.selectedReason = this.callReasons[0];
-    this.currentActualValue = this.selectedReason.value;
-    this.animateValue(0, this.selectedReason.value);
+    this.displayValue = this.selectedReason.value;
   }
 
   resetReason(){
@@ -320,44 +311,11 @@ export class Dashboard implements OnInit {
   hoverReason(reason: any){
     if (this.selectedReason.name === reason.name) return;
 
-    const start = this.currentActualValue;
     const end = reason.value;
 
     this.selectedReason = reason;
-    this.currentActualValue = end;
-    this.animateValue(start, end);
-
-  }
-
-  private animateValue(startValue: number, endValue: number){
-    if(this.animationFrame){
-      cancelAnimationFrame(this.animationFrame);
-    }
-
-    const startTime = performance.now();
-    const duration = 200;
-
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-
-      this.displayValue = Math.round(
-        startValue + (endValue - startValue ) * easeProgress
-      );
-
-      this.cdr.detectChanges();
-
-      if (progress < 1){
-        this.animationFrame = requestAnimationFrame(animate);
-      } else {
-        this.displayValue = endValue;
-        this.cdr.detectChanges();
-        this.animationFrame = null;
-      }
-    };
-
-    this.animationFrame = requestAnimationFrame(animate);
+    this.displayValue = end;
+    this.cdr.detectChanges();
   }
 
  

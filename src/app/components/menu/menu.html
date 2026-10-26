@@ -14,20 +14,20 @@
 
             @if (item.type == 'link'){
             <!-- MenuItem com Selector -->
-            <button class="menu-item text-sm"  
+            <a class="menu-item text-sm"
                 [routerLink]="item.route"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}"
-                >
+                [attr.aria-label]="item.title">
                 <span class="selector sel-top"></span>
-                <a class="menu-a flex items-center p-0">
+                <span class="menu-a flex items-center p-0">
                     <span class="icon material-symbols-outlined">{{item.icon}}</span>
                     @if(!isCollapsed){
                         <span class="text p-0 m-0">{{ item.title }}</span>
                     }
-                </a>
+                </span>
                 <span class="selector sel-bottom"></span>
-            </button>
+            </a>
             }    
         }
         

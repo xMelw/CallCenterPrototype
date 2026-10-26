@@ -228,6 +228,104 @@
           { "date": "2026-05-25T14:00:00Z", "type": "Email", "event": "Nova instabilidade técnica reportada" }
         ],
         "smart_suggestions": ["Agendar chamada telefónica", "Oferecer crédito de compensação"]
+      },
+      {
+        "nome": "Diana Reis",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "A fatura deste mês inclui duas vezes o mesmo serviço. Podem confirmar, por favor?",
+        "data_mensagem": "2026-10-26T09:42:00Z",
+        "ai_note": "Possível duplicação na fatura de outubro. Confirmar os movimentos antes de emitir nota de crédito.",
+        "mensagens_nao_lidas": 2,
+        "tags": { "prioridade": "High", "categoria": "Faturação" },
+        "total_interactions": 7,
+        "total_tickets": 2,
+        "chat_duration": "04:10",
+        "customer_status": "active",
+        "assignee": "Inês Ferreira",
+        "customer_information": {
+          "name": "Diana Reis",
+          "phone": "+351 934 111 222",
+          "email": "diana.reis@gmail.com",
+          "location": "Aveiro"
+        },
+        "chat": [
+          { "sender": "client", "message": "A fatura deste mês inclui duas vezes o mesmo serviço. Podem confirmar, por favor?", "time": "09:42" },
+          { "sender": "agent", "message": "Claro, Diana. Vou comparar a fatura com os movimentos da conta e já lhe dou uma resposta.", "time": "09:46" }
+        ],
+        "resumo_ia": "A cliente identificou uma possível duplicação na fatura de outubro. A equipa de faturação está a validar os movimentos da conta.",
+        "mood": "neutra",
+        "timeline": [
+          { "date": "2026-06-14T10:20:00Z", "type": "Email", "event": "Pedido de alteração do plano" },
+          { "date": "2026-08-03T15:10:00Z", "type": "Chat", "event": "Esclarecimento sobre métodos de pagamento" },
+          { "date": "2026-10-26T09:42:00Z", "type": "WhatsApp", "event": "Dúvida sobre possível duplicação na fatura" }
+        ],
+        "smart_suggestions": ["Validar linhas da fatura", "Confirmar o valor debitado", "Enviar fatura corrigida, se aplicável"]
+      },
+      {
+        "nome": "José Carlos",
+        "icon": "bi bi-envelope",
+        "tipo_app": "Email",
+        "mensagem_recebida": "A integração com o software de contabilidade deixou de sincronizar desde ontem.",
+        "data_mensagem": "2026-10-26T08:18:00Z",
+        "ai_note": "Falha de sincronização reportada após atualização. Solicitar o código do erro e a hora da última sincronização.",
+        "mensagens_nao_lidas": 1,
+        "tags": { "prioridade": "Medium", "categoria": "Suporte Técnico" },
+        "total_interactions": 16,
+        "total_tickets": 3,
+        "chat_duration": "09:25",
+        "customer_status": "active",
+        "assignee": "Pedro Santos",
+        "customer_information": {
+          "name": "José Carlos",
+          "phone": "+351 961 777 999",
+          "email": "jcarlos@construcoes.pt",
+          "location": "Coimbra"
+        },
+        "chat": [
+          { "sender": "client", "message": "A integração com o software de contabilidade deixou de sincronizar desde ontem.", "time": "08:18" }
+        ],
+        "resumo_ia": "O cliente reporta que a integração contabilística não sincroniza desde 25 de outubro. Ainda falta recolher o código de erro.",
+        "mood": "neutra",
+        "timeline": [
+          { "date": "2026-03-09T11:05:00Z", "type": "Call", "event": "Configuração inicial da integração" },
+          { "date": "2026-07-21T16:30:00Z", "type": "Email", "event": "Atualização das permissões de acesso" },
+          { "date": "2026-10-26T08:18:00Z", "type": "Email", "event": "Falha de sincronização reportada" }
+        ],
+        "smart_suggestions": ["Pedir captura do erro", "Verificar estado da ligação", "Consultar registo da última sincronização"]
+      },
+      {
+        "nome": "António Melo",
+        "icon": "bi bi-instagram",
+        "tipo_app": "Instagram",
+        "mensagem_recebida": "Fiz a encomenda #7842 na sexta-feira. Conseguem dizer-me quando chega?",
+        "data_mensagem": "2026-10-25T16:05:00Z",
+        "ai_note": "Pedido de previsão de entrega. Consultar tracking e confirmar janela estimada para Coimbra.",
+        "mensagens_nao_lidas": 0,
+        "tags": { "prioridade": "Low", "categoria": "Logística" },
+        "total_interactions": 3,
+        "total_tickets": 1,
+        "chat_duration": "02:35",
+        "customer_status": "active",
+        "assignee": "Mariana Costa",
+        "customer_information": {
+          "name": "António Melo",
+          "phone": "+351 915 222 333",
+          "email": "antonio.melo@sapo.pt",
+          "location": "Coimbra"
+        },
+        "chat": [
+          { "sender": "client", "message": "Fiz a encomenda #7842 na sexta-feira. Conseguem dizer-me quando chega?", "time": "16:05" },
+          { "sender": "agent", "message": "Vou consultar o envio e confirmo a previsão de entrega.", "time": "16:08" }
+        ],
+        "resumo_ia": "O cliente pretende confirmar a previsão de entrega da encomenda #7842. A consulta do tracking está pendente.",
+        "mood": "neutra",
+        "timeline": [
+          { "date": "2026-08-30T10:00:00Z", "type": "Call", "event": "Questão sobre política de devoluções" },
+          { "date": "2026-10-23T13:12:00Z", "type": "Order", "event": "Encomenda #7842 confirmada" },
+          { "date": "2026-10-25T16:05:00Z", "type": "Instagram", "event": "Pedido de previsão de entrega" }
+        ],
+        "smart_suggestions": ["Consultar tracking", "Partilhar previsão de entrega", "Ativar notificações do envio"]
       }
 
     ],
@@ -1333,6 +1431,69 @@
       { "tipo": "Chat iniciado", "motivo": "Setup de automação de marketing", "date": "2026-01-15" },
       { "tipo": "E-mail recebido", "motivo": "Implementação de fontes customizadas", "date": "2026-03-20" },
       { "tipo": "Chat iniciado", "motivo": "Erro de sincronização Meta API", "date": "2026-06-11" }
+    ]
+  },
+  {
+    "tipo_de_chamada": "incoming",
+    "nome_do_user": "Diana Reis",
+    "numero_do_user": "+351 934 111 222",
+    "email": "diana.reis@gmail.com",
+    "location": "Aveiro, Portugal",
+    "since": "2023-09",
+    "ranking": 4.6,
+    "type": "standard",
+    "ia_note": "Cliente reporta uma possível duplicação na fatura de outubro.",
+    "ai_note_detailed": "A cliente identificou duas linhas para o mesmo serviço na fatura deste mês. A equipa de faturação está a comparar o documento com os movimentos da conta antes de confirmar qualquer correção.",
+    "suggestions": "Validar a fatura e o histórico de pagamentos; enviar uma explicação clara e corrigir o documento se a duplicação se confirmar.",
+    "data_hora": "2026-10-26 09:42",
+    "tempo_de_ligacao": "04:10",
+    "status": "complete",
+    "call_history": [
+      { "tipo": "E-mail recebido", "motivo": "Alteração do plano", "date": "2026-06-14" },
+      { "tipo": "Chat iniciado", "motivo": "Métodos de pagamento", "date": "2026-08-03" },
+      { "tipo": "WhatsApp recebido", "motivo": "Possível duplicação na fatura", "date": "2026-10-26" }
+    ]
+  },
+  {
+    "tipo_de_chamada": "outgoing",
+    "nome_do_user": "José Carlos",
+    "numero_do_user": "+351 961 777 999",
+    "email": "jcarlos@construcoes.pt",
+    "location": "Coimbra, Portugal",
+    "since": "2022-04",
+    "ranking": 4.3,
+    "type": "premium",
+    "ia_note": "Devolução de chamada para investigar falha na integração contabilística.",
+    "ai_note_detailed": "O cliente recebeu apoio inicial por e-mail. A chamada de retorno ficou agendada para recolher o código de erro e confirmar a hora da última sincronização com o software de contabilidade.",
+    "suggestions": "Recolher a mensagem de erro, confirmar permissões da integração e escalar para a equipa técnica se a sincronização continuar interrompida.",
+    "data_hora": "2026-10-26 10:25",
+    "tempo_de_ligacao": "06:48",
+    "status": "complete",
+    "call_history": [
+      { "tipo": "Chamada recebida", "motivo": "Configuração da integração", "date": "2026-03-09" },
+      { "tipo": "E-mail recebido", "motivo": "Atualização de permissões", "date": "2026-07-21" },
+      { "tipo": "Chamada efetuada", "motivo": "Acompanhamento de falha de sincronização", "date": "2026-10-26" }
+    ]
+  },
+  {
+    "tipo_de_chamada": "incoming",
+    "nome_do_user": "António Melo",
+    "numero_do_user": "+351 915 222 333",
+    "email": "antonio.melo@sapo.pt",
+    "location": "Coimbra, Portugal",
+    "since": "2026-05",
+    "ranking": 4.0,
+    "type": "new",
+    "ia_note": "Pedido de previsão de entrega da encomenda #7842.",
+    "ai_note_detailed": "O cliente perguntou pela entrega de uma encomenda confirmada a 23 de outubro. O tracking está a ser consultado para partilhar uma previsão atualizada.",
+    "suggestions": "Consultar o estado do envio e enviar a previsão por mensagem, ativando notificações de entrega se o cliente pretender.",
+    "data_hora": "2026-10-25 16:12",
+    "tempo_de_ligacao": "03:36",
+    "status": "complete",
+    "call_history": [
+      { "tipo": "Chamada recebida", "motivo": "Política de devoluções", "date": "2026-08-30" },
+      { "tipo": "Encomenda criada", "motivo": "Encomenda #7842", "date": "2026-10-23" },
+      { "tipo": "Instagram recebido", "motivo": "Previsão de entrega", "date": "2026-10-25" }
     ]
   }
   ]

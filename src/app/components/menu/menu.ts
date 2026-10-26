@@ -35,7 +35,6 @@ export class Menu {
     this.http.get<any>('assets/db.json')
     .subscribe(data => {
       this.menuItems = data.menu.links;
-      console.log('INTERACTIONS LOADED')
     });
 
     this.breakpointObserver //Observa para detetar de que tipo de ecrã é que se trata
@@ -47,6 +46,8 @@ export class Menu {
     .subscribe(result =>{
       this.isMobile = this.breakpointObserver.isMatched(Breakpoints.Handset);
       this.isCollapsed = result.matches;
+      this.collapsedChange.emit(this.isCollapsed);
+      this.menuService.collapsed$.next(this.isCollapsed);
     });
   }
 

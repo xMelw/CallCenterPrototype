@@ -9,7 +9,9 @@
 .search-container{
     background-color: white; 
     border-radius: 40px; 
-    width:90%; 
+    width:auto;
+    flex: 1;
+    min-width: 0;
     height: 40px; 
     color: #a1a1a1;
 }
@@ -17,10 +19,15 @@
 .search-container select{
     border: none; 
     text-align: center;
+    flex: 0 0 auto;
 }
 
 .search-input{
     width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
 }
 
 .search-input i{
@@ -50,6 +57,11 @@
     text-align: center;
 }
 
+.user-info small{
+    text-align: center;
+    line-height: 1.1;
+}
+
 .avatar-content{
     width: 40px; 
     height: 40px; 
@@ -57,4 +69,24 @@
     border-radius: 50%; 
     overflow:hidden; 
     flex: 0 0 40px;
+}
+
+@media (max-width: 700px) {
+    .main > div:first-child {
+        gap: 0.75rem;
+    }
+
+    .search-container select {
+        max-width: 90px;
+    }
+
+    .user-container {
+        width: 46px;
+        justify-content: center;
+        background: transparent;
+    }
+
+    .user-info {
+        display: none;
+    }
 }

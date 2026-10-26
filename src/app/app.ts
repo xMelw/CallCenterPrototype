@@ -20,7 +20,7 @@ export class App {
   ){}
 
   users: any[] = [];
-  isCollasped = false; // Variavél para controlar o estado de colapso do componente menu
+  isCollapsed = false; // Estado de colapso do menu
 
   ngOnInit() {
     this.http.get<any[]>('assets/db.json').subscribe(data => {
@@ -30,6 +30,6 @@ export class App {
   }
 
   onCollapsedChange(collapsed: boolean){ // Metodo para atualizar o estado de colapso
-    this.isCollasped = collapsed;
+    this.isCollapsed = collapsed;
   }
 }

@@ -1,13 +1,13 @@
-<div class="main flex flex-1">
+<div class="main flex flex-1 min-h-0 min-w-0">
     
-    <div class="menu-container flex h-full" [class.collapsed]="isCollasped">
+    <div class="menu-container flex h-full" [class.collapsed]="isCollapsed">
         <app-menu (collapsedChange)="onCollapsedChange($event)" /> 
     </div>
 
-    <div class="content-container flex" >
+    <div class="content-container flex min-w-0" >
         <app-header />
 
-        <div class="content flex flex-1">
+        <div class="content flex flex-1 min-h-0 min-w-0">
             <router-outlet />
         </div>
     </div>

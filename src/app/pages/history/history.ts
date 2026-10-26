@@ -26,7 +26,9 @@ export class History {
 
   loadInteractions(){ // Carrega as interações do arquivo JSON
     this.http.get<any>('assets/db.json').subscribe(data => {
-      this.callHistory = data.history;
+      this.callHistory = [...data.history].sort((a: any, b: any) =>
+        new Date(b.data_hora.replace(' ', 'T')).getTime() - new Date(a.data_hora.replace(' ', 'T')).getTime()
+      );
     });
   }
 
@@ -68,7 +70,6 @@ export class History {
   }
 
   previousPage(){
-    console.log('clicou')
     if (this.currentPage > 1){
       this.currentPage--;
     }

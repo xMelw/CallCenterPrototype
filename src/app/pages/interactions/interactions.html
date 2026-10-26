@@ -19,7 +19,7 @@
             <app-chat-list [conversations]="clients" (selectedChat)="openClientChat($event)"/>
         }
         @case ('clientChat') {
-            <div class="grid grid-cols-4 gap-2 flex-1" >
+            <div class="conversation-layout grid gap-2 flex-1 min-h-0" >
                 <div class="leftCol flex flex-col col-start-1 col-end-2 bg-white rounded-[20px] gap-2" >
                     <app-client-info type="client" [chatData]="selectedClient"/>
                 </div>
@@ -33,7 +33,7 @@
         }
         @case ('teamChat') {
             
-            <div class="grid grid-cols-4 gap-2 flex-1" >
+            <div class="conversation-layout grid gap-2 flex-1 min-h-0" >
                 <div class="leftCol flex flex-col col-start-1 col-end-2 bg-white rounded-[20px] gap-2" >
                     <app-client-info type="team" [teamChatData]="teamData" (groupSelected)="selectTeamItem($event, 'group')" (personSelected)="selectTeamItem($event, 'person')" />
                 </div>

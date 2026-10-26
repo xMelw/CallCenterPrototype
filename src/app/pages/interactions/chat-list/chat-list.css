@@ -1,12 +1,17 @@
 :host {
     display: flex;
     flex-direction: column;
-    height: 70vh;
+    flex: 1 1 0;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
 }
 
 .chat-container{
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
 }
 
@@ -30,8 +35,25 @@
     padding:10px;
 }
 
+.chat-top-row,
+.chat-top-row > div:first-child {
+    min-width: 0;
+}
+
+.chat-top-row .title,
+.chat-top-row .msg {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
 .chat-bottom-row{
     width: 100%;
+    gap: 12px;
+}
+
+.chat-bottom-row > p {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .buttons button{
@@ -67,4 +89,28 @@
     border-radius: 50%;
     min-width: 20px;
     text-align: center;
+}
+
+@media (max-width: 720px) {
+    .chat-item-main {
+        padding: 12px;
+    }
+
+    .chat-top-row {
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .buttons {
+        display: none;
+    }
+
+    .chat-bottom-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tags {
+        flex-wrap: wrap;
+    }
 }

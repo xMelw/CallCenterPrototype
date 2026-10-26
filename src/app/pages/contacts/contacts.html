@@ -1,7 +1,7 @@
-<div class="grid grid-cols-7 flex-1">
+<div class="contacts-layout grid flex-1 min-h-0">
 
     <!-- LEFT MAIN COL  -->
-    <div class="flex flex-col col-span-5 flex-1 p-2">
+    <div class="contact-list-column flex flex-col min-h-0 p-2">
 
         <div class="flex flex-row w-full justify-between text-sm">
 
@@ -39,7 +39,7 @@
         </div>
 
         <!-- MAIN CARDS  -->
-        <div class="flex flex-1 flex-wrap m-0 p-0 content-start gap-x-2 gap-y-4 justify-evenly" >
+        <div class="contacts-cards flex flex-1 flex-wrap m-0 p-0 content-start gap-x-2 gap-y-4 justify-evenly" >
             @for(contact of paginatedContacts; track contact) {
                 
                 <!-- ITEM CARD -->
@@ -62,7 +62,7 @@
                                 }">{{contact.type}}</p>
                                 }
 
-                                @if(currentTab === 'agents' || 'team'){
+                                @if(currentTab === 'agents' || currentTab === 'team'){
                                 <p class="italic h-4 w-auto text-xs self-center m-0"
                                 [ngClass]="{
                                     'font-thin text-gray-400' : contact.nivel_do_agente !== 'Supervisor'
@@ -205,7 +205,7 @@
     <!-- END LEFT MAIN COL -->
 
     <!-- RIGHT MAIN COL -->
-    <div class="flex flex-col col-start-6 col-end-8 justify-between p-2">
+    <div class="contact-detail-column flex flex-col min-h-0 justify-between p-2">
         <app-data-list type="contacts" [contact]="selectedContact" [contactType]="currentTab" />
     </div>
     <!-- --------- -->

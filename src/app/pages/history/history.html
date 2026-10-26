@@ -1,7 +1,7 @@
-<div class="grid grid-cols-7 flex-1">
+<div class="history-layout grid flex-1 min-h-0">
 
     <!-- LEFT MAIN COL  -->
-    <div class="flex flex-col col-span-5 flex-1 p-2 gap-2">
+    <div class="history-list-column flex flex-col min-h-0 p-2 gap-2">
         
         <!-- HEADER BUTTONS (FILTER) -->
         <div class="flex flex-row justify-end gap-2">
@@ -14,7 +14,7 @@
         <!-- END HEADER BUTTONS (FILTER) -->
 
         <!-- MAIN CALL HISTORY  -->
-        <div class="flex flex-col flex-1 gap-2">
+        <div class="history-items flex flex-col flex-1 min-h-0 gap-2">
             @for (call of paginatedHistory; track call) {
                 
                 <!-- CALL ITEM -->
@@ -133,7 +133,7 @@
     <!-- END LEFT MAIN COL  -->
 
     <!-- RIGHT MAIN COL  -->
-    <div class="flex flex-col col-start-6 col-end-8 justify-between p-2">
+    <div class="history-detail-column flex flex-col min-h-0 justify-between p-2">
         <app-data-list type="history" [call]="selectedCall"/>
     </div>
     <!-- END RIGHT MAIN COL  -->

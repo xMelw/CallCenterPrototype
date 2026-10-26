@@ -25,7 +25,7 @@ export class Contacts {
 
   currentTab: 'clients' | 'agents' | 'team' = 'clients'
   currentPage = 1;
-  itemsPerPage : any;  
+  itemsPerPage = 8;
 
   ngOnInit(): void {
     this.loadInteractions();
@@ -42,9 +42,6 @@ export class Contacts {
       this.agentsContacts = data.contacts.agents;
       this.teamContacts = data.contacts.team;
 
-      console.log('USERS', this.usersContacts);
-      console.log('AGENTS', this.agentsContacts);
-      console.log('TEAM', this.teamContacts);
     });
   }
 
@@ -95,7 +92,6 @@ export class Contacts {
   }
 
   previousPage(){
-    console.log('clicou')
     if (this.currentPage > 1){
       this.currentPage--;
     }

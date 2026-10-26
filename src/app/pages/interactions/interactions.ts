@@ -36,11 +36,11 @@ export class Interactions implements OnInit {
 
   loadInteractions(){ // Carrega as interações do arquivo JSON
     this.http.get<any>('assets/db.json').subscribe(data => {
-      this.clients = data.interactions.clientes;
+      this.clients = [...data.interactions.clientes].sort((a: any, b: any) =>
+        new Date(b.data_mensagem).getTime() - new Date(a.data_mensagem).getTime()
+      );
       this.teamData = data.interactions.team;
 
-    console.log('CLIENTS', this.clients);
-    console.log('TEAM', this.teamData);
     });
   }
 

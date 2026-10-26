@@ -95,8 +95,15 @@ button { cursor:pointer; }
 
 }
 
-@media (max-width: 480px){
-    
+@media (max-width: 600px){
+    .menu-container.collapsed {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .content-container {
+        margin: 4px;
+    }
 }
 
 @view-transition{
