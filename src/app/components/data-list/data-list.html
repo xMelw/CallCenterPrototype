@@ -14,10 +14,10 @@
             @else{
                 <span class="flex m-0 p-0 text-xs self-center pr-1 pl-1 -mr-1 -mt-1.5 rounded-md border"
                 [ngClass]="{
-                'bg-lime-100 text-lime-400 border-lime-400' : contact.type === 'new',
+                'bg-lime-100 text-lime-400 border-lime-400' : contact.type === 'novo',
                 'bg-amber-100 text-amber-400 border-amber-400' : contact.type === 'premium',
-                'bg-cyan-100 text-cyan-400 border-cyan-400' : contact.type === 'standard',
-            }">{{contact.type}}</span>
+                'bg-cyan-100 text-cyan-400 border-cyan-400' : contact.type === 'regular',
+            }">{{contact.tipo_cliente_label || contact.type}}</span>
             }
             </div>
             <!-- HEADER  -->
@@ -171,10 +171,10 @@
             <div class="absolute h-5 w-auto flex justify-center self-end  pr-1 pl-1 -mr-1 -mt-1.5">
                 <span class="flex m-0 p-0 text-xs self-center pr-1 pl-1 -mr-1 -mt-1.5 rounded-md border"
                 [ngClass]="{
-                'bg-lime-100 text-lime-400 border-lime-400' : call.type === 'new',
+                'bg-lime-100 text-lime-400 border-lime-400' : call.type === 'novo',
                 'bg-amber-100 text-amber-400 border-amber-400' : call.type === 'premium',
-                'bg-cyan-100 text-cyan-400 border-cyan-400' : call.type === 'standard',
-                }">{{call.type}}</span>
+                'bg-cyan-100 text-cyan-400 border-cyan-400' : call.type === 'regular',
+            }">{{call.tipo_cliente_label || call.type}}</span>
             </div>
             <!-- HEADER  -->
             <div class="flex flex-row w-full gap-2 items-center">

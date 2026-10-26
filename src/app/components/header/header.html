@@ -23,8 +23,8 @@
         <div class="user-container flex justify-between items-center">
             <div class="user-info flex flex-col">
                 <span>{{userName}}</span>
-                <small class="text-xs font-normal" [class.text-emerald-600]="userStatus === 'available'" [class.text-amber-600]="userStatus === 'away'" [class.text-rose-600]="userStatus === 'busy'">
-                    {{userStatus === 'available' ? 'Disponível' : userStatus === 'away' ? 'Ausente' : 'Ocupado'}}
+                <small class="text-xs font-normal" [class.text-emerald-600]="userStatus === 'available' || userStatus === 'disponível'" [class.text-amber-600]="userStatus === 'away' || userStatus === 'em pausa'" [class.text-rose-600]="userStatus === 'busy' || userStatus === 'ocupado'">
+                    {{userStatusLabel}}
                 </small>
             </div>
             <div class="avatar-content">

@@ -57,11 +57,11 @@ export class Recents {
 
   getPriorityColor(priority: string): string {
   switch (priority) {
-    case 'high':
+    case 'alta':
       return '2px solid #ff4b4b';
-    case 'medium':
+    case 'média':
       return '2px solid #ffd13d';
-    case 'low':
+    case 'baixa':
       return '2px solid #8ce95c';
     case 'neutral':
       return '2px solid #9ca8ba';

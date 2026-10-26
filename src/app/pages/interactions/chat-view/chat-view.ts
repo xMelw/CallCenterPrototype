@@ -60,11 +60,11 @@ export class ChatView {
 
     if (key === 'prioridade'){
       switch (value) {
-        case 'Low':
+        case 'Baixa':
           return 'border-green-300 bg-green-100 p-1 dark:border-green-300/10 dark:bg-green-400/10 text-green-700 dark:text-green-500';
-        case 'Medium':
+        case 'Média':
           return 'border-gray-300 bg-gray-100 p-1 dark:border-gray-300/10 dark:bg-gray-400/10 text-gray-700 dark:text-gray-500';
-        case 'High':
+        case 'Alta':
           return 'border-red-300 bg-red-100 p-1 dark:border-red-300/10 dark:bg-red-400/10 text-red-700 dark:text-red-500';
       }
     
@@ -78,7 +78,8 @@ export class ChatView {
     if(!text) return;
 
     const msg = {
-      sender: 'agent',
+      sender: 'agente',
+      sender_label: 'Agente',
       message: text,
       time: new Date().toLocaleTimeString([], {
         hour: '2-digit',

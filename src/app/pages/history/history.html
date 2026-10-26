@@ -39,14 +39,14 @@
                             <div class="flex flex-col text-sm">
                                 <p>{{call.nome_do_user}} <span class="text-xs" 
                                     [ngClass]="{
-                                       'text-blue-600' : call.tipo_de_chamada === 'outgoing',
-                                       'text-green-600' : call.tipo_de_chamada === 'incoming'
+                                       'text-blue-600' : call.tipo_de_chamada === 'efetuada',
+                                       'text-green-600' : call.tipo_de_chamada === 'recebida'
                                     }">
                                     <i class="self-center text-[10px] bi"
                                         [ngClass]="{
-                                            'bi-arrow-up-right' : call.tipo_de_chamada === 'outgoing',
-                                            'bi-arrow-down-left ' : call.tipo_de_chamada === 'incoming'
-                                        }">{{call.tipo_de_chamada}}
+                                            'bi-arrow-up-right' : call.tipo_de_chamada === 'efetuada',
+                                            'bi-arrow-down-left ' : call.tipo_de_chamada === 'recebida'
+                                        }">{{call.tipo_de_chamada_label || call.tipo_de_chamada}}
                                     </i></span></p>
                                 <p class="flex text-gray-400">{{call.numero_do_user}}</p>
                             </div>
@@ -76,10 +76,10 @@
                             <p class="text-gray-400"><i class="bi bi-calendar"></i> {{call.data_hora}}</p>
                             <p class="text-gray-400"><i class="bi bi-clock"></i> {{call.tempo_de_ligacao}}</p>
                             <p class="rounded-full border" style="padding: 0 10px;" [ngClass]="{
-                                'bg-green-100 text-green-500 border-green-500' : call.status === 'complete',
-                                'bg-amber-100 text-amber-500 border-amber-500' : call.status === 'occupied',
-                                'bg-red-100 text-red-500 border-red-500' : call.status === 'lost',
-                            }">{{call.status}}</p>
+                                'bg-green-100 text-green-500 border-green-500' : call.status === 'concluída',
+                                'bg-amber-100 text-amber-500 border-amber-500' : call.status === 'ocupada',
+                                'bg-red-100 text-red-500 border-red-500' : call.status === 'perdida',
+                            }">{{call.estado_label || call.status}}</p>
                          </div>
                         <!-- END DATE HOUR OTHER INFO  -->
 

@@ -64,10 +64,10 @@
                                 @if(currentTab === 'clients'){
                                 <p class="flex border rounded-sm text-xs font-thin self-center m-0" style="padding: 0 3px;"
                                 [ngClass]="{
-                                    'bg-lime-100 text-lime-400 border-lime-400' : contact.type === 'new',
+                                    'bg-lime-100 text-lime-400 border-lime-400' : contact.type === 'novo',
                                     'bg-amber-100 text-amber-400 border-amber-400' : contact.type === 'premium',
-                                    'bg-cyan-100 text-cyan-400 border-cyan-400' : contact.type === 'standard',
-                                }">{{contact.type}}</p>
+                                    'bg-cyan-100 text-cyan-400 border-cyan-400' : contact.type === 'regular',
+                                }">{{contact.tipo_cliente_label || contact.type}}</p>
                                 }
 
                                 @if(currentTab === 'agents' || currentTab === 'team'){

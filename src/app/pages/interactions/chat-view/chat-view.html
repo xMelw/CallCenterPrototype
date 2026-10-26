@@ -57,27 +57,27 @@
                 @for (msg of chatData.chat; track $index){
 
                     <div class="flex" [ngClass]="{
-                        'justify-start' : msg.sender !== 'agent',
-                        'justify-end' : msg.sender === 'agent',
+                        'justify-start' : msg.sender !== 'agente',
+                        'justify-end' : msg.sender === 'agente',
                     }">
 
                     <div class="max-w-[70%]">
 
                         <!-- HEADER -->
                         <div class="flex w-full text-xs mb-1 justify-between" [ngClass]="{
-                            'text-left': msg.sender !== 'agent',
-                            'text-right flex-row-reverse' : msg.sender === 'agent'
+                            'text-left': msg.sender !== 'agente',
+                            'text-right flex-row-reverse' : msg.sender === 'agente'
                         }">
 
-                            <span class="font-medium">{{ msg.sender}}</span>
+                            <span class="font-medium">{{ msg.sender_label || msg.sender}}</span>
                             <span class="text-slate-400">{{ msg.time }}</span>
 
                         </div>
 
                         <!-- MESSAGE  -->
                          <div class="rounded-2xl px-4 py-2 text-sm" [ngClass]="{
-                            'bg-slate-100 text-slate-800' : msg.sender !== 'agent',
-                            'bg-blue-600 text-white' : msg.sender === 'agent'
+                            'bg-slate-100 text-slate-800' : msg.sender !== 'agente',
+                            'bg-blue-600 text-white' : msg.sender === 'agente'
                          }"
                          >{{ msg.message }}</div>
 

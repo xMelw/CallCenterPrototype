@@ -102,7 +102,7 @@ export class Contacts {
   }
 
   get newContacts(): number {
-    return this.usersContacts.filter(contact => contact.type === 'new').length;
+    return this.usersContacts.filter(contact => contact.type === 'novo').length;
   }
 
   private normalize(value: unknown): string {

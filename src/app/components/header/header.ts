@@ -26,6 +26,10 @@ export class Header implements OnInit, OnDestroy {
   searchScope: SearchScope = 'all';
   searchQuery = '';
 
+  get userStatusLabel(): string {
+    return ({ available: 'Disponível', 'disponível': 'Disponível', away: 'Em pausa', 'em pausa': 'Em pausa', busy: 'Ocupado', ocupado: 'Ocupado' } as Record<string, string>)[this.userStatus] ?? 'Disponível';
+  }
+
   private readonly onSettingsSaved = (event: Event) => {
     const status = (event as CustomEvent<{ status?: string }>).detail?.status;
     if (status === 'available' || status === 'away' || status === 'busy') this.userStatus = status;
@@ -59,9 +63,9 @@ export class Header implements OnInit, OnDestroy {
         if (['available', 'away', 'busy'].includes(saved.agentStatus)) this.userStatus = saved.agentStatus;
       } catch { /* Keep the status from the application data. */ }
       const customers = data.interactions?.clientes ?? [];
-      this.activeCount = customers.filter((customer: any) => customer.customer_status === 'active').length;
-      this.pendingCount = customers.filter((customer: any) => customer.customer_status === 'urgent').length;
-      this.closedCount = customers.filter((customer: any) => customer.customer_status === 'resolved').length;
+      this.activeCount = customers.filter((customer: any) => customer.customer_status === 'ativo').length;
+      this.pendingCount = customers.filter((customer: any) => customer.customer_status === 'urgente').length;
+      this.closedCount = customers.filter((customer: any) => customer.customer_status === 'resolvido').length;
     });
   }
 
