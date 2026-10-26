@@ -5,11 +5,8 @@
     "status": "available",
     "imagem": "assets/jane_doe.png"
   },
-
   "interactions": {
-
     "clientes": [
-
       {
         "nome": "Ana Martins",
         "icon": "bi bi-whatsapp",
@@ -34,19 +31,42 @@
           "Location": "Funchal, Madeira"
         },
         "chat": [
-          { "sender": "client", "message": "Olá, gostava de saber o estado da minha encomenda nº 4521.", "time": "10:15" },
-          { "sender": "agent", "message": "Olá Ana! Vou verificar o estado no sistema um momento.", "time": "10:16" }
+          {
+            "sender": "client",
+            "message": "Olá, gostava de saber o estado da minha encomenda nº 4521.",
+            "time": "10:15"
+          },
+          {
+            "sender": "agent",
+            "message": "Olá Ana! Vou verificar o estado no sistema um momento.",
+            "time": "10:16"
+          }
         ],
         "resumo_ia": "A cliente contactou para obter suporte sobre o atraso no envio da encomenda 4521. Aguarda atualização do estafeta.",
         "mood": "neutra",
         "timeline": [
-          { "date": "2026-01-15T14:22:00Z", "type": "Call received", "event": "Billing issue resolved" },
-          { "date": "2026-02-10T11:00:00Z", "type": "Chat", "event": "Parcel tracking request" },
-          { "date": "2026-05-24T18:30:00Z", "type": "Email", "event": "Account confirmation" }
+          {
+            "date": "2026-01-15T14:22:00Z",
+            "type": "Call received",
+            "event": "Billing issue resolved"
+          },
+          {
+            "date": "2026-02-10T11:00:00Z",
+            "type": "Chat",
+            "event": "Parcel tracking request"
+          },
+          {
+            "date": "2026-05-24T18:30:00Z",
+            "type": "Email",
+            "event": "Account confirmation"
+          }
         ],
-        "smart_suggestions": ["Enviar link de tracking", "Pedir desculpa pelo atraso", "Oferecer cupão"]
+        "smart_suggestions": [
+          "Enviar link de tracking",
+          "Pedir desculpa pelo atraso",
+          "Oferecer cupão"
+        ]
       },
-
       {
         "nome": "João Pires",
         "icon": "bi bi-envelope",
@@ -71,18 +91,36 @@
           "location": "Lisboa"
         },
         "chat": [
-          { "sender": "client", "message": "O meu acesso à plataforma está bloqueado.", "time": "09:30" }
+          {
+            "sender": "client",
+            "message": "O meu acesso à plataforma está bloqueado.",
+            "time": "09:30"
+          }
         ],
         "resumo_ia": "O cliente não consegue fazer login devido a sucessivas tentativas falhadas de password.",
         "mood": "negativa",
         "timeline": [
-          { "date": "2025-11-04T09:00:00Z", "type": "Call received", "event": "Contrato assinado e conta Corporate ativada" },
-          { "date": "2026-02-14T16:45:00Z", "type": "Chat", "event": "Configuração de integrações" },
-          { "date": "2026-05-26T09:25:00Z", "type": "Email", "event": "Alerta do sistema: 5 tentativas de login falhadas detetadas" }
+          {
+            "date": "2025-11-04T09:00:00Z",
+            "type": "Call received",
+            "event": "Contrato assinado e conta Corporate ativada"
+          },
+          {
+            "date": "2026-02-14T16:45:00Z",
+            "type": "Chat",
+            "event": "Configuração de integrações"
+          },
+          {
+            "date": "2026-05-26T09:25:00Z",
+            "type": "Email",
+            "event": "Alerta do sistema: 5 tentativas de login falhadas detetadas"
+          }
         ],
-        "smart_suggestions": ["Gerar link de reset de password", "Verificar logs de segurança"]
+        "smart_suggestions": [
+          "Gerar link de reset de password",
+          "Verificar logs de segurança"
+        ]
       },
-
       {
         "nome": "Carla Antunes",
         "icon": "bi bi-instagram",
@@ -107,19 +145,41 @@
           "location": "Porto"
         },
         "chat": [
-          { "sender": "client", "message": "Adorei o casaco que vi no vosso post! Têm M?", "time": "11:02" },
-          { "sender": "agent", "message": "Olá Carla! Sim, ainda temos as últimas unidades.", "time": "11:05" }
+          {
+            "sender": "client",
+            "message": "Adorei o casaco que vi no vosso post! Têm M?",
+            "time": "11:02"
+          },
+          {
+            "sender": "agent",
+            "message": "Olá Carla! Sim, ainda temos as últimas unidades.",
+            "time": "11:05"
+          }
         ],
         "resumo_ia": "Cliente interessada em comprar o casaco do post do Instagram. Stock verificado e disponível.",
         "mood": "positiva",
         "timeline": [
-          { "date": "2026-04-12T21:10:00Z", "type": "Call received", "event": "Billing issue resolved" },
-          { "date": "2026-05-26T11:02:00Z", "type": "Chat", "event": "Parcel tracking request" },
-          { "date": "2026-05-26T11:05:00Z", "type": "Email", "event": "Account confirmation" }
+          {
+            "date": "2026-04-12T21:10:00Z",
+            "type": "Call received",
+            "event": "Billing issue resolved"
+          },
+          {
+            "date": "2026-05-26T11:02:00Z",
+            "type": "Chat",
+            "event": "Parcel tracking request"
+          },
+          {
+            "date": "2026-05-26T11:05:00Z",
+            "type": "Email",
+            "event": "Account confirmation"
+          }
         ],
-        "smart_suggestions": ["Enviar link direto de compra", "Sugerir produto combinado"]
+        "smart_suggestions": [
+          "Enviar link direto de compra",
+          "Sugerir produto combinado"
+        ]
       },
-
       {
         "nome": "Rui Fonseca",
         "icon": "bi bi-facebook",
@@ -144,20 +204,45 @@
           "location": "Coimbra"
         },
         "chat": [
-          { "sender": "client", "message": "Enganei-me na morada de faturação.", "time": "17:40" },
-          { "sender": "agent", "message": "Sem problema, Rui. Indique a nova morada.", "time": "17:45" },
-          { "sender": "client", "message": "Rua Direita, Nº 5, Coimbra.", "time": "17:46" }
+          {
+            "sender": "client",
+            "message": "Enganei-me na morada de faturação.",
+            "time": "17:40"
+          },
+          {
+            "sender": "agent",
+            "message": "Sem problema, Rui. Indique a nova morada.",
+            "time": "17:45"
+          },
+          {
+            "sender": "client",
+            "message": "Rua Direita, Nº 5, Coimbra.",
+            "time": "17:46"
+          }
         ],
         "resumo_ia": "Morada de faturação corrigida com sucesso antes da emissão do documento final.",
         "mood": "neutra",
         "timeline": [
-          { "date": "2026-05-25T17:15:00Z", "type": "Call received", "event": "Billing issue resolved" },
-          { "date": "2026-05-25T17:40:00Z", "type": "Chat", "event": "Parcel tracking request" },
-          { "date": "2026-05-25T17:45:00Z", "type": "Email", "event": "Account confirmation" }
+          {
+            "date": "2026-05-25T17:15:00Z",
+            "type": "Call received",
+            "event": "Billing issue resolved"
+          },
+          {
+            "date": "2026-05-25T17:40:00Z",
+            "type": "Chat",
+            "event": "Parcel tracking request"
+          },
+          {
+            "date": "2026-05-25T17:45:00Z",
+            "type": "Email",
+            "event": "Account confirmation"
+          }
         ],
-        "smart_suggestions": ["Confirmar envio do novo PDF"]
+        "smart_suggestions": [
+          "Confirmar envio do novo PDF"
+        ]
       },
-
       {
         "nome": "Beatriz Silva",
         "icon": "bi bi-whatsapp",
@@ -182,18 +267,33 @@
           "location": "Braga"
         },
         "chat": [
-          { "sender": "client", "message": "Quero fazer a devolução do artigo, não serviu o tamanho.", "time": "13:10" }
+          {
+            "sender": "client",
+            "message": "Quero fazer a devolução do artigo, não serviu o tamanho.",
+            "time": "13:10"
+          }
         ],
         "resumo_ia": "Cliente solicita processo de devolução por motivos de tamanho incompatível.",
         "mood": "neutra",
         "timeline": [
-          { "date": "2026-05-18T10:00:00Z", "event": "Billing issue resolved" },
-          { "date": "2026-05-20T15:30:00Z", "event": "Parcel tracking request" },
-          { "date": "2026-05-26T13:10:00Z", "event": "Account confirmation" }
+          {
+            "date": "2026-05-18T10:00:00Z",
+            "event": "Billing issue resolved"
+          },
+          {
+            "date": "2026-05-20T15:30:00Z",
+            "event": "Parcel tracking request"
+          },
+          {
+            "date": "2026-05-26T13:10:00Z",
+            "event": "Account confirmation"
+          }
         ],
-        "smart_suggestions": ["Enviar etiqueta de devolução", "Oferecer troca gratuita de tamanho"]
+        "smart_suggestions": [
+          "Enviar etiqueta de devolução",
+          "Oferecer troca gratuita de tamanho"
+        ]
       },
-
       {
         "nome": "Miguel Santos",
         "icon": "bi bi-envelope",
@@ -218,16 +318,35 @@
           "location": "Machico, Madeira"
         },
         "chat": [
-          { "sender": "client", "message": "Estou muito insatisfeito com as falhas do serviço.", "time": "14:00" }
+          {
+            "sender": "client",
+            "message": "Estou muito insatisfeito com as falhas do serviço.",
+            "time": "14:00"
+          }
         ],
         "resumo_ia": "Cliente muito insatisfeito devido a instabilidade técnica recorrente. Requer atenção da supervisão.",
         "mood": "negativa",
         "timeline": [
-          { "date": "2024-08-01T10:00:00Z", "type": "Call received", "event": "Cliente Premium integrado (Contrato Anual)" },
-          { "date": "2026-05-22T08:12:00Z", "type": "Chat", "event": "Quebra de serviço de rede por 30 min (Resolvido)" },
-          { "date": "2026-05-25T14:00:00Z", "type": "Email", "event": "Nova instabilidade técnica reportada" }
+          {
+            "date": "2024-08-01T10:00:00Z",
+            "type": "Call received",
+            "event": "Cliente Premium integrado (Contrato Anual)"
+          },
+          {
+            "date": "2026-05-22T08:12:00Z",
+            "type": "Chat",
+            "event": "Quebra de serviço de rede por 30 min (Resolvido)"
+          },
+          {
+            "date": "2026-05-25T14:00:00Z",
+            "type": "Email",
+            "event": "Nova instabilidade técnica reportada"
+          }
         ],
-        "smart_suggestions": ["Agendar chamada telefónica", "Oferecer crédito de compensação"]
+        "smart_suggestions": [
+          "Agendar chamada telefónica",
+          "Oferecer crédito de compensação"
+        ]
       },
       {
         "nome": "Diana Reis",
@@ -237,7 +356,10 @@
         "data_mensagem": "2026-10-26T09:42:00Z",
         "ai_note": "Possível duplicação na fatura de outubro. Confirmar os movimentos antes de emitir nota de crédito.",
         "mensagens_nao_lidas": 2,
-        "tags": { "prioridade": "High", "categoria": "Faturação" },
+        "tags": {
+          "prioridade": "High",
+          "categoria": "Faturação"
+        },
         "total_interactions": 7,
         "total_tickets": 2,
         "chat_duration": "04:10",
@@ -250,17 +372,41 @@
           "location": "Aveiro"
         },
         "chat": [
-          { "sender": "client", "message": "A fatura deste mês inclui duas vezes o mesmo serviço. Podem confirmar, por favor?", "time": "09:42" },
-          { "sender": "agent", "message": "Claro, Diana. Vou comparar a fatura com os movimentos da conta e já lhe dou uma resposta.", "time": "09:46" }
+          {
+            "sender": "client",
+            "message": "A fatura deste mês inclui duas vezes o mesmo serviço. Podem confirmar, por favor?",
+            "time": "09:42"
+          },
+          {
+            "sender": "agent",
+            "message": "Claro, Diana. Vou comparar a fatura com os movimentos da conta e já lhe dou uma resposta.",
+            "time": "09:46"
+          }
         ],
         "resumo_ia": "A cliente identificou uma possível duplicação na fatura de outubro. A equipa de faturação está a validar os movimentos da conta.",
         "mood": "neutra",
         "timeline": [
-          { "date": "2026-06-14T10:20:00Z", "type": "Email", "event": "Pedido de alteração do plano" },
-          { "date": "2026-08-03T15:10:00Z", "type": "Chat", "event": "Esclarecimento sobre métodos de pagamento" },
-          { "date": "2026-10-26T09:42:00Z", "type": "WhatsApp", "event": "Dúvida sobre possível duplicação na fatura" }
+          {
+            "date": "2026-06-14T10:20:00Z",
+            "type": "Email",
+            "event": "Pedido de alteração do plano"
+          },
+          {
+            "date": "2026-08-03T15:10:00Z",
+            "type": "Chat",
+            "event": "Esclarecimento sobre métodos de pagamento"
+          },
+          {
+            "date": "2026-10-26T09:42:00Z",
+            "type": "WhatsApp",
+            "event": "Dúvida sobre possível duplicação na fatura"
+          }
         ],
-        "smart_suggestions": ["Validar linhas da fatura", "Confirmar o valor debitado", "Enviar fatura corrigida, se aplicável"]
+        "smart_suggestions": [
+          "Validar linhas da fatura",
+          "Confirmar o valor debitado",
+          "Enviar fatura corrigida, se aplicável"
+        ]
       },
       {
         "nome": "José Carlos",
@@ -270,7 +416,10 @@
         "data_mensagem": "2026-10-26T08:18:00Z",
         "ai_note": "Falha de sincronização reportada após atualização. Solicitar o código do erro e a hora da última sincronização.",
         "mensagens_nao_lidas": 1,
-        "tags": { "prioridade": "Medium", "categoria": "Suporte Técnico" },
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Suporte Técnico"
+        },
         "total_interactions": 16,
         "total_tickets": 3,
         "chat_duration": "09:25",
@@ -283,16 +432,36 @@
           "location": "Coimbra"
         },
         "chat": [
-          { "sender": "client", "message": "A integração com o software de contabilidade deixou de sincronizar desde ontem.", "time": "08:18" }
+          {
+            "sender": "client",
+            "message": "A integração com o software de contabilidade deixou de sincronizar desde ontem.",
+            "time": "08:18"
+          }
         ],
         "resumo_ia": "O cliente reporta que a integração contabilística não sincroniza desde 25 de outubro. Ainda falta recolher o código de erro.",
         "mood": "neutra",
         "timeline": [
-          { "date": "2026-03-09T11:05:00Z", "type": "Call", "event": "Configuração inicial da integração" },
-          { "date": "2026-07-21T16:30:00Z", "type": "Email", "event": "Atualização das permissões de acesso" },
-          { "date": "2026-10-26T08:18:00Z", "type": "Email", "event": "Falha de sincronização reportada" }
+          {
+            "date": "2026-03-09T11:05:00Z",
+            "type": "Call",
+            "event": "Configuração inicial da integração"
+          },
+          {
+            "date": "2026-07-21T16:30:00Z",
+            "type": "Email",
+            "event": "Atualização das permissões de acesso"
+          },
+          {
+            "date": "2026-10-26T08:18:00Z",
+            "type": "Email",
+            "event": "Falha de sincronização reportada"
+          }
         ],
-        "smart_suggestions": ["Pedir captura do erro", "Verificar estado da ligação", "Consultar registo da última sincronização"]
+        "smart_suggestions": [
+          "Pedir captura do erro",
+          "Verificar estado da ligação",
+          "Consultar registo da última sincronização"
+        ]
       },
       {
         "nome": "António Melo",
@@ -302,7 +471,10 @@
         "data_mensagem": "2026-10-25T16:05:00Z",
         "ai_note": "Pedido de previsão de entrega. Consultar tracking e confirmar janela estimada para Coimbra.",
         "mensagens_nao_lidas": 0,
-        "tags": { "prioridade": "Low", "categoria": "Logística" },
+        "tags": {
+          "prioridade": "Low",
+          "categoria": "Logística"
+        },
         "total_interactions": 3,
         "total_tickets": 1,
         "chat_duration": "02:35",
@@ -315,56 +487,825 @@
           "location": "Coimbra"
         },
         "chat": [
-          { "sender": "client", "message": "Fiz a encomenda #7842 na sexta-feira. Conseguem dizer-me quando chega?", "time": "16:05" },
-          { "sender": "agent", "message": "Vou consultar o envio e confirmo a previsão de entrega.", "time": "16:08" }
+          {
+            "sender": "client",
+            "message": "Fiz a encomenda #7842 na sexta-feira. Conseguem dizer-me quando chega?",
+            "time": "16:05"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou consultar o envio e confirmo a previsão de entrega.",
+            "time": "16:08"
+          }
         ],
         "resumo_ia": "O cliente pretende confirmar a previsão de entrega da encomenda #7842. A consulta do tracking está pendente.",
         "mood": "neutra",
         "timeline": [
-          { "date": "2026-08-30T10:00:00Z", "type": "Call", "event": "Questão sobre política de devoluções" },
-          { "date": "2026-10-23T13:12:00Z", "type": "Order", "event": "Encomenda #7842 confirmada" },
-          { "date": "2026-10-25T16:05:00Z", "type": "Instagram", "event": "Pedido de previsão de entrega" }
+          {
+            "date": "2026-08-30T10:00:00Z",
+            "type": "Call",
+            "event": "Questão sobre política de devoluções"
+          },
+          {
+            "date": "2026-10-23T13:12:00Z",
+            "type": "Order",
+            "event": "Encomenda #7842 confirmada"
+          },
+          {
+            "date": "2026-10-25T16:05:00Z",
+            "type": "Instagram",
+            "event": "Pedido de previsão de entrega"
+          }
         ],
-        "smart_suggestions": ["Consultar tracking", "Partilhar previsão de entrega", "Ativar notificações do envio"]
+        "smart_suggestions": [
+          "Consultar tracking",
+          "Partilhar previsão de entrega",
+          "Ativar notificações do envio"
+        ]
+      },
+      {
+        "nome": "Carla Rodrigues",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "Recebi a fatura deste mês, mas o valor não corresponde ao plano contratado.",
+        "data_mensagem": "2026-10-26T09:00:00Z",
+        "ai_note": "Possível divergência de faturação; confirmar plano e últimos movimentos.",
+        "mensagens_nao_lidas": 0,
+        "total_interactions": 28,
+        "total_tickets": 5,
+        "chat_duration": "02:12",
+        "customer_status": "waiting",
+        "assignee": "Mariana Costa",
+        "customer_information": {
+          "name": "Carla Rodrigues",
+          "phone": "+351 912 888 333",
+          "email": "carla.rodrigues@email.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Recebi a fatura deste mês, mas o valor não corresponde ao plano contratado.",
+            "time": "09:00"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou confirmar os detalhes do plano e rever a fatura consigo.",
+            "time": "09:03"
+          }
+        ],
+        "resumo_ia": "Possível divergência de faturação; confirmar plano e últimos movimentos. Cliente premium; consultar o registo e confirmar os próximos passos.",
+        "mood": "frustrada",
+        "tags": {
+          "prioridade": "High",
+          "categoria": "Faturação"
+        },
+        "timeline": [
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Invoice error",
+            "date": "2026-05-12"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Technical support - API Timeout",
+            "date": "2026-06-01"
+          },
+          {
+            "type": "Email received",
+            "reason": "Upgrade account - Plan change",
+            "date": "2026-06-18"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Manuel Antunes",
+        "icon": "bi bi-envelope",
+        "tipo_app": "Email",
+        "mensagem_recebida": "Não estou a conseguir iniciar sessão depois de alterar a palavra-passe.",
+        "data_mensagem": "2026-10-25T10:07:00Z",
+        "ai_note": "Falha de acesso após reposição de palavra-passe; validar autenticação.",
+        "mensagens_nao_lidas": 1,
+        "total_interactions": 14,
+        "total_tickets": 2,
+        "chat_duration": "03:13",
+        "customer_status": "active",
+        "assignee": "Pedro Santos",
+        "customer_information": {
+          "name": "Manuel Antunes",
+          "phone": "+351 965 123 456",
+          "email": "manuel.antunes@outlook.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Não estou a conseguir iniciar sessão depois de alterar a palavra-passe.",
+            "time": "10:07"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou verificar o estado da conta e ajudar a recuperar o acesso.",
+            "time": "10:10"
+          }
+        ],
+        "resumo_ia": "Falha de acesso após reposição de palavra-passe; validar autenticação. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Acesso à conta"
+        },
+        "timeline": [
+          {
+            "type": "Email received",
+            "reason": "Product inquiry - Custom features",
+            "date": "2026-04-10"
+          },
+          {
+            "type": "Call received",
+            "reason": "Onboarding assistance",
+            "date": "2026-04-15"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Billing issue - Duplicate charge",
+            "date": "2026-06-10"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Sara Vasconcelos",
+        "icon": "bi bi-instagram",
+        "tipo_app": "Instagram",
+        "mensagem_recebida": "Gostava de saber se esta funcionalidade está disponível no meu plano.",
+        "data_mensagem": "2026-10-24T11:14:00Z",
+        "ai_note": "Pedido de informação sobre funcionalidades e elegibilidade do plano.",
+        "mensagens_nao_lidas": 2,
+        "total_interactions": 3,
+        "total_tickets": 1,
+        "chat_duration": "04:14",
+        "customer_status": "active",
+        "assignee": "Ricardo Silva",
+        "customer_information": {
+          "name": "Sara Vasconcelos",
+          "phone": "+351 928 444 555",
+          "email": "sara.vasc@madeirabiz.com",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Gostava de saber se esta funcionalidade está disponível no meu plano.",
+            "time": "11:14"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou consultar as funcionalidades incluídas e já lhe envio os detalhes.",
+            "time": "11:17"
+          }
+        ],
+        "resumo_ia": "Pedido de informação sobre funcionalidades e elegibilidade do plano. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "Low",
+          "categoria": "Produto"
+        },
+        "timeline": [
+          {
+            "type": "Chat started",
+            "reason": "Account creation error",
+            "date": "2026-06-15"
+          },
+          {
+            "type": "Call received",
+            "reason": "Welcome call & Setup help",
+            "date": "2026-06-16"
+          },
+          {
+            "type": "Email received",
+            "reason": "Invoicing data submission",
+            "date": "2026-06-19"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Cláudia Vieira",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "A aplicação está a apresentar um erro quando tento guardar as alterações.",
+        "data_mensagem": "2026-10-23T12:21:00Z",
+        "ai_note": "Erro ao guardar alterações; recolher contexto e verificar incidentes ativos.",
+        "mensagens_nao_lidas": 3,
+        "total_interactions": 15,
+        "total_tickets": 3,
+        "chat_duration": "05:15",
+        "customer_status": "active",
+        "assignee": "Mariana Costa",
+        "customer_information": {
+          "name": "Cláudia Vieira",
+          "phone": "+351 917 454 200",
+          "email": "claudia.v@agenciamodels.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "A aplicação está a apresentar um erro quando tento guardar as alterações.",
+            "time": "12:21"
+          },
+          {
+            "sender": "agent",
+            "message": "Pode indicar-me a hora aproximada e o ecrã onde surge o erro?",
+            "time": "12:24"
+          }
+        ],
+        "resumo_ia": "Erro ao guardar alterações; recolher contexto e verificar incidentes ativos. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "High",
+          "categoria": "Suporte técnico"
+        },
+        "timeline": [
+          {
+            "type": "Chat started",
+            "reason": "Marketing automation setup",
+            "date": "2026-01-15"
+          },
+          {
+            "type": "Email received",
+            "reason": "Custom font implementation",
+            "date": "2026-03-20"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Social media sync error",
+            "date": "2026-06-11"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Pedro Alves",
+        "icon": "bi bi-envelope",
+        "tipo_app": "Email",
+        "mensagem_recebida": "Precisamos de adicionar dois utilizadores à conta da empresa.",
+        "data_mensagem": "2026-10-22T13:28:00Z",
+        "ai_note": "Pedido de expansão de utilizadores; confirmar permissões e faturação.",
+        "mensagens_nao_lidas": 0,
+        "total_interactions": 8,
+        "total_tickets": 2,
+        "chat_duration": "06:16",
+        "customer_status": "active",
+        "assignee": "Pedro Santos",
+        "customer_information": {
+          "name": "Pedro Alves",
+          "phone": "+351 969 333 444",
+          "email": "pedro.alves99@gmail.com",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Precisamos de adicionar dois utilizadores à conta da empresa.",
+            "time": "13:28"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou confirmar os lugares disponíveis e o processo de adição.",
+            "time": "13:31"
+          }
+        ],
+        "resumo_ia": "Pedido de expansão de utilizadores; confirmar permissões e faturação. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Conta"
+        },
+        "timeline": [
+          {
+            "type": "Email received",
+            "reason": "Student discount eligibility",
+            "date": "2025-07-15"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Billing issue - Failed card",
+            "date": "2026-02-10"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Download digital certificate",
+            "date": "2026-04-05"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Francisca Borges",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "Podem confirmar a morada associada à encomenda e a previsão de entrega?",
+        "data_mensagem": "2026-10-21T14:35:00Z",
+        "ai_note": "Pedido de validação da morada e do estado de envio.",
+        "mensagens_nao_lidas": 1,
+        "total_interactions": 53,
+        "total_tickets": 11,
+        "chat_duration": "07:17",
+        "customer_status": "active",
+        "assignee": "Ricardo Silva",
+        "customer_information": {
+          "name": "Francisca Borges",
+          "phone": "+351 912 151 515",
+          "email": "fborges@advogados-associados.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Podem confirmar a morada associada à encomenda e a previsão de entrega?",
+            "time": "14:35"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou confirmar a morada registada e consultar o acompanhamento do envio.",
+            "time": "14:38"
+          }
+        ],
+        "resumo_ia": "Pedido de validação da morada e do estado de envio. Cliente premium; consultar o registo e confirmar os próximos passos.",
+        "mood": "frustrada",
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Entrega"
+        },
+        "timeline": [
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Annual breakdown",
+            "date": "2026-02-28"
+          },
+          {
+            "type": "Email received",
+            "reason": "Security & Encryption standard",
+            "date": "2026-04-19"
+          },
+          {
+            "type": "Call received",
+            "reason": "Two-Factor Auth lockdown",
+            "date": "2026-06-15"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Ricardo Pereira",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "Recebi a fatura deste mês, mas o valor não corresponde ao plano contratado.",
+        "data_mensagem": "2026-10-26T15:42:00Z",
+        "ai_note": "Possível divergência de faturação; confirmar plano e últimos movimentos.",
+        "mensagens_nao_lidas": 2,
+        "total_interactions": 4,
+        "total_tickets": 2,
+        "chat_duration": "08:18",
+        "customer_status": "active",
+        "assignee": "Mariana Costa",
+        "customer_information": {
+          "name": "Ricardo Pereira",
+          "phone": "+351 933 121 212",
+          "email": "ricardo.p@freelance.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Recebi a fatura deste mês, mas o valor não corresponde ao plano contratado.",
+            "time": "15:42"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou confirmar os detalhes do plano e rever a fatura consigo.",
+            "time": "15:45"
+          }
+        ],
+        "resumo_ia": "Possível divergência de faturação; confirmar plano e últimos movimentos. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "High",
+          "categoria": "Faturação"
+        },
+        "timeline": [
+          {
+            "type": "Chat started",
+            "reason": "Integrate Stripe payments",
+            "date": "2026-04-20"
+          },
+          {
+            "type": "Email received",
+            "reason": "Webhook validation failure",
+            "date": "2026-05-02"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Currency conversion logic",
+            "date": "2026-06-19"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Sofia Henriques",
+        "icon": "bi bi-envelope",
+        "tipo_app": "Email",
+        "mensagem_recebida": "Não estou a conseguir iniciar sessão depois de alterar a palavra-passe.",
+        "data_mensagem": "2026-10-25T16:49:00Z",
+        "ai_note": "Falha de acesso após reposição de palavra-passe; validar autenticação.",
+        "mensagens_nao_lidas": 3,
+        "total_interactions": 22,
+        "total_tickets": 4,
+        "chat_duration": "02:19",
+        "customer_status": "waiting",
+        "assignee": "Pedro Santos",
+        "customer_information": {
+          "name": "Sofia Henriques",
+          "phone": "+351 968 454 656",
+          "email": "sofia.henriques@clinica-health.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Não estou a conseguir iniciar sessão depois de alterar a palavra-passe.",
+            "time": "16:49"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou verificar o estado da conta e ajudar a recuperar o acesso.",
+            "time": "16:52"
+          }
+        ],
+        "resumo_ia": "Falha de acesso após reposição de palavra-passe; validar autenticação. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Acesso à conta"
+        },
+        "timeline": [
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Multi-clinic vat",
+            "date": "2026-01-18"
+          },
+          {
+            "type": "Email received",
+            "reason": "Patient data field update",
+            "date": "2026-03-04"
+          },
+          {
+            "type": "Chat started",
+            "reason": "SMS notification bulk buy",
+            "date": "2026-05-20"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Luís Ramos",
+        "icon": "bi bi-instagram",
+        "tipo_app": "Instagram",
+        "mensagem_recebida": "Gostava de saber se esta funcionalidade está disponível no meu plano.",
+        "data_mensagem": "2026-10-24T09:56:00Z",
+        "ai_note": "Pedido de informação sobre funcionalidades e elegibilidade do plano.",
+        "mensagens_nao_lidas": 0,
+        "total_interactions": 1,
+        "total_tickets": 1,
+        "chat_duration": "03:20",
+        "customer_status": "active",
+        "assignee": "Ricardo Silva",
+        "customer_information": {
+          "name": "Luís Ramos",
+          "phone": "+351 910 898 767",
+          "email": "luis.ramos@logis-transportes.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Gostava de saber se esta funcionalidade está disponível no meu plano.",
+            "time": "09:56"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou consultar as funcionalidades incluídas e já lhe envio os detalhes.",
+            "time": "09:59"
+          }
+        ],
+        "resumo_ia": "Pedido de informação sobre funcionalidades e elegibilidade do plano. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "Low",
+          "categoria": "Produto"
+        },
+        "timeline": [
+          {
+            "type": "Chat started",
+            "reason": "API Key activation setup",
+            "date": "2026-06-19"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Documentation links request",
+            "date": "2026-06-19"
+          },
+          {
+            "type": "Chat started",
+            "reason": "IP Whitelisting confirmation",
+            "date": "2026-06-19"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Catarina Santos",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "A aplicação está a apresentar um erro quando tento guardar as alterações.",
+        "data_mensagem": "2026-10-23T10:03:00Z",
+        "ai_note": "Erro ao guardar alterações; recolher contexto e verificar incidentes ativos.",
+        "mensagens_nao_lidas": 1,
+        "total_interactions": 17,
+        "total_tickets": 4,
+        "chat_duration": "04:21",
+        "customer_status": "active",
+        "assignee": "Mariana Costa",
+        "customer_information": {
+          "name": "Catarina Santos",
+          "phone": "+351 925 676 878",
+          "email": "catarina.santos@edu-escolas.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "A aplicação está a apresentar um erro quando tento guardar as alterações.",
+            "time": "10:03"
+          },
+          {
+            "sender": "agent",
+            "message": "Pode indicar-me a hora aproximada e o ecrã onde surge o erro?",
+            "time": "10:06"
+          }
+        ],
+        "resumo_ia": "Erro ao guardar alterações; recolher contexto e verificar incidentes ativos. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "High",
+          "categoria": "Suporte técnico"
+        },
+        "timeline": [
+          {
+            "type": "Email received",
+            "reason": "Export parental consent forms",
+            "date": "2025-10-02"
+          },
+          {
+            "type": "Call received",
+            "reason": "Billing issue - School budget delay",
+            "date": "2026-01-10"
+          },
+          {
+            "type": "Chat started",
+            "reason": "User role management options",
+            "date": "2026-04-12"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Fernando Castro",
+        "icon": "bi bi-envelope",
+        "tipo_app": "Email",
+        "mensagem_recebida": "Precisamos de adicionar dois utilizadores à conta da empresa.",
+        "data_mensagem": "2026-10-22T11:10:00Z",
+        "ai_note": "Pedido de expansão de utilizadores; confirmar permissões e faturação.",
+        "mensagens_nao_lidas": 2,
+        "total_interactions": 76,
+        "total_tickets": 18,
+        "chat_duration": "05:22",
+        "customer_status": "active",
+        "assignee": "Pedro Santos",
+        "customer_information": {
+          "name": "Fernando Castro",
+          "phone": "+351 964 121 212",
+          "email": "f.castro@investimentos-funchal.com",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Precisamos de adicionar dois utilizadores à conta da empresa.",
+            "time": "11:10"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou confirmar os lugares disponíveis e o processo de adição.",
+            "time": "11:13"
+          }
+        ],
+        "resumo_ia": "Pedido de expansão de utilizadores; confirmar permissões e faturação. Cliente premium; consultar o registo e confirmar os próximos passos.",
+        "mood": "frustrada",
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Conta"
+        },
+        "timeline": [
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Unrecognized interest",
+            "date": "2026-04-14"
+          },
+          {
+            "type": "Call received",
+            "reason": "Severe dashboard load latency",
+            "date": "2026-05-19"
+          },
+          {
+            "type": "Email received",
+            "reason": "Intention to terminate contract",
+            "date": "2026-06-17"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
+      },
+      {
+        "nome": "Inês Coelho",
+        "icon": "bi bi-whatsapp",
+        "tipo_app": "WhatsApp",
+        "mensagem_recebida": "Podem confirmar a morada associada à encomenda e a previsão de entrega?",
+        "data_mensagem": "2026-10-21T12:17:00Z",
+        "ai_note": "Pedido de validação da morada e do estado de envio.",
+        "mensagens_nao_lidas": 3,
+        "total_interactions": 12,
+        "total_tickets": 2,
+        "chat_duration": "06:23",
+        "customer_status": "active",
+        "assignee": "Ricardo Silva",
+        "customer_information": {
+          "name": "Inês Coelho",
+          "phone": "+351 918 323 434",
+          "email": "ines.coelho@vinhos-douro.pt",
+          "location": "TechVentures Inc"
+        },
+        "chat": [
+          {
+            "sender": "client",
+            "message": "Podem confirmar a morada associada à encomenda e a previsão de entrega?",
+            "time": "12:17"
+          },
+          {
+            "sender": "agent",
+            "message": "Vou confirmar a morada registada e consultar o acompanhamento do envio.",
+            "time": "12:20"
+          }
+        ],
+        "resumo_ia": "Pedido de validação da morada e do estado de envio. Cliente ; consultar o registo e confirmar os próximos passos.",
+        "mood": "neutra",
+        "tags": {
+          "prioridade": "Medium",
+          "categoria": "Entrega"
+        },
+        "timeline": [
+          {
+            "type": "Chat started",
+            "reason": "Inventory sync setup guidance",
+            "date": "2025-05-12"
+          },
+          {
+            "type": "Call received",
+            "reason": "Billing issue - VAT exempt check",
+            "date": "2025-08-20"
+          },
+          {
+            "type": "Email received",
+            "reason": "Export custom tax reports",
+            "date": "2026-03-15"
+          }
+        ],
+        "smart_suggestions": [
+          "Confirmar os dados da conta",
+          "Consultar o histórico do cliente",
+          "Registar o resultado do contacto"
+        ]
       }
-
     ],
-
     "team": {
-
       "group": [
-
         {
           "group_name": "Suporte Geral Madeira",
-          "participants": ["Mariana Costa", "Pedro Santos", "Ricardo Silva"],
+          "participants": [
+            "Mariana Costa",
+            "Pedro Santos",
+            "Ricardo Silva"
+          ],
           "chat": [
-            { "sender": "Mariana Costa", "message": "Alguém consegue ajudar com um envio para o Funchal?", "time": "11:20" },
-            { "sender": "Ricardo Silva", "message": "Diz Mariana, eu trato disso contigo.", "time": "11:22" }
+            {
+              "sender": "Mariana Costa",
+              "message": "Alguém consegue ajudar com um envio para o Funchal?",
+              "time": "11:20"
+            },
+            {
+              "sender": "Ricardo Silva",
+              "message": "Diz Mariana, eu trato disso contigo.",
+              "time": "11:22"
+            }
           ]
         },
-
         {
           "group_name": "Críticos & Reclamações",
-          "participants": ["Pedro Santos", "Ricardo Silva"],
+          "participants": [
+            "Pedro Santos",
+            "Ricardo Silva"
+          ],
           "chat": [
-            { "sender": "Pedro Santos", "message": "Subi o caso do Miguel Santos para ti, Ricardo.", "time": "14:05" },
-            { "sender": "Ricardo Silva", "message": "Recebido. Vou entrar em contacto direto.", "time": "14:06" }
+            {
+              "sender": "Pedro Santos",
+              "message": "Subi o caso do Miguel Santos para ti, Ricardo.",
+              "time": "14:05"
+            },
+            {
+              "sender": "Ricardo Silva",
+              "message": "Recebido. Vou entrar em contacto direto.",
+              "time": "14:06"
+            }
           ]
         },
-
         {
           "group_name": "Plantão Técnico",
-          "participants": ["Mariana Costa", "Pedro Santos"],
+          "participants": [
+            "Mariana Costa",
+            "Pedro Santos"
+          ],
           "chat": [
-            { "sender": "Pedro Santos", "message": "A API de login já está operacional novamente.", "time": "09:50" },
-            { "sender": "Mariana Costa", "message": "Boa, vou avisar os clientes em espera.", "time": "09:51" }
+            {
+              "sender": "Pedro Santos",
+              "message": "A API de login já está operacional novamente.",
+              "time": "09:50"
+            },
+            {
+              "sender": "Mariana Costa",
+              "message": "Boa, vou avisar os clientes em espera.",
+              "time": "09:51"
+            }
           ]
         }
-
       ],
-
       "person": [
-
         {
           "id": "@agent10242024",
           "nome": "Mariana Costa",
@@ -373,24 +1314,59 @@
           "email": "mariana.costa@empresa.com",
           "since": "2024-03-15",
           "skills": [
-            {"category": "Technical Support", "proficiency": "91%", "level": "Expert"},
-            {"category": "Billing", "proficiency": "45%", "level": "Competent"},
-            {"category": "Conflict Resolution", "proficiency": "75%", "level": "Proficient"},
-            {"category": "Sales", "proficiency": "76%", "level": "Advanced"},
-            {"category": "English", "proficiency": "100%", "level": "Master"},
-            {"category": "Portuguese", "proficiency": "100%", "level": "Master"},
-            {"category": "Spanish", "proficiency": "19%", "level": "Fundamental"},
-            {"category": "Product Knowledge", "proficiency": "37%", "level": "Operational"}
+            {
+              "category": "Technical Support",
+              "proficiency": "91%",
+              "level": "Expert"
+            },
+            {
+              "category": "Billing",
+              "proficiency": "45%",
+              "level": "Competent"
+            },
+            {
+              "category": "Conflict Resolution",
+              "proficiency": "75%",
+              "level": "Proficient"
+            },
+            {
+              "category": "Sales",
+              "proficiency": "76%",
+              "level": "Advanced"
+            },
+            {
+              "category": "English",
+              "proficiency": "100%",
+              "level": "Master"
+            },
+            {
+              "category": "Portuguese",
+              "proficiency": "100%",
+              "level": "Master"
+            },
+            {
+              "category": "Spanish",
+              "proficiency": "19%",
+              "level": "Fundamental"
+            },
+            {
+              "category": "Product Knowledge",
+              "proficiency": "37%",
+              "level": "Operational"
+            }
           ],
           "total_calls": 1420,
           "talk_time": "00:04:15",
           "CSAT": "4.8/5",
           "nivel_do_agente": "Senior Agent",
           "chat": [
-            { "sender": "Ricardo Silva", "message": "Mariana, excelente trabalho com as devoluções de hoje.", "time": "14:30" }
+            {
+              "sender": "Ricardo Silva",
+              "message": "Mariana, excelente trabalho com as devoluções de hoje.",
+              "time": "14:30"
+            }
           ]
         },
-
         {
           "id": "@agent40552025",
           "nome": "Pedro Santos",
@@ -399,24 +1375,59 @@
           "email": "pedro.santos@empresa.com",
           "since": "2025-01-10",
           "skills": [
-            {"category": "Technical Support", "proficiency": "91%", "level": "Expert"},
-            {"category": "Billing", "proficiency": "45%", "level": "Competent"},
-            {"category": "Conflict Resolution", "proficiency": "75%", "level": "Proficient"},
-            {"category": "Sales", "proficiency": "76%", "level": "Advanced"},
-            {"category": "English", "proficiency": "100%", "level": "Master"},
-            {"category": "Portuguese", "proficiency": "100%", "level": "Master"},
-            {"category": "Spanish", "proficiency": "19%", "level": "Fundamental"},
-            {"category": "Product Knowledge", "proficiency": "37%", "level": "Operational"}
+            {
+              "category": "Technical Support",
+              "proficiency": "91%",
+              "level": "Expert"
+            },
+            {
+              "category": "Billing",
+              "proficiency": "45%",
+              "level": "Competent"
+            },
+            {
+              "category": "Conflict Resolution",
+              "proficiency": "75%",
+              "level": "Proficient"
+            },
+            {
+              "category": "Sales",
+              "proficiency": "76%",
+              "level": "Advanced"
+            },
+            {
+              "category": "English",
+              "proficiency": "100%",
+              "level": "Master"
+            },
+            {
+              "category": "Portuguese",
+              "proficiency": "100%",
+              "level": "Master"
+            },
+            {
+              "category": "Spanish",
+              "proficiency": "19%",
+              "level": "Fundamental"
+            },
+            {
+              "category": "Product Knowledge",
+              "proficiency": "37%",
+              "level": "Operational"
+            }
           ],
           "total_calls": 890,
           "talk_time": "00:06:40",
           "CSAT": "4.6/5",
           "nivel_do_agente": "Junior Agent",
           "chat": [
-            { "sender": "Ricardo Silva", "message": "Pedro, verifica o ticket da Carla por favor.", "time": "11:10" }
+            {
+              "sender": "Ricardo Silva",
+              "message": "Pedro, verifica o ticket da Carla por favor.",
+              "time": "11:10"
+            }
           ]
         },
-
         {
           "id": "@agent00122022",
           "nome": "Ricardo Silva",
@@ -425,41 +1436,135 @@
           "email": "ricardo.silva@empresa.com",
           "since": "2022-05-01",
           "skills": [
-            {"category": "Technical Support", "proficiency": "91%", "level": "Expert"},
-            {"category": "Billing", "proficiency": "45%", "level": "Competent"},
-            {"category": "Conflict Resolution", "proficiency": "75%", "level": "Proficient"},
-            {"category": "Sales", "proficiency": "76%", "level": "Advanced"},
-            {"category": "English", "proficiency": "100%", "level": "Master"},
-            {"category": "Portuguese", "proficiency": "100%", "level": "Master"},
-            {"category": "Spanish", "proficiency": "19%", "level": "Fundamental"},
-            {"category": "Product Knowledge", "proficiency": "37%", "level": "Operational"}
+            {
+              "category": "Technical Support",
+              "proficiency": "91%",
+              "level": "Expert"
+            },
+            {
+              "category": "Billing",
+              "proficiency": "45%",
+              "level": "Competent"
+            },
+            {
+              "category": "Conflict Resolution",
+              "proficiency": "75%",
+              "level": "Proficient"
+            },
+            {
+              "category": "Sales",
+              "proficiency": "76%",
+              "level": "Advanced"
+            },
+            {
+              "category": "English",
+              "proficiency": "100%",
+              "level": "Master"
+            },
+            {
+              "category": "Portuguese",
+              "proficiency": "100%",
+              "level": "Master"
+            },
+            {
+              "category": "Spanish",
+              "proficiency": "19%",
+              "level": "Fundamental"
+            },
+            {
+              "category": "Product Knowledge",
+              "proficiency": "37%",
+              "level": "Operational"
+            }
           ],
           "total_calls": 3100,
           "talk_time": "00:03:10",
           "CSAT": "4.9/5",
           "nivel_do_agente": "Supervisor",
           "chat": [
-            { "sender": "Pedro Santos", "message": "Presença confirmada na reunião de equipa.", "time": "09:00" }
+            {
+              "sender": "Pedro Santos",
+              "message": "Presença confirmada na reunião de equipa.",
+              "time": "09:00"
+            }
           ]
         }
-
       ]
     }
   },
-
   "menu": {
     "links": [
-      { "type": "link", "title": "DASHBOARD", "icon": "finance", "active": false, "route": "/dashboard", "roles": ["agent", "supervisor"] },
-      { "type": "link", "title": "INBOX", "icon": "mail", "active": true, "route": "/inbox", "roles": ["agent", "supervisor"] },
-      { "type": "link", "title": "CONTACTS", "icon": "group", "active": false, "route": "/contacts", "roles": ["agent", "supervisor"] },
-      { "type": "link", "title": "HISTORY", "icon": "history", "active": false, "route": "/history", "roles": ["agent", "supervisor"] },
-      { "type": "link", "title": "KNOWLEDGE", "icon": "import_contacts", "active": false, "route": "/knowledge", "roles": ["agent", "supervisor"] },
-      { "type": "link", "title": "SETTINGS", "icon": "settings", "active": false, "route": "/settings", "roles": ["agent", "supervisor"] },
-      { "type": "recents" }
+      {
+        "type": "link",
+        "title": "DASHBOARD",
+        "icon": "finance",
+        "active": false,
+        "route": "/dashboard",
+        "roles": [
+          "agent",
+          "supervisor"
+        ]
+      },
+      {
+        "type": "link",
+        "title": "INBOX",
+        "icon": "mail",
+        "active": true,
+        "route": "/inbox",
+        "roles": [
+          "agent",
+          "supervisor"
+        ]
+      },
+      {
+        "type": "link",
+        "title": "CONTACTS",
+        "icon": "group",
+        "active": false,
+        "route": "/contacts",
+        "roles": [
+          "agent",
+          "supervisor"
+        ]
+      },
+      {
+        "type": "link",
+        "title": "HISTORY",
+        "icon": "history",
+        "active": false,
+        "route": "/history",
+        "roles": [
+          "agent",
+          "supervisor"
+        ]
+      },
+      {
+        "type": "link",
+        "title": "KNOWLEDGE",
+        "icon": "import_contacts",
+        "active": false,
+        "route": "/knowledge",
+        "roles": [
+          "agent",
+          "supervisor"
+        ]
+      },
+      {
+        "type": "link",
+        "title": "SETTINGS",
+        "icon": "settings",
+        "active": false,
+        "route": "/settings",
+        "roles": [
+          "agent",
+          "supervisor"
+        ]
+      },
+      {
+        "type": "recents"
+      }
     ],
-
     "recents": {
-
       "recent_call": [
         {
           "note": "Linha ocupada",
@@ -490,7 +1595,6 @@
           "priority": "low"
         }
       ],
-
       "recent_msg": [
         {
           "name": "Ana Martins",
@@ -509,7 +1613,6 @@
       ]
     }
   },
-
   "contacts": {
     "users": [
       {
@@ -518,15 +1621,27 @@
         "num_of_tickets": 5,
         "num_of_calls": 8,
         "ranking": 4.8,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2022-11",
         "type": "premium",
         "email": "carla.rodrigues@email.pt",
         "numero_de_tel": "+351 912 888 333",
         "timeline": [
-          { "type": "Call received", "reason": "Billing issue - Invoice error", "date": "2026-05-12" },
-          { "type": "Chat started", "reason": "Technical support - API Timeout", "date": "2026-06-01" },
-          { "type": "Email received", "reason": "Upgrade account - Plan change", "date": "2026-06-18" }
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Invoice error",
+            "date": "2026-05-12"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Technical support - API Timeout",
+            "date": "2026-06-01"
+          },
+          {
+            "type": "Email received",
+            "reason": "Upgrade account - Plan change",
+            "date": "2026-06-18"
+          }
         ],
         "ia_note": "A cliente demonstra interesse contínuo no novo produto, com foco em eficiência, integração e custo-benefício. Na interação mais recente, reportou limitações na solução atual, sobretudo em escalabilidade e desempenho, aumentando a urgência de encontrar alternativa. Perfil informado e orientado a resultados.",
         "sugestao_ia": "Validar requisitos específicos da cliente, explorar impacto das limitações atuais no negócio e posicionar o produto como solução para escalabilidade e performance. Recomenda-se agendar demonstração ou envio de proposta personalizada."
@@ -537,15 +1652,27 @@
         "num_of_tickets": 2,
         "num_of_calls": 3,
         "ranking": 3.5,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2024-05",
         "type": "standard",
         "email": "manuel.antunes@outlook.pt",
         "numero_de_tel": "+351 965 123 456",
         "timeline": [
-          { "type": "Email received", "reason": "Product inquiry - Custom features", "date": "2026-04-10" },
-          { "type": "Call received", "reason": "Onboarding assistance", "date": "2026-04-15" },
-          { "type": "Chat started", "reason": "Billing issue - Duplicate charge", "date": "2026-06-10" }
+          {
+            "type": "Email received",
+            "reason": "Product inquiry - Custom features",
+            "date": "2026-04-10"
+          },
+          {
+            "type": "Call received",
+            "reason": "Onboarding assistance",
+            "date": "2026-04-15"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Billing issue - Duplicate charge",
+            "date": "2026-06-10"
+          }
         ],
         "ia_note": "Utilizador focado na resolução rápida de problemas de faturação. Demonstra impaciência moderada devido a falhas recorrentes no débito direto, mas mantém-se recetivo a soluções automatizadas. Valoriza clareza e transparência financeira.",
         "sugestao_ia": "Confirmar a correção do erro de faturação diretamente com o departamento financeiro e enviar um e-mail formal de retratação com um comprovativo detalhado."
@@ -555,16 +1682,28 @@
         "num_of_interactions": 3,
         "num_of_tickets": 1,
         "num_of_calls": 1,
-        "ranking": 5.0,
-        "location" : "TechVentures Inc",
+        "ranking": 5,
+        "location": "TechVentures Inc",
         "since": "2026-06",
         "type": "new",
         "email": "sara.vasc@madeirabiz.com",
         "numero_de_tel": "+351 928 444 555",
         "timeline": [
-          { "type": "Chat started", "reason": "Account creation error", "date": "2026-06-15" },
-          { "type": "Call received", "reason": "Welcome call & Setup help", "date": "2026-06-16" },
-          { "type": "Email received", "reason": "Invoicing data submission", "date": "2026-06-19" }
+          {
+            "type": "Chat started",
+            "reason": "Account creation error",
+            "date": "2026-06-15"
+          },
+          {
+            "type": "Call received",
+            "reason": "Welcome call & Setup help",
+            "date": "2026-06-16"
+          },
+          {
+            "type": "Email received",
+            "reason": "Invoicing data submission",
+            "date": "2026-06-19"
+          }
         ],
         "ia_note": "Nova cliente baseada na Madeira. Demonstra alto entusiasmo na adoção da plataforma para o seu negócio local, mas necessita de apoio guiado na configuração inicial das permissões de equipa. Perfil colaborativo.",
         "sugestao_ia": "Enviar o guia completo de onboarding em PDF e agendar uma breve sessão de demonstração de 15 minutos para garantir o sucesso da retenção inicial."
@@ -575,15 +1714,27 @@
         "num_of_tickets": 9,
         "num_of_calls": 15,
         "ranking": 4.2,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2021-03",
         "type": "premium",
         "email": "rui.fonseca@techcorp.pt",
         "numero_de_tel": "+351 919 999 222",
         "timeline": [
-          { "type": "Call received", "reason": "Server migration failure", "date": "2026-03-22" },
-          { "type": "Email received", "reason": "SLA compensation request", "date": "2026-03-25" },
-          { "type": "Chat started", "reason": "General performance check", "date": "2026-06-14" }
+          {
+            "type": "Call received",
+            "reason": "Server migration failure",
+            "date": "2026-03-22"
+          },
+          {
+            "type": "Email received",
+            "reason": "SLA compensation request",
+            "date": "2026-03-25"
+          },
+          {
+            "type": "Chat started",
+            "reason": "General performance check",
+            "date": "2026-06-14"
+          }
         ],
         "ia_note": "Cliente histórico muito técnico e exigente com os tempos de resposta (SLA). Após instabilidade no servidor em março, o tom estabilizou, mas mantém uma monitorização rigorosa sobre o desempenho do nosso serviço.",
         "sugestao_ia": "Garantir que todos os tickets deste cliente sejam encaminhados diretamente para a equipa de Engenharia de Nível 2 e fazer follow-ups proativos quinzenais."
@@ -594,15 +1745,27 @@
         "num_of_tickets": 3,
         "num_of_calls": 2,
         "ranking": 2.9,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2025-01",
         "type": "standard",
         "email": "bea.silva@gmail.com",
         "numero_de_tel": "+351 934 777 111",
         "timeline": [
-          { "type": "Chat started", "reason": "Password reset loop", "date": "2026-01-20" },
-          { "type": "Email received", "reason": "GDPR data deletion request", "date": "2026-05-14" },
-          { "type": "Call received", "reason": "Cancellation of request", "date": "2026-05-16" }
+          {
+            "type": "Chat started",
+            "reason": "Password reset loop",
+            "date": "2026-01-20"
+          },
+          {
+            "type": "Email received",
+            "reason": "GDPR data deletion request",
+            "date": "2026-05-14"
+          },
+          {
+            "type": "Call received",
+            "reason": "Cancellation of request",
+            "date": "2026-05-16"
+          }
         ],
         "ia_note": "A utilizadora ponderou cancelar o serviço por dificuldades de usabilidade, contudo reverteu a decisão após contacto telefónico. Demonstra alguma frustração com a interface móvel atual.",
         "sugestao_ia": "Apresentar as melhorias mais recentes da nossa App móvel e recolher feedback estruturado para passar à equipa de Produto/UX."
@@ -612,16 +1775,28 @@
         "num_of_interactions": 19,
         "num_of_tickets": 4,
         "num_of_calls": 6,
-        "ranking": 4.0,
-        "location" : "TechVentures Inc",
+        "ranking": 4,
+        "location": "TechVentures Inc",
         "since": "2023-08",
         "type": "standard",
         "email": "jpires@Globalnet.pt",
         "numero_de_tel": "+351 911 000 777",
         "timeline": [
-          { "type": "Call received", "reason": "Billing issue - Payment method", "date": "2026-02-11" },
-          { "type": "Chat started", "reason": "Integration with CRM", "date": "2026-04-30" },
-          { "type": "Email received", "reason": "Webhook documentation help", "date": "2026-06-05" }
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Payment method",
+            "date": "2026-02-11"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Integration with CRM",
+            "date": "2026-04-30"
+          },
+          {
+            "type": "Email received",
+            "reason": "Webhook documentation help",
+            "date": "2026-06-05"
+          }
         ],
         "ia_note": "Cliente focado no desenvolvimento de integrações customizadas via API. Quase todas as interações são de âmbito técnico avançado. Demonstra satisfação quando recebe respostas baseadas em código prático.",
         "sugestao_ia": "Partilhar o repositório oficial do GitHub com exemplos de código prontos a usar e incluí-lo na lista de testes Beta para novas ferramentas de developer."
@@ -632,15 +1807,27 @@
         "num_of_tickets": 2,
         "num_of_calls": 0,
         "ranking": 4.5,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2026-02",
         "type": "new",
         "email": "ana.martins@sapo.pt",
         "numero_de_tel": "+351 912 345 678",
         "timeline": [
-          { "type": "Chat started", "reason": "Delivery status delayed", "date": "2026-05-26" },
-          { "type": "Chat started", "reason": "Address modification", "date": "2026-05-26" },
-          { "type": "Email received", "reason": "Proof of purchase request", "date": "2026-06-12" }
+          {
+            "type": "Chat started",
+            "reason": "Delivery status delayed",
+            "date": "2026-05-26"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Address modification",
+            "date": "2026-05-26"
+          },
+          {
+            "type": "Email received",
+            "reason": "Proof of purchase request",
+            "date": "2026-06-12"
+          }
         ],
         "ia_note": "Nova utilizadora focada essencialmente no e-commerce e na receção rápida de encomendas físicas na zona do Funchal. Reage bem a resoluções imediatas por canais de chat rápido.",
         "sugestao_ia": "Assegurar que os prazos de transporte marítimo para as ilhas estão claros no perfil e enviar notificações automáticas SMS sobre o trânsito da carga."
@@ -651,15 +1838,27 @@
         "num_of_tickets": 14,
         "num_of_calls": 22,
         "ranking": 3.1,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2020-05",
         "type": "premium",
         "email": "m.santos@corporate.pt",
         "numero_de_tel": "+351 911 000 000",
         "timeline": [
-          { "type": "Email received", "reason": "Formal complaint - Service outage", "date": "2026-05-26" },
-          { "type": "Call received", "reason": "Escalation to Supervisor", "date": "2026-05-27" },
-          { "type": "Call received", "reason": "Compensation contract review", "date": "2026-06-10" }
+          {
+            "type": "Email received",
+            "reason": "Formal complaint - Service outage",
+            "date": "2026-05-26"
+          },
+          {
+            "type": "Call received",
+            "reason": "Escalation to Supervisor",
+            "date": "2026-05-27"
+          },
+          {
+            "type": "Call received",
+            "reason": "Compensation contract review",
+            "date": "2026-06-10"
+          }
         ],
         "ia_note": "Cliente de alto valor empresarial em risco de cancelamento (High Churn Risk) devido a quebras contratuais de conectividade. Exige atenção prioritária por parte da gestão e respostas cirúrgicas.",
         "sugestao_ia": "Manter contacto exclusivo através do supervisor da conta, aplicar o desconto de retenção acordado e agendar uma chamada técnica de estabilidade."
@@ -670,15 +1869,27 @@
         "num_of_tickets": 2,
         "num_of_calls": 4,
         "ranking": 4.7,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2024-09",
         "type": "standard",
         "email": "diana.reis@gmail.com",
         "numero_de_tel": "+351 934 111 222",
         "timeline": [
-          { "type": "Call received", "reason": "Renew subscription manually", "date": "2025-09-10" },
-          { "type": "Chat started", "reason": "How to export CSV reports", "date": "2026-02-14" },
-          { "type": "Email received", "reason": "Add new user seats", "date": "2026-06-18" }
+          {
+            "type": "Call received",
+            "reason": "Renew subscription manually",
+            "date": "2025-09-10"
+          },
+          {
+            "type": "Chat started",
+            "reason": "How to export CSV reports",
+            "date": "2026-02-14"
+          },
+          {
+            "type": "Email received",
+            "reason": "Add new user seats",
+            "date": "2026-06-18"
+          }
         ],
         "ia_note": "Utilizadora autónoma e muito satisfeita. Entra em contacto apenas para questões operacionais simples ou para expansão de licenças da sua conta, indicando crescimento interno estável.",
         "sugestao_ia": "Processar o pedido de novas licenças de imediato e enviar material de formação sobre relatórios avançados para otimizar o uso da plataforma."
@@ -689,15 +1900,27 @@
         "num_of_tickets": 6,
         "num_of_calls": 11,
         "ranking": 4.9,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2022-01",
         "type": "premium",
         "email": "jcarlos@construcoes.pt",
         "numero_de_tel": "+351 961 777 999",
         "timeline": [
-          { "type": "Call received", "reason": "Billing issue - Tax ID fix", "date": "2026-01-05" },
-          { "type": "Call received", "reason": "Bulk order discount check", "date": "2026-03-12" },
-          { "type": "Email received", "reason": "Contract renewal terms", "date": "2026-05-30" }
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Tax ID fix",
+            "date": "2026-01-05"
+          },
+          {
+            "type": "Call received",
+            "reason": "Bulk order discount check",
+            "date": "2026-03-12"
+          },
+          {
+            "type": "Email received",
+            "reason": "Contract renewal terms",
+            "date": "2026-05-30"
+          }
         ],
         "ia_note": "Parceiro de negócios focado em compras de grande escala. Valoriza imenso o canal de voz direto sobre mensagens escritas. Mostra-se altamente fiel à marca dadas as condições especiais concedidas.",
         "sugestao_ia": "Manter a prioridade nas chamadas recebidas do seu número e apresentar em primeira mão os pacotes anuais de volume com desconto fixo."
@@ -707,16 +1930,28 @@
         "num_of_interactions": 2,
         "num_of_tickets": 1,
         "num_of_calls": 1,
-        "ranking": 3.0,
-        "location" : "TechVentures Inc",
+        "ranking": 3,
+        "location": "TechVentures Inc",
         "since": "2026-05",
         "type": "new",
         "email": "antonio.melo@sapo.pt",
         "numero_de_tel": "+351 915 222 333",
         "timeline": [
-          { "type": "Call received", "reason": "Line busy - Abandoned call", "date": "2026-05-25" },
-          { "type": "Chat started", "reason": "Refund policy check", "date": "2026-05-28" },
-          { "type": "Email received", "reason": "Trial extension request", "date": "2026-06-02" }
+          {
+            "type": "Call received",
+            "reason": "Line busy - Abandoned call",
+            "date": "2026-05-25"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Refund policy check",
+            "date": "2026-05-28"
+          },
+          {
+            "type": "Email received",
+            "reason": "Trial extension request",
+            "date": "2026-06-02"
+          }
         ],
         "ia_note": "Novo utilizador que teve uma má experiência inicial devido a tempos de espera na linha telefónica. Demonstra insegurança na retenção do serviço e pediu extensão do período de testes.",
         "sugestao_ia": "Aprovar a extensão do período experimental por mais 14 dias e garantir um contacto telefónico agendado para esclarecer dúvidas sem filas de espera."
@@ -727,15 +1962,27 @@
         "num_of_tickets": 3,
         "num_of_calls": 5,
         "ranking": 4.1,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2023-11",
         "type": "standard",
         "email": "claudia.v@agenciamodels.pt",
         "numero_de_tel": "+351 917 454 200",
         "timeline": [
-          { "type": "Chat started", "reason": "Marketing automation setup", "date": "2026-01-15" },
-          { "type": "Email received", "reason": "Custom font implementation", "date": "2026-03-20" },
-          { "type": "Chat started", "reason": "Social media sync error", "date": "2026-06-11" }
+          {
+            "type": "Chat started",
+            "reason": "Marketing automation setup",
+            "date": "2026-01-15"
+          },
+          {
+            "type": "Email received",
+            "reason": "Custom font implementation",
+            "date": "2026-03-20"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Social media sync error",
+            "date": "2026-06-11"
+          }
         ],
         "ia_note": "Utilizadora do setor criativo/marketing. Foca-se muito na vertente estética e nas automações visuais da plataforma. Reportou pequenos bugs na sincronização com o Instagram Meta API.",
         "sugestao_ia": "Fornecer instruções passo a passo para a re-autenticação do token da Meta e sugerir o módulo avançado de design de newsletters."
@@ -746,15 +1993,27 @@
         "num_of_tickets": 2,
         "num_of_calls": 1,
         "ranking": 4.6,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2025-07",
         "type": "standard",
         "email": "pedro.alves99@gmail.com",
         "numero_de_tel": "+351 969 333 444",
         "timeline": [
-          { "type": "Email received", "reason": "Student discount eligibility", "date": "2025-07-15" },
-          { "type": "Chat started", "reason": "Billing issue - Failed card", "date": "2026-02-10" },
-          { "type": "Chat started", "reason": "Download digital certificate", "date": "2026-04-05" }
+          {
+            "type": "Email received",
+            "reason": "Student discount eligibility",
+            "date": "2025-07-15"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Billing issue - Failed card",
+            "date": "2026-02-10"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Download digital certificate",
+            "date": "2026-04-05"
+          }
         ],
         "ia_note": "Utilizador do plano académico. Tem interações escassas e maioritariamente resolvidas por bots de autoajuda na base de conhecimento. Baixo custo de suporte.",
         "sugestao_ia": "Manter fluxos automatizados de self-service e enviar e-mail de transição de plano para o plano standard perto do fim da graduação."
@@ -765,15 +2024,27 @@
         "num_of_tickets": 11,
         "num_of_calls": 19,
         "ranking": 4.4,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2021-06",
         "type": "premium",
         "email": "fborges@advogados-associados.pt",
         "numero_de_tel": "+351 912 151 515",
         "timeline": [
-          { "type": "Call received", "reason": "Billing issue - Annual breakdown", "date": "2026-02-28" },
-          { "type": "Email received", "reason": "Security & Encryption standard", "date": "2026-04-19" },
-          { "type": "Call received", "reason": "Two-Factor Auth lockdown", "date": "2026-06-15" }
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Annual breakdown",
+            "date": "2026-02-28"
+          },
+          {
+            "type": "Email received",
+            "reason": "Security & Encryption standard",
+            "date": "2026-04-19"
+          },
+          {
+            "type": "Call received",
+            "reason": "Two-Factor Auth lockdown",
+            "date": "2026-06-15"
+          }
         ],
         "ia_note": "Cliente institucional da área jurídica. Extremo foco em segurança da informação, encriptação e conformidade legal. Exige auditorias claras dos acessos à plataforma.",
         "sugestao_ia": "Fornecer os relatórios de logs de segurança assinados digitalmente e reforçar o posicionamento do nosso software em conformidade estrita com o RGPD."
@@ -784,15 +2055,27 @@
         "num_of_tickets": 2,
         "num_of_calls": 0,
         "ranking": 3.8,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2026-04",
         "type": "new",
         "email": "ricardo.p@freelance.pt",
         "numero_de_tel": "+351 933 121 212",
         "timeline": [
-          { "type": "Chat started", "reason": "Integrate Stripe payments", "date": "2026-04-20" },
-          { "type": "Email received", "reason": "Webhook validation failure", "date": "2026-05-02" },
-          { "type": "Chat started", "reason": "Currency conversion logic", "date": "2026-06-19" }
+          {
+            "type": "Chat started",
+            "reason": "Integrate Stripe payments",
+            "date": "2026-04-20"
+          },
+          {
+            "type": "Email received",
+            "reason": "Webhook validation failure",
+            "date": "2026-05-02"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Currency conversion logic",
+            "date": "2026-06-19"
+          }
         ],
         "ia_note": "Trabalhador independente em fase inicial de faturação com clientes estrangeiros. Apresenta dúvidas pontuais sobre conversões de moeda e integrações de gateways de pagamento terceiros.",
         "sugestao_ia": "Direcionar para o artigo do help center focado em e-commerce internacional e Stripe Connect para resolver autonomamente as dúvidas fiscais."
@@ -803,15 +2086,27 @@
         "num_of_tickets": 4,
         "num_of_calls": 7,
         "ranking": 4.9,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2023-04",
         "type": "standard",
         "email": "sofia.henriques@clinica-health.pt",
         "numero_de_tel": "+351 968 454 656",
         "timeline": [
-          { "type": "Call received", "reason": "Billing issue - Multi-clinic vat", "date": "2026-01-18" },
-          { "type": "Email received", "reason": "Patient data field update", "date": "2026-03-04" },
-          { "type": "Chat started", "reason": "SMS notification bulk buy", "date": "2026-05-20" }
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Multi-clinic vat",
+            "date": "2026-01-18"
+          },
+          {
+            "type": "Email received",
+            "reason": "Patient data field update",
+            "date": "2026-03-04"
+          },
+          {
+            "type": "Chat started",
+            "reason": "SMS notification bulk buy",
+            "date": "2026-05-20"
+          }
         ],
         "ia_note": "Gestora de clínicas médicas. Cliente muito organizada e polida. Utiliza a plataforma para o envio em massa de lembretes aos pacientes e monitoriza com atenção o retorno desse investimento.",
         "sugestao_ia": "Apresentar a nova funcionalidade de confirmação bidirecional de consultas via IA para reduzir a taxa de faltas na clínica em mais 20%."
@@ -821,16 +2116,28 @@
         "num_of_interactions": 1,
         "num_of_tickets": 1,
         "num_of_calls": 0,
-        "ranking": 4.0,
-        "location" : "TechVentures Inc",
+        "ranking": 4,
+        "location": "TechVentures Inc",
         "since": "2026-06",
         "type": "new",
         "email": "luis.ramos@logis-transportes.pt",
         "numero_de_tel": "+351 910 898 767",
         "timeline": [
-          { "type": "Chat started", "reason": "API Key activation setup", "date": "2026-06-19" },
-          { "type": "Chat started", "reason": "Documentation links request", "date": "2026-06-19" },
-          { "type": "Chat started", "reason": "IP Whitelisting confirmation", "date": "2026-06-19" }
+          {
+            "type": "Chat started",
+            "reason": "API Key activation setup",
+            "date": "2026-06-19"
+          },
+          {
+            "type": "Chat started",
+            "reason": "Documentation links request",
+            "date": "2026-06-19"
+          },
+          {
+            "type": "Chat started",
+            "reason": "IP Whitelisting confirmation",
+            "date": "2026-06-19"
+          }
         ],
         "ia_note": "Utilizador ativado hoje mesmo. Encontra-se em pleno processo técnico de configuração de infraestrutura técnica. Comunicação rápida e direta via chat de desenvolvimento.",
         "sugestao_ia": "Manter canal aberto de chat em tempo real nas próximas 48 horas para assegurar o sucesso completo da primeira integração em ambiente produtivo."
@@ -841,15 +2148,27 @@
         "num_of_tickets": 4,
         "num_of_calls": 3,
         "ranking": 4.3,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2024-02",
         "type": "standard",
         "email": "catarina.santos@edu-escolas.pt",
         "numero_de_tel": "+351 925 676 878",
         "timeline": [
-          { "type": "Email received", "reason": "Export parental consent forms", "date": "2025-10-02" },
-          { "type": "Call received", "reason": "Billing issue - School budget delay", "date": "2026-01-10" },
-          { "type": "Chat started", "reason": "User role management options", "date": "2026-04-12" }
+          {
+            "type": "Email received",
+            "reason": "Export parental consent forms",
+            "date": "2025-10-02"
+          },
+          {
+            "type": "Call received",
+            "reason": "Billing issue - School budget delay",
+            "date": "2026-01-10"
+          },
+          {
+            "type": "Chat started",
+            "reason": "User role management options",
+            "date": "2026-04-12"
+          }
         ],
         "ia_note": "Coordenadora do setor educacional. Lida com orçamentos estatais rígidos e calendarização anual. Muito satisfeita com os controlos parentais nativos integrados no sistema.",
         "sugestao_ia": "Oferecer extensão temporária de faturação para acomodar os ciclos orçamentais públicos, solidificando a parceria a longo prazo."
@@ -860,15 +2179,27 @@
         "num_of_tickets": 18,
         "num_of_calls": 31,
         "ranking": 2.5,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2020-01",
         "type": "premium",
         "email": "f.castro@investimentos-funchal.com",
         "numero_de_tel": "+351 964 121 212",
         "timeline": [
-          { "type": "Call received", "reason": "Billing issue - Unrecognized interest", "date": "2026-04-14" },
-          { "type": "Call received", "reason": "Severe dashboard load latency", "date": "2026-05-19" },
-          { "type": "Email received", "reason": "Intention to terminate contract", "date": "2026-06-17" }
+          {
+            "type": "Call received",
+            "reason": "Billing issue - Unrecognized interest",
+            "date": "2026-04-14"
+          },
+          {
+            "type": "Call received",
+            "reason": "Severe dashboard load latency",
+            "date": "2026-05-19"
+          },
+          {
+            "type": "Email received",
+            "reason": "Intention to terminate contract",
+            "date": "2026-06-17"
+          }
         ],
         "ia_note": "Cliente VIP muito instável sediado na Madeira. Reporta problemas graves e sucessivos de latência e erros de arredondamento de taxas nas suas tabelas de investimento. Nível de frustração máximo acumulado.",
         "sugestao_ia": "Alocar uma equipa técnica de Engenharia dedicada a auditar a base de dados do cliente em tempo real e agendar reunião presencial de contenção com urgência."
@@ -879,15 +2210,27 @@
         "num_of_tickets": 2,
         "num_of_calls": 5,
         "ranking": 4.6,
-        "location" : "TechVentures Inc",
+        "location": "TechVentures Inc",
         "since": "2024-12",
         "type": "standard",
         "email": "ines.coelho@vinhos-douro.pt",
         "numero_de_tel": "+351 918 323 434",
         "timeline": [
-          { "type": "Chat started", "reason": "Inventory sync setup guidance", "date": "2025-05-12" },
-          { "type": "Call received", "reason": "Billing issue - VAT exempt check", "date": "2025-08-20" },
-          { "type": "Email received", "reason": "Export custom tax reports", "date": "2026-03-15" }
+          {
+            "type": "Chat started",
+            "reason": "Inventory sync setup guidance",
+            "date": "2025-05-12"
+          },
+          {
+            "type": "Call received",
+            "reason": "Billing issue - VAT exempt check",
+            "date": "2025-08-20"
+          },
+          {
+            "type": "Email received",
+            "reason": "Export custom tax reports",
+            "date": "2026-03-15"
+          }
         ],
         "ia_note": "Produtora agrícola local focada na exportação de mercadorias. Utiliza o sistema maioritariamente para guias de transporte e isenções fiscais complexas de exportação. Perfil calmo e metódico.",
         "sugestao_ia": "Ativar o módulo automatizado de validação aduaneira no perfil do cliente para poupar tempo operacional nas tarefas recorrentes de exportação."
@@ -902,14 +2245,46 @@
         "email": "mariana.costa@empresa.com",
         "since": "2024-03",
         "skills": [
-          { "category": "Technical Support", "proficiency": "91%", "level": "Expert" },
-          { "category": "Billing", "proficiency": "45%", "level": "Competent" },
-          { "category": "Conflict Resolution", "proficiency": "75%", "level": "Proficient" },
-          { "category": "Sales", "proficiency": "76%", "level": "Advanced" },
-          { "category": "English", "proficiency": "100%", "level": "Master" },
-          { "category": "Portuguese", "proficiency": "100%", "level": "Master" },
-          { "category": "Spanish", "proficiency": "19%", "level": "Fundamental" },
-          { "category": "Product Knowledge", "proficiency": "37%", "level": "Operational" }
+          {
+            "category": "Technical Support",
+            "proficiency": "91%",
+            "level": "Expert"
+          },
+          {
+            "category": "Billing",
+            "proficiency": "45%",
+            "level": "Competent"
+          },
+          {
+            "category": "Conflict Resolution",
+            "proficiency": "75%",
+            "level": "Proficient"
+          },
+          {
+            "category": "Sales",
+            "proficiency": "76%",
+            "level": "Advanced"
+          },
+          {
+            "category": "English",
+            "proficiency": "100%",
+            "level": "Master"
+          },
+          {
+            "category": "Portuguese",
+            "proficiency": "100%",
+            "level": "Master"
+          },
+          {
+            "category": "Spanish",
+            "proficiency": "19%",
+            "level": "Fundamental"
+          },
+          {
+            "category": "Product Knowledge",
+            "proficiency": "37%",
+            "level": "Operational"
+          }
         ],
         "total_calls": 1420,
         "talk_time": "04:15",
@@ -917,7 +2292,11 @@
         "taxa_de_sucesso": "92%",
         "nivel_do_agente": "Senior Agent",
         "chat": [
-          { "sender": "Ricardo Silva", "message": "Mariana, excelente trabalho com as devoluções de hoje.", "time": "14:30" }
+          {
+            "sender": "Ricardo Silva",
+            "message": "Mariana, excelente trabalho com as devoluções de hoje.",
+            "time": "14:30"
+          }
         ]
       },
       {
@@ -928,10 +2307,26 @@
         "email": "pedro.santos@empresa.com",
         "since": "2025-01",
         "skills": [
-          { "category": "Technical Support", "proficiency": "95%", "level": "Master" },
-          { "category": "Troubleshooting", "proficiency": "90%", "level": "Expert" },
-          { "category": "Portuguese", "proficiency": "100%", "level": "Master" },
-          { "category": "English", "proficiency": "80%", "level": "Advanced" }
+          {
+            "category": "Technical Support",
+            "proficiency": "95%",
+            "level": "Master"
+          },
+          {
+            "category": "Troubleshooting",
+            "proficiency": "90%",
+            "level": "Expert"
+          },
+          {
+            "category": "Portuguese",
+            "proficiency": "100%",
+            "level": "Master"
+          },
+          {
+            "category": "English",
+            "proficiency": "80%",
+            "level": "Advanced"
+          }
         ],
         "total_calls": 890,
         "talk_time": "06:40",
@@ -939,7 +2334,11 @@
         "taxa_de_sucesso": "85%",
         "nivel_do_agente": "Junior Agent",
         "chat": [
-          { "sender": "Ricardo Silva", "message": "Pedro, verifica o ticket da Carla por favor.", "time": "11:10" }
+          {
+            "sender": "Ricardo Silva",
+            "message": "Pedro, verifica o ticket da Carla por favor.",
+            "time": "11:10"
+          }
         ]
       },
       {
@@ -950,9 +2349,21 @@
         "email": "ines.ferreira@empresa.com",
         "since": "2023-09",
         "skills": [
-          { "category": "Billing", "proficiency": "98%", "level": "Master" },
-          { "category": "Account Management", "proficiency": "85%", "level": "Expert" },
-          { "category": "Portuguese", "proficiency": "100%", "level": "Master" }
+          {
+            "category": "Billing",
+            "proficiency": "98%",
+            "level": "Master"
+          },
+          {
+            "category": "Account Management",
+            "proficiency": "85%",
+            "level": "Expert"
+          },
+          {
+            "category": "Portuguese",
+            "proficiency": "100%",
+            "level": "Master"
+          }
         ],
         "total_calls": 2100,
         "talk_time": "05:10",
@@ -960,7 +2371,11 @@
         "taxa_de_sucesso": "94%",
         "nivel_do_agente": "Senior Agent",
         "chat": [
-          { "sender": "Inês Ferreira", "message": "Faturas retificadas enviadas à contabilidade.", "time": "16:15" }
+          {
+            "sender": "Inês Ferreira",
+            "message": "Faturas retificadas enviadas à contabilidade.",
+            "time": "16:15"
+          }
         ]
       },
       {
@@ -971,9 +2386,21 @@
         "email": "joao.almeida@empresa.com",
         "since": "2025-04",
         "skills": [
-          { "category": "Communication", "proficiency": "80%", "level": "Advanced" },
-          { "category": "Product Knowledge", "proficiency": "70%", "level": "Proficient" },
-          { "category": "Portuguese", "proficiency": "100%", "level": "Master" }
+          {
+            "category": "Communication",
+            "proficiency": "80%",
+            "level": "Advanced"
+          },
+          {
+            "category": "Product Knowledge",
+            "proficiency": "70%",
+            "level": "Proficient"
+          },
+          {
+            "category": "Portuguese",
+            "proficiency": "100%",
+            "level": "Master"
+          }
         ],
         "total_calls": 430,
         "talk_time": "04:55",
@@ -981,7 +2408,11 @@
         "taxa_de_sucesso": "78%",
         "nivel_do_agente": "Junior Agent",
         "chat": [
-          { "sender": "João Almeida", "message": "Estou em linha com um cliente novo a fazer onboarding.", "time": "10:02" }
+          {
+            "sender": "João Almeida",
+            "message": "Estou em linha com um cliente novo a fazer onboarding.",
+            "time": "10:02"
+          }
         ]
       },
       {
@@ -992,9 +2423,21 @@
         "email": "catarina.rocha@empresa.com",
         "since": "2022-02",
         "skills": [
-          { "category": "Sales", "proficiency": "94%", "level": "Expert" },
-          { "category": "Negotiation", "proficiency": "96%", "level": "Master" },
-          { "category": "Conflict Resolution", "proficiency": "88%", "level": "Expert" }
+          {
+            "category": "Sales",
+            "proficiency": "94%",
+            "level": "Expert"
+          },
+          {
+            "category": "Negotiation",
+            "proficiency": "96%",
+            "level": "Master"
+          },
+          {
+            "category": "Conflict Resolution",
+            "proficiency": "88%",
+            "level": "Expert"
+          }
         ],
         "total_calls": 3800,
         "talk_time": "07:20",
@@ -1002,7 +2445,11 @@
         "taxa_de_sucesso": "97%",
         "nivel_do_agente": "Expert Agent",
         "chat": [
-          { "sender": "Ricardo Silva", "message": "Parabéns pela retenção do cliente de ontem, Catarina.", "time": "09:30" }
+          {
+            "sender": "Ricardo Silva",
+            "message": "Parabéns pela retenção do cliente de ontem, Catarina.",
+            "time": "09:30"
+          }
         ]
       },
       {
@@ -1013,8 +2460,16 @@
         "email": "miguel.antunes@empresa.com",
         "since": "2026-01",
         "skills": [
-          { "category": "Technical Support", "proficiency": "65%", "level": "Operational" },
-          { "category": "Troubleshooting", "proficiency": "70%", "level": "Proficient" }
+          {
+            "category": "Technical Support",
+            "proficiency": "65%",
+            "level": "Operational"
+          },
+          {
+            "category": "Troubleshooting",
+            "proficiency": "70%",
+            "level": "Proficient"
+          }
         ],
         "total_calls": 120,
         "talk_time": "08:10",
@@ -1022,7 +2477,11 @@
         "taxa_de_sucesso": "68%",
         "nivel_do_agente": "Trainee Agent",
         "chat": [
-          { "sender": "Miguel Antunes", "message": "Ainda a decifrar a nova documentação da API.", "time": "15:40" }
+          {
+            "sender": "Miguel Antunes",
+            "message": "Ainda a decifrar a nova documentação da API.",
+            "time": "15:40"
+          }
         ]
       },
       {
@@ -1033,8 +2492,16 @@
         "email": "rita.martins@empresa.com",
         "since": "2023-05",
         "skills": [
-          { "category": "Product Knowledge", "proficiency": "89%", "level": "Expert" },
-          { "category": "Communication", "proficiency": "92%", "level": "Expert" }
+          {
+            "category": "Product Knowledge",
+            "proficiency": "89%",
+            "level": "Expert"
+          },
+          {
+            "category": "Communication",
+            "proficiency": "92%",
+            "level": "Expert"
+          }
         ],
         "total_calls": 1950,
         "talk_time": "03:45",
@@ -1042,7 +2509,11 @@
         "taxa_de_sucesso": "91%",
         "nivel_do_agente": "Senior Agent",
         "chat": [
-          { "sender": "Rita Martins", "message": "Disponível para ajudar nas filas de espera.", "time": "14:00" }
+          {
+            "sender": "Rita Martins",
+            "message": "Disponível para ajudar nas filas de espera.",
+            "time": "14:00"
+          }
         ]
       },
       {
@@ -1053,8 +2524,16 @@
         "email": "tomas.simoes@empresa.com",
         "since": "2024-10",
         "skills": [
-          { "category": "Billing", "proficiency": "82%", "level": "Advanced" },
-          { "category": "Excel & Auditing", "proficiency": "85%", "level": "Expert" }
+          {
+            "category": "Billing",
+            "proficiency": "82%",
+            "level": "Advanced"
+          },
+          {
+            "category": "Excel & Auditing",
+            "proficiency": "85%",
+            "level": "Expert"
+          }
         ],
         "total_calls": 980,
         "talk_time": "05:30",
@@ -1062,7 +2541,11 @@
         "taxa_de_sucesso": "88%",
         "nivel_do_agente": "Intermediate Agent",
         "chat": [
-          { "sender": "Tomás Simões", "message": "Análise de reembolsos concluída.", "time": "17:00" }
+          {
+            "sender": "Tomás Simões",
+            "message": "Análise de reembolsos concluída.",
+            "time": "17:00"
+          }
         ]
       },
       {
@@ -1073,8 +2556,16 @@
         "email": "sofia.neves@empresa.com",
         "since": "2025-07",
         "skills": [
-          { "category": "Security Standards", "proficiency": "90%", "level": "Expert" },
-          { "category": "Technical Support", "proficiency": "84%", "level": "Advanced" }
+          {
+            "category": "Security Standards",
+            "proficiency": "90%",
+            "level": "Expert"
+          },
+          {
+            "category": "Technical Support",
+            "proficiency": "84%",
+            "level": "Advanced"
+          }
         ],
         "total_calls": 670,
         "talk_time": "06:12",
@@ -1082,7 +2573,11 @@
         "taxa_de_sucesso": "86%",
         "nivel_do_agente": "Intermediate Agent",
         "chat": [
-          { "sender": "Sofia Neves", "message": "Protocolos 2FA ativos na conta do cliente.", "time": "11:45" }
+          {
+            "sender": "Sofia Neves",
+            "message": "Protocolos 2FA ativos na conta do cliente.",
+            "time": "11:45"
+          }
         ]
       },
       {
@@ -1093,8 +2588,16 @@
         "email": "diogo.ribeiro@empresa.com",
         "since": "2021-09",
         "skills": [
-          { "category": "Sales", "proficiency": "95%", "level": "Master" },
-          { "category": "CRM Tools", "proficiency": "98%", "level": "Master" }
+          {
+            "category": "Sales",
+            "proficiency": "95%",
+            "level": "Master"
+          },
+          {
+            "category": "CRM Tools",
+            "proficiency": "98%",
+            "level": "Master"
+          }
         ],
         "total_calls": 4120,
         "talk_time": "04:02",
@@ -1102,7 +2605,11 @@
         "taxa_de_sucesso": "95%",
         "nivel_do_agente": "Expert Agent",
         "chat": [
-          { "sender": "Diogo Ribeiro", "message": "Nova proposta enviada para renovação contratual.", "time": "12:10" }
+          {
+            "sender": "Diogo Ribeiro",
+            "message": "Nova proposta enviada para renovação contratual.",
+            "time": "12:10"
+          }
         ]
       }
     ],
@@ -1115,12 +2622,36 @@
         "email": "ricardo.silva@empresa.com",
         "since": "2022-05-01",
         "skills": [
-          { "category": "Team Leadership", "proficiency": "98%", "level": "Master" },
-          { "category": "Crisis Management", "proficiency": "95%", "level": "Master" },
-          { "category": "KPI Optimization", "proficiency": "92%", "level": "Expert" },
-          { "category": "Strategic Planning", "proficiency": "89%", "level": "Expert" },
-          { "category": "Portuguese", "proficiency": "100%", "level": "Master" },
-          { "category": "English", "proficiency": "95%", "level": "Master" }
+          {
+            "category": "Team Leadership",
+            "proficiency": "98%",
+            "level": "Master"
+          },
+          {
+            "category": "Crisis Management",
+            "proficiency": "95%",
+            "level": "Master"
+          },
+          {
+            "category": "KPI Optimization",
+            "proficiency": "92%",
+            "level": "Expert"
+          },
+          {
+            "category": "Strategic Planning",
+            "proficiency": "89%",
+            "level": "Expert"
+          },
+          {
+            "category": "Portuguese",
+            "proficiency": "100%",
+            "level": "Master"
+          },
+          {
+            "category": "English",
+            "proficiency": "95%",
+            "level": "Master"
+          }
         ],
         "total_calls": 3100,
         "talk_time": "03:10",
@@ -1128,7 +2659,11 @@
         "taxa_de_sucesso": "96%",
         "nivel_do_agente": "Supervisor",
         "chat": [
-          { "sender": "Administração", "message": "Ricardo, os rácios da tua equipa este mês estão excelentes.", "time": "09:00" }
+          {
+            "sender": "Administração",
+            "message": "Ricardo, os rácios da tua equipa este mês estão excelentes.",
+            "time": "09:00"
+          }
         ],
         "supervisor_metrics": {
           "team_size_managed": 14,
@@ -1147,8 +2682,16 @@
         "email": "mariana.costa@empresa.com",
         "since": "2024-03-15",
         "skills": [
-          { "category": "Technical Support", "proficiency": "91%", "level": "Expert" },
-          { "category": "Communication", "proficiency": "95%", "level": "Master" }
+          {
+            "category": "Technical Support",
+            "proficiency": "91%",
+            "level": "Expert"
+          },
+          {
+            "category": "Communication",
+            "proficiency": "95%",
+            "level": "Master"
+          }
         ],
         "total_calls": 1420,
         "talk_time": "04:15",
@@ -1156,7 +2699,11 @@
         "taxa_de_sucesso": "92%",
         "nivel_do_agente": "Senior Agent",
         "chat": [
-          { "sender": "Ricardo Silva", "message": "Mariana, podes assumir a fila prioritária?", "time": "10:15" }
+          {
+            "sender": "Ricardo Silva",
+            "message": "Mariana, podes assumir a fila prioritária?",
+            "time": "10:15"
+          }
         ]
       },
       {
@@ -1167,8 +2714,16 @@
         "email": "pedro.santos@empresa.com",
         "since": "2025-01-10",
         "skills": [
-          { "category": "Technical Support", "proficiency": "95%", "level": "Master" },
-          { "category": "Troubleshooting", "proficiency": "90%", "level": "Expert" }
+          {
+            "category": "Technical Support",
+            "proficiency": "95%",
+            "level": "Master"
+          },
+          {
+            "category": "Troubleshooting",
+            "proficiency": "90%",
+            "level": "Expert"
+          }
         ],
         "total_calls": 890,
         "talk_time": "06:40",
@@ -1176,7 +2731,11 @@
         "taxa_de_sucesso": "85%",
         "nivel_do_agente": "Junior Agent",
         "chat": [
-          { "sender": "Ricardo Silva", "message": "Pedro, dá uma de olho no bug do login.", "time": "10:16" }
+          {
+            "sender": "Ricardo Silva",
+            "message": "Pedro, dá uma de olho no bug do login.",
+            "time": "10:16"
+          }
         ]
       },
       {
@@ -1187,8 +2746,16 @@
         "email": "catarina.rocha@empresa.com",
         "since": "2022-02-15",
         "skills": [
-          { "category": "Sales", "proficiency": "94%", "level": "Expert" },
-          { "category": "Negotiation", "proficiency": "96%", "level": "Master" }
+          {
+            "category": "Sales",
+            "proficiency": "94%",
+            "level": "Expert"
+          },
+          {
+            "category": "Negotiation",
+            "proficiency": "96%",
+            "level": "Master"
+          }
         ],
         "total_calls": 3800,
         "talk_time": "07:20",
@@ -1196,7 +2763,11 @@
         "taxa_de_sucesso": "97%",
         "nivel_do_agente": "Expert Agent",
         "chat": [
-          { "sender": "Ricardo Silva", "message": "Catarina, liga ao Fernando Castro para controlo de danos.", "time": "11:20" }
+          {
+            "sender": "Ricardo Silva",
+            "message": "Catarina, liga ao Fernando Castro para controlo de danos.",
+            "time": "11:20"
+          }
         ]
       },
       {
@@ -1207,8 +2778,16 @@
         "email": "ines.ferreira@empresa.com",
         "since": "2023-09-01",
         "skills": [
-          { "category": "Billing", "proficiency": "98%", "level": "Master" },
-          { "category": "Account Management", "proficiency": "85%", "level": "Expert" }
+          {
+            "category": "Billing",
+            "proficiency": "98%",
+            "level": "Master"
+          },
+          {
+            "category": "Account Management",
+            "proficiency": "85%",
+            "level": "Expert"
+          }
         ],
         "total_calls": 2100,
         "talk_time": "05:10",
@@ -1216,286 +2795,1523 @@
         "taxa_de_sucesso": "94%",
         "nivel_do_agente": "Senior Agent",
         "chat": [
-          { "sender": "Inês Ferreira", "message": "Erros de faturas Madeira completamente mitigados, Ricardo.", "time": "14:15" }
+          {
+            "sender": "Inês Ferreira",
+            "message": "Erros de faturas Madeira completamente mitigados, Ricardo.",
+            "time": "14:15"
+          }
         ]
       }
     ]
   },
-
+  "knowledge": [
+    {
+      "id": "guia-consola",
+      "title": "Conheça a consola Contact Center",
+      "category": "Guia da consola",
+      "icon": "bi bi-grid-1x2",
+      "readTime": "3 min",
+      "summary": "Uma visão geral das áreas de trabalho para agentes e supervisores.",
+      "tags": [
+        "agente",
+        "supervisor",
+        "dashboard",
+        "inbox"
+      ],
+      "sections": [
+        {
+          "heading": "Uma consola, diferentes responsabilidades",
+          "text": "A consola reúne as ferramentas de atendimento num único espaço. A vista do agente privilegia o acesso rápido às conversas e aos dados do cliente; a vista do supervisor dá destaque à monitorização da operação e ao desempenho da equipa."
+        },
+        {
+          "heading": "Áreas principais",
+          "text": "Use o Dashboard para acompanhar indicadores, a Inbox para gerir conversas com clientes e com a equipa, Contacts para consultar fichas e History para rever chamadas anteriores."
+        },
+        {
+          "heading": "Contexto do projeto",
+          "text": "Esta consola é um protótipo front-end. Algumas operações representam fluxos de interface e poderão depender da futura integração com serviços de back-end."
+        }
+      ]
+    },
+    {
+      "id": "gestao-inbox",
+      "title": "Gerir conversas na Inbox",
+      "category": "Atendimento",
+      "icon": "bi bi-chat-square-text",
+      "readTime": "4 min",
+      "summary": "Organize conversas de diferentes canais e consulte o contexto antes de responder.",
+      "tags": [
+        "inbox",
+        "whatsapp",
+        "email",
+        "instagram",
+        "prioridade",
+        "equipa"
+      ],
+      "sections": [
+        {
+          "heading": "Lista de conversas",
+          "text": "A lista apresenta o nome do contacto, o canal, a mensagem mais recente, a hora, mensagens por ler e etiquetas de categoria e prioridade. Use estes elementos para identificar rapidamente o motivo e a urgência do contacto."
+        },
+        {
+          "heading": "Conversa com o cliente",
+          "text": "Ao abrir uma conversa, consulte a informação do cliente, acompanhe o chat e reveja o resumo e as sugestões de apoio. Confirme sempre os dados do caso antes de enviar uma resposta."
+        },
+        {
+          "heading": "Chat de equipa",
+          "text": "A área Team permite acompanhar conversas internas com colegas e grupos de trabalho, partilhando contexto e coordenando o atendimento."
+        }
+      ]
+    },
+    {
+      "id": "ficha-contacto",
+      "title": "Consultar a ficha e o histórico do cliente",
+      "category": "Clientes e contactos",
+      "icon": "bi bi-person-vcard",
+      "readTime": "3 min",
+      "summary": "Use os dados de contacto, as interações anteriores e as notas para dar continuidade ao atendimento.",
+      "tags": [
+        "contacts",
+        "clientes",
+        "timeline",
+        "tickets",
+        "CSAT"
+      ],
+      "sections": [
+        {
+          "heading": "Dados de contacto",
+          "text": "A ficha reúne informação como nome, telefone, e-mail, localização, tipo de cliente e avaliação. Consulte os dados disponíveis antes de iniciar um contacto ou encaminhar um pedido."
+        },
+        {
+          "heading": "Timeline",
+          "text": "A timeline resume interações anteriores, como chamadas, chats e e-mails. Use-a para perceber o que já foi tentado e evitar pedir ao cliente que repita informação."
+        },
+        {
+          "heading": "Indicadores do cliente",
+          "text": "O número de interações, tickets e chamadas ajuda a compreender a relação com o cliente. Estes valores complementam o contexto da conversa e não substituem a análise do caso atual."
+        }
+      ]
+    },
+    {
+      "id": "historico-chamadas",
+      "title": "Consultar o histórico de chamadas",
+      "category": "Atendimento",
+      "icon": "bi bi-telephone-inbound",
+      "readTime": "3 min",
+      "summary": "Reveja chamadas recebidas e efetuadas, resultados e notas de acompanhamento.",
+      "tags": [
+        "history",
+        "chamadas",
+        "recebida",
+        "efetuada",
+        "abandonada"
+      ],
+      "sections": [
+        {
+          "heading": "Direção e resultado",
+          "text": "Cada registo identifica se a chamada foi recebida ou efetuada e apresenta o respetivo estado. Uma chamada completa foi concluída, uma chamada perdida não chegou a ser atendida e uma linha ocupada não permitiu estabelecer contacto."
+        },
+        {
+          "heading": "Detalhes do registo",
+          "text": "Abra uma chamada para consultar os dados do cliente, a duração, a nota de contexto, sugestões de acompanhamento e eventos anteriores da timeline."
+        },
+        {
+          "heading": "Continuidade",
+          "text": "Antes de devolver uma chamada, leia as notas disponíveis e confirme o objetivo do contacto para que a conversa possa prosseguir com o contexto certo."
+        }
+      ]
+    },
+    {
+      "id": "indicadores-contact-center",
+      "title": "Indicadores de desempenho do Contact Center",
+      "category": "Indicadores",
+      "icon": "bi bi-graph-up-arrow",
+      "readTime": "5 min",
+      "summary": "Uma explicação simples dos indicadores usados para acompanhar atendimento e operação.",
+      "tags": [
+        "AHT",
+        "FCR",
+        "SLA",
+        "ASA",
+        "CSAT",
+        "KPI"
+      ],
+      "sections": [
+        {
+          "heading": "AHT — tempo médio de atendimento",
+          "text": "O Average Handle Time representa o tempo médio dedicado a cada chamada, incluindo a conversa e o trabalho associado ao atendimento."
+        },
+        {
+          "heading": "FCR — resolução no primeiro contacto",
+          "text": "First Contact Resolution acompanha a proporção de pedidos resolvidos no primeiro contacto, sem necessidade de novo contacto para o mesmo problema."
+        },
+        {
+          "heading": "SLA e ASA",
+          "text": "Service Level Agreement mede o cumprimento de um objetivo de serviço, como atender dentro do tempo definido. Average Speed of Answer mede o tempo médio que um cliente espera até ser atendido."
+        },
+        {
+          "heading": "CSAT",
+          "text": "Customer Satisfaction Score representa a satisfação declarada pelo cliente após uma interação. Analise a tendência em conjunto com o contexto e o tipo de pedido."
+        }
+      ]
+    },
+    {
+      "id": "apoio-inteligencia-artificial",
+      "title": "Usar notas e sugestões de Inteligência Artificial",
+      "category": "Apoio inteligente",
+      "icon": "bi bi-stars",
+      "readTime": "3 min",
+      "summary": "Aproveite resumos e sugestões para ganhar contexto sem perder a validação humana.",
+      "tags": [
+        "IA",
+        "resumo",
+        "sugestões",
+        "notas",
+        "agente"
+      ],
+      "sections": [
+        {
+          "heading": "Nota breve",
+          "text": "A nota apresentada na lista destaca o motivo provável do contacto e informação útil para uma leitura rápida."
+        },
+        {
+          "heading": "Resumo e sugestões",
+          "text": "Na vista detalhada, o resumo organiza o contexto conhecido e as sugestões apontam possíveis próximos passos, como consultar um artigo, confirmar dados ou acompanhar o cliente."
+        },
+        {
+          "heading": "Valide antes de agir",
+          "text": "Use estes elementos como apoio. Confirme as informações na conversa e nos registos disponíveis antes de enviar uma resposta, alterar dados ou assumir um compromisso com o cliente."
+        }
+      ]
+    },
+    {
+      "id": "vista-supervisor",
+      "title": "Acompanhar a operação como supervisor",
+      "category": "Supervisão",
+      "icon": "bi bi-speedometer2",
+      "readTime": "4 min",
+      "summary": "Acompanhe volume, motivos de contacto, desempenho e situações que precisam de atenção.",
+      "tags": [
+        "supervisor",
+        "dashboard",
+        "fila",
+        "SLA",
+        "equipa"
+      ],
+      "sections": [
+        {
+          "heading": "Monitorização",
+          "text": "O dashboard agrega chamadas recebidas, atendidas e perdidas, motivos de contacto e resultados da equipa. Observe os indicadores em conjunto para identificar tendências e necessidades de apoio."
+        },
+        {
+          "heading": "Priorizar situações",
+          "text": "Reclamações, contactos urgentes e pedidos fora do nível de serviço esperado podem exigir acompanhamento próximo ou encaminhamento para a pessoa responsável."
+        },
+        {
+          "heading": "Apoiar a equipa",
+          "text": "Acompanhe a atividade e partilhe contexto nos canais internos para facilitar a coordenação entre agentes e reduzir transferências desnecessárias."
+        }
+      ]
+    },
+    {
+      "id": "prioridades-e-encaminhamento",
+      "title": "Priorizar e encaminhar contactos",
+      "category": "Boas práticas",
+      "icon": "bi bi-signpost-split",
+      "readTime": "4 min",
+      "summary": "Use prioridade, categoria e contexto para encaminhar cada pedido à equipa certa.",
+      "tags": [
+        "prioridade",
+        "encaminhamento",
+        "SLA",
+        "fila"
+      ],
+      "sections": [
+        {
+          "heading": "Avalie urgência e impacto",
+          "text": "Considere o impacto no cliente, o tempo já passado em fila e os compromissos de serviço aplicáveis. Uma etiqueta ajuda a ordenar o trabalho, mas deve ser confirmada com o contexto da conversa."
+        },
+        {
+          "heading": "Encaminhe com contexto",
+          "text": "Ao transferir um pedido, registe o motivo, as verificações já feitas e o próximo passo combinado. Isto evita repetição e facilita a continuidade."
+        },
+        {
+          "heading": "Acompanhe pendências",
+          "text": "Defina uma ação seguinte e um prazo para os pedidos que dependem de outra equipa. Reveja os casos próximos do limite de SLA."
+        }
+      ]
+    },
+    {
+      "id": "qualidade-e-privacidade",
+      "title": "Qualidade, privacidade e registo do atendimento",
+      "category": "Boas práticas",
+      "icon": "bi bi-shield-check",
+      "readTime": "5 min",
+      "summary": "Mantenha registos úteis e proteja os dados pessoais durante cada interação.",
+      "tags": [
+        "qualidade",
+        "privacidade",
+        "RGPD",
+        "dados"
+      ],
+      "sections": [
+        {
+          "heading": "Confirme a identidade",
+          "text": "Antes de consultar ou alterar informação sensível, siga o processo de validação de identidade definido pela organização."
+        },
+        {
+          "heading": "Registe apenas o necessário",
+          "text": "Escreva notas claras, factuais e relevantes para resolver o pedido. Evite incluir dados pessoais que não sejam necessários à continuidade do atendimento."
+        },
+        {
+          "heading": "Feche o ciclo",
+          "text": "Confirme com o cliente o resultado e o próximo passo. Atualize o estado do caso para que a equipa saiba se está concluído ou aguarda acompanhamento."
+        }
+      ]
+    },
+    {
+      "id": "continuidade-multicanal",
+      "title": "Garantir continuidade entre canais",
+      "category": "Atendimento",
+      "icon": "bi bi-arrow-left-right",
+      "readTime": "4 min",
+      "summary": "Dê continuidade ao atendimento quando o cliente alterna entre telefone, chat, email e redes sociais.",
+      "tags": [
+        "omnichannel",
+        "telefone",
+        "chat",
+        "email",
+        "continuidade"
+      ],
+      "sections": [
+        {
+          "heading": "Comece pelo contexto",
+          "text": "Consulte a ficha do contacto e os registos recentes antes de pedir novamente os mesmos dados ou passos já realizados."
+        },
+        {
+          "heading": "Adapte a resposta ao canal",
+          "text": "Use mensagens concisas em chat e confirme informação importante por escrito quando isso ajudar o cliente a executar os próximos passos."
+        },
+        {
+          "heading": "Registe o resultado",
+          "text": "Associe a interação ao motivo correto e documente compromissos, prazos e encaminhamentos para que qualquer agente possa retomar o atendimento."
+        }
+      ]
+    }
+  ],
   "history": [
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "Carla Rodrigues",
-    "numero_do_user": "+351 912 888 333",
-    "email": "carla.rodrigues@email.pt",
-    "location": "Lisboa, Portugal",
-    "since": "2022-11",
-    "ranking": 4.8,
-    "type": "premium",
-    "ia_note": "Cliente interessada no novo produto.",
-    "ai_note_detailed": "A cliente demonstrou grande entusiasmo na nova solução de escalabilidade para mitigar os timeouts da API atual. Demonstra pressa na transição por questões de desempenho do seu negócio.",
-    "suggestions": "Agendar demonstração técnica da API e enviar proposta com valores de migração de plano.",
-    "data_hora": "2026-06-22 10:14",
-    "tempo_de_ligacao": "05:32",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chamada recebida", "motivo": "Erro de faturação", "date": "2026-05-12" },
-      { "tipo": "Chat iniciado", "motivo": "Suporte Técnico - API Timeout", "date": "2026-06-01" },
-      { "tipo": "E-mail recebido", "motivo": "Upgrade de conta - Alteração de plano", "date": "2026-06-18" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "Manuel Antunes",
-    "numero_do_user": "+351 965 123 456",
-    "email": "manuel.antunes@outlook.pt",
-    "location": "Porto, Portugal",
-    "since": "2024-05",
-    "ranking": 3.5,
-    "type": "standard",
-    "ia_note": "Situação atual indica possível duplicação de cobrança.",
-    "ai_note_detailed": "O utilizador ligou bastante insatisfeito devido a um duplo débito direto na fatura. Confirmou-se visualmente a falha no processamento do lote bancário de junho.",
-    "suggestions": "Emitir nota de crédito urgente e enviar e-mail de retratação com o respetivo comprovativo.",
-    "data_hora": "2026-06-22 11:30",
-    "tempo_de_ligacao": "04:15",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "E-mail recebido", "motivo": "Pedido de informação sobre produto", "date": "2026-04-10" },
-      { "tipo": "Chamada recebida", "motivo": "Ajuda no processo de onboarding", "date": "2026-04-15" },
-      { "tipo": "Chat iniciado", "motivo": "Problema de faturação - Duplo débito", "date": "2026-06-10" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "outgoing",
-    "nome_do_user": "Beatriz Silva",
-    "numero_do_user": "+351 934 777 111",
-    "email": "bea.silva@gmail.com",
-    "location": "Braga, Portugal",
-    "since": "2025-01",
-    "ranking": 2.9,
-    "type": "standard",
-    "ia_note": "Não atendeu, tentar novamente.",
-    "ai_note_detailed": "Tentativa de contacto proativo para apresentar as novas atualizações da App móvel, após a cliente ter mostrado forte frustração com a interface de utilizador antiga.",
-    "suggestions": "Enviar SMS de cortesia com alternativa de agendamento ou tentar novo contacto amanhã de manhã.",
-    "data_hora": "2026-06-22 14:05",
-    "tempo_de_ligacao": "01:00 (A tocar)",
-    "status": "lost",
-    "call_history": [
-      { "tipo": "Chat iniciado", "motivo": "Loop no reset de password", "date": "2026-01-20" },
-      { "tipo": "E-mail recebido", "motivo": "Pedido de remoção de dados RGPD", "date": "2026-05-14" },
-      { "tipo": "Chamada recebida", "motivo": "Cancelamento de pedido de remoção", "date": "2026-05-16" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "Miguel Santos",
-    "numero_do_user": "+351 911 000 000",
-    "email": "m.santos@corporate.pt",
-    "location": "Lisboa, Portugal",
-    "since": "2020-05",
-    "ranking": 3.1,
-    "type": "premium",
-    "ia_note": "Linha ocupada, cliente tentou ligar em simultâneo.",
-    "ai_note_detailed": "O sistema registou uma tentativa de entrada do cliente enquanto o supervisor tentava uma ligação de retenção em diferido. Alto risco de churn detetado.",
-    "suggestions": "Solicitar ao supervisor da conta uma chamada imediata e exclusiva para mitigar a quebra contratual.",
-    "data_hora": "2026-06-22 15:20",
-    "tempo_de_ligacao": "00:00",
-    "status": "occupied",
-    "call_history": [
-      { "tipo": "E-mail recebido", "motivo": "Reclamação formal - Quebra de serviço", "date": "2026-05-26" },
-      { "tipo": "Chamada recebida", "motivo": "Escalonamento para Supervisor", "date": "2026-05-27" },
-      { "tipo": "Chamada recebida", "motivo": "Revisão do contrato de compensação", "date": "2026-06-10" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "Sara Vasconcelos",
-    "numero_do_user": "+351 928 444 555",
-    "email": "sara.vasc@madeirabiz.com",
-    "location": "Funchal, Madeira",
-    "since": "2026-06",
-    "ranking": 5.0,
-    "type": "new",
-    "ia_note": "Apoio inicial de onboarding configurado com sucesso.",
-    "ai_note_detailed": "A cliente demonstrou excelente recetividade. Foi guiada passo a passo na parametrização das permissões de equipa locais para a sua empresa na Madeira.",
-    "suggestions": "Enviar o guia completo de onboarding em PDF por e-mail para consulta futura da equipa.",
-    "data_hora": "2026-06-23 09:15",
-    "tempo_de_ligacao": "08:45",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chat iniciado", "motivo": "Erro na criação de conta", "date": "2026-06-15" },
-      { "tipo": "Chamada recebida", "motivo": "Chamada de boas-vindas e ajuda", "date": "2026-06-16" },
-      { "tipo": "E-mail recebido", "motivo": "Submissão de dados de faturação", "date": "2026-06-19" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "outgoing",
-    "nome_do_user": "Rui Fonseca",
-    "numero_do_user": "+351 919 999 222",
-    "email": "rui.fonseca@techcorp.pt",
-    "location": "Aveiro, Portugal",
-    "since": "2021-03",
-    "ranking": 4.2,
-    "type": "premium",
-    "ia_note": "Contacto proativo para acompanhamento de performance.",
-    "ai_note_detailed": "Chamada realizada dentro do plano de follow-ups quinzenais acordado. O cliente confirma que a estabilidade do servidor e os SLAs estão dentro do esperado.",
-    "suggestions": "Manter os tickets deste cliente reencaminhados diretamente para a Engenharia de Nível 2.",
-    "data_hora": "2026-06-23 10:00",
-    "tempo_de_ligacao": "03:10",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chamada recebida", "motivo": "Falha na migração do servidor", "date": "2026-03-22" },
-      { "tipo": "E-mail recebido", "motivo": "Pedido de compensação de SLA", "date": "2026-03-25" },
-      { "tipo": "Chat iniciado", "motivo": "Verificação geral de performance", "date": "2026-06-14" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "Ana Martins",
-    "numero_do_user": "+351 912 345 678",
-    "email": "ana.martins@sapo.pt",
-    "location": "Funchal, Madeira",
-    "since": "2026-02",
-    "ranking": 4.5,
-    "type": "new",
-    "ia_note": "Cliente ligou devido a atraso na entrega.",
-    "ai_note_detailed": "A cliente demonstrou ansiedade relativamente ao paradeiro da sua encomenda de e-commerce com destino ao Funchal. Foi facultado o tracking marítimo atualizado.",
-    "suggestions": "Garantir o envio de SMS automático assim que a carga der entrada no cais de desembarque regional.",
-    "data_hora": "2026-06-23 11:12",
-    "tempo_de_ligacao": "06:20",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chat iniciado", "motivo": "Atraso no estado da entrega", "date": "2026-05-26" },
-      { "tipo": "Chat iniciado", "motivo": "Modificação de morada de envio", "date": "2026-05-26" },
-      { "tipo": "E-mail recebido", "motivo": "Pedido de comprovativo de compra", "date": "2026-06-12" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "outgoing",
-    "nome_do_user": "Fernando Castro",
-    "numero_do_user": "+351 964 121 212",
-    "email": "f.castro@investimentos-funchal.com",
-    "location": "Funchal, Madeira",
-    "since": "2020-01",
-    "ranking": 2.5,
-    "type": "premium",
-    "ia_note": "Telemóvel ocupado, agendada nova tentativa.",
-    "ai_note_detailed": "Tentativa de contacto urgente por parte da Engenharia para agendar a reunião presencial de contenção na Madeira. Linha dava sinal de ocupado.",
-    "suggestions": "Tentar novamente no espaço de 30 minutos ou enviar e-mail com link de agendamento Calendly.",
-    "data_hora": "2026-06-23 13:40",
-    "tempo_de_ligacao": "00:00",
-    "status": "occupied",
-    "call_history": [
-      { "tipo": "Chamada recebida", "motivo": "Faturação - Juros não reconhecidos", "date": "2026-04-14" },
-      { "tipo": "Chamada recebida", "motivo": "Latência severa no dashboard", "date": "2026-05-19" },
-      { "tipo": "E-mail recebido", "motivo": "Intenção de rescisão de contrato", "date": "2026-06-17" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "António Melo",
-    "numero_do_user": "+351 915 222 333",
-    "email": "antonio.melo@sapo.pt",
-    "location": "Coimbra, Portugal",
-    "since": "2026-05",
-    "ranking": 3.0,
-    "type": "new",
-    "ia_note": "Chamada abandonada pelo user após tempo em espera.",
-    "ai_note_detailed": "O novo utilizador desligou o telefone após passar 1 minuto e 5 segundos na fila de espera do suporte telefónico. O histórico recente do cliente já indicava alguma quebra de confiança.",
-    "suggestions": "Efetuar uma chamada de retorno (callback) prioritária para evitar a perda do cliente no período experimental.",
-    "data_hora": "2026-06-23 14:15",
-    "tempo_de_ligacao": "01:05 (Em espera)",
-    "status": "lost",
-    "call_history": [
-      { "tipo": "Chamada recebida", "motivo": "Linha ocupada - Chamada abandonada", "date": "2026-05-25" },
-      { "tipo": "Chat iniciado", "motivo": "Verificação de política de reembolso", "date": "2026-05-28" },
-      { "tipo": "E-mail recebido", "motivo": "Pedido de extensão de trial", "date": "2026-06-02" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "outgoing",
-    "nome_do_user": "Cláudia Vieira",
-    "numero_do_user": "+351 917 454 200",
-    "email": "claudia.v@agenciamodels.pt",
-    "location": "Lisboa, Portugal",
-    "since": "2023-11",
-    "ranking": 4.1,
-    "type": "standard",
-    "ia_note": "Resolução de erro na sincronização com a Meta API.",
-    "ai_note_detailed": "Ligação efetuada para apoiar na re-autenticação do token de acesso do Instagram. A sincronização de marketing ficou totalmente operacional durante a chamada.",
-    "suggestions": "Partilhar o artigo do help center focado no módulo avançado de design de newsletters.",
-    "data_hora": "2026-06-23 14:55",
-    "tempo_de_ligacao": "04:12",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chat iniciado", "motivo": "Setup de automação de marketing", "date": "2026-01-15" },
-      { "tipo": "E-mail recebido", "motivo": "Implementação de fontes customizadas", "date": "2026-03-20" },
-      { "tipo": "Chat iniciado", "motivo": "Erro de sincronização Meta API", "date": "2026-06-11" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "Diana Reis",
-    "numero_do_user": "+351 934 111 222",
-    "email": "diana.reis@gmail.com",
-    "location": "Aveiro, Portugal",
-    "since": "2023-09",
-    "ranking": 4.6,
-    "type": "standard",
-    "ia_note": "Cliente reporta uma possível duplicação na fatura de outubro.",
-    "ai_note_detailed": "A cliente identificou duas linhas para o mesmo serviço na fatura deste mês. A equipa de faturação está a comparar o documento com os movimentos da conta antes de confirmar qualquer correção.",
-    "suggestions": "Validar a fatura e o histórico de pagamentos; enviar uma explicação clara e corrigir o documento se a duplicação se confirmar.",
-    "data_hora": "2026-10-26 09:42",
-    "tempo_de_ligacao": "04:10",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "E-mail recebido", "motivo": "Alteração do plano", "date": "2026-06-14" },
-      { "tipo": "Chat iniciado", "motivo": "Métodos de pagamento", "date": "2026-08-03" },
-      { "tipo": "WhatsApp recebido", "motivo": "Possível duplicação na fatura", "date": "2026-10-26" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "outgoing",
-    "nome_do_user": "José Carlos",
-    "numero_do_user": "+351 961 777 999",
-    "email": "jcarlos@construcoes.pt",
-    "location": "Coimbra, Portugal",
-    "since": "2022-04",
-    "ranking": 4.3,
-    "type": "premium",
-    "ia_note": "Devolução de chamada para investigar falha na integração contabilística.",
-    "ai_note_detailed": "O cliente recebeu apoio inicial por e-mail. A chamada de retorno ficou agendada para recolher o código de erro e confirmar a hora da última sincronização com o software de contabilidade.",
-    "suggestions": "Recolher a mensagem de erro, confirmar permissões da integração e escalar para a equipa técnica se a sincronização continuar interrompida.",
-    "data_hora": "2026-10-26 10:25",
-    "tempo_de_ligacao": "06:48",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chamada recebida", "motivo": "Configuração da integração", "date": "2026-03-09" },
-      { "tipo": "E-mail recebido", "motivo": "Atualização de permissões", "date": "2026-07-21" },
-      { "tipo": "Chamada efetuada", "motivo": "Acompanhamento de falha de sincronização", "date": "2026-10-26" }
-    ]
-  },
-  {
-    "tipo_de_chamada": "incoming",
-    "nome_do_user": "António Melo",
-    "numero_do_user": "+351 915 222 333",
-    "email": "antonio.melo@sapo.pt",
-    "location": "Coimbra, Portugal",
-    "since": "2026-05",
-    "ranking": 4.0,
-    "type": "new",
-    "ia_note": "Pedido de previsão de entrega da encomenda #7842.",
-    "ai_note_detailed": "O cliente perguntou pela entrega de uma encomenda confirmada a 23 de outubro. O tracking está a ser consultado para partilhar uma previsão atualizada.",
-    "suggestions": "Consultar o estado do envio e enviar a previsão por mensagem, ativando notificações de entrega se o cliente pretender.",
-    "data_hora": "2026-10-25 16:12",
-    "tempo_de_ligacao": "03:36",
-    "status": "complete",
-    "call_history": [
-      { "tipo": "Chamada recebida", "motivo": "Política de devoluções", "date": "2026-08-30" },
-      { "tipo": "Encomenda criada", "motivo": "Encomenda #7842", "date": "2026-10-23" },
-      { "tipo": "Instagram recebido", "motivo": "Previsão de entrega", "date": "2026-10-25" }
-    ]
-  }
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Carla Rodrigues",
+      "numero_do_user": "+351 912 888 333",
+      "email": "carla.rodrigues@email.pt",
+      "location": "Lisboa, Portugal",
+      "since": "2022-11",
+      "ranking": 4.8,
+      "type": "premium",
+      "ia_note": "Cliente interessada no novo produto.",
+      "ai_note_detailed": "A cliente demonstrou grande entusiasmo na nova solução de escalabilidade para mitigar os timeouts da API atual. Demonstra pressa na transição por questões de desempenho do seu negócio.",
+      "suggestions": "Agendar demonstração técnica da API e enviar proposta com valores de migração de plano.",
+      "data_hora": "2026-06-22 10:14",
+      "tempo_de_ligacao": "05:32",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Erro de faturação",
+          "date": "2026-05-12"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Suporte Técnico - API Timeout",
+          "date": "2026-06-01"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Upgrade de conta - Alteração de plano",
+          "date": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Manuel Antunes",
+      "numero_do_user": "+351 965 123 456",
+      "email": "manuel.antunes@outlook.pt",
+      "location": "Porto, Portugal",
+      "since": "2024-05",
+      "ranking": 3.5,
+      "type": "standard",
+      "ia_note": "Situação atual indica possível duplicação de cobrança.",
+      "ai_note_detailed": "O utilizador ligou bastante insatisfeito devido a um duplo débito direto na fatura. Confirmou-se visualmente a falha no processamento do lote bancário de junho.",
+      "suggestions": "Emitir nota de crédito urgente e enviar e-mail de retratação com o respetivo comprovativo.",
+      "data_hora": "2026-06-22 11:30",
+      "tempo_de_ligacao": "04:15",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Pedido de informação sobre produto",
+          "date": "2026-04-10"
+        },
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Ajuda no processo de onboarding",
+          "date": "2026-04-15"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Problema de faturação - Duplo débito",
+          "date": "2026-06-10"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Beatriz Silva",
+      "numero_do_user": "+351 934 777 111",
+      "email": "bea.silva@gmail.com",
+      "location": "Braga, Portugal",
+      "since": "2025-01",
+      "ranking": 2.9,
+      "type": "standard",
+      "ia_note": "Não atendeu, tentar novamente.",
+      "ai_note_detailed": "Tentativa de contacto proativo para apresentar as novas atualizações da App móvel, após a cliente ter mostrado forte frustração com a interface de utilizador antiga.",
+      "suggestions": "Enviar SMS de cortesia com alternativa de agendamento ou tentar novo contacto amanhã de manhã.",
+      "data_hora": "2026-06-22 14:05",
+      "tempo_de_ligacao": "01:00 (A tocar)",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Loop no reset de password",
+          "date": "2026-01-20"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Pedido de remoção de dados RGPD",
+          "date": "2026-05-14"
+        },
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Cancelamento de pedido de remoção",
+          "date": "2026-05-16"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Miguel Santos",
+      "numero_do_user": "+351 911 000 000",
+      "email": "m.santos@corporate.pt",
+      "location": "Lisboa, Portugal",
+      "since": "2020-05",
+      "ranking": 3.1,
+      "type": "premium",
+      "ia_note": "Linha ocupada, cliente tentou ligar em simultâneo.",
+      "ai_note_detailed": "O sistema registou uma tentativa de entrada do cliente enquanto o supervisor tentava uma ligação de retenção em diferido. Alto risco de churn detetado.",
+      "suggestions": "Solicitar ao supervisor da conta uma chamada imediata e exclusiva para mitigar a quebra contratual.",
+      "data_hora": "2026-06-22 15:20",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Reclamação formal - Quebra de serviço",
+          "date": "2026-05-26"
+        },
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Escalonamento para Supervisor",
+          "date": "2026-05-27"
+        },
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Revisão do contrato de compensação",
+          "date": "2026-06-10"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Sara Vasconcelos",
+      "numero_do_user": "+351 928 444 555",
+      "email": "sara.vasc@madeirabiz.com",
+      "location": "Funchal, Madeira",
+      "since": "2026-06",
+      "ranking": 5,
+      "type": "new",
+      "ia_note": "Apoio inicial de onboarding configurado com sucesso.",
+      "ai_note_detailed": "A cliente demonstrou excelente recetividade. Foi guiada passo a passo na parametrização das permissões de equipa locais para a sua empresa na Madeira.",
+      "suggestions": "Enviar o guia completo de onboarding em PDF por e-mail para consulta futura da equipa.",
+      "data_hora": "2026-06-23 09:15",
+      "tempo_de_ligacao": "08:45",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Erro na criação de conta",
+          "date": "2026-06-15"
+        },
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Chamada de boas-vindas e ajuda",
+          "date": "2026-06-16"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Submissão de dados de faturação",
+          "date": "2026-06-19"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Rui Fonseca",
+      "numero_do_user": "+351 919 999 222",
+      "email": "rui.fonseca@techcorp.pt",
+      "location": "Aveiro, Portugal",
+      "since": "2021-03",
+      "ranking": 4.2,
+      "type": "premium",
+      "ia_note": "Contacto proativo para acompanhamento de performance.",
+      "ai_note_detailed": "Chamada realizada dentro do plano de follow-ups quinzenais acordado. O cliente confirma que a estabilidade do servidor e os SLAs estão dentro do esperado.",
+      "suggestions": "Manter os tickets deste cliente reencaminhados diretamente para a Engenharia de Nível 2.",
+      "data_hora": "2026-06-23 10:00",
+      "tempo_de_ligacao": "03:10",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Falha na migração do servidor",
+          "date": "2026-03-22"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Pedido de compensação de SLA",
+          "date": "2026-03-25"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Verificação geral de performance",
+          "date": "2026-06-14"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Ana Martins",
+      "numero_do_user": "+351 912 345 678",
+      "email": "ana.martins@sapo.pt",
+      "location": "Funchal, Madeira",
+      "since": "2026-02",
+      "ranking": 4.5,
+      "type": "new",
+      "ia_note": "Cliente ligou devido a atraso na entrega.",
+      "ai_note_detailed": "A cliente demonstrou ansiedade relativamente ao paradeiro da sua encomenda de e-commerce com destino ao Funchal. Foi facultado o tracking marítimo atualizado.",
+      "suggestions": "Garantir o envio de SMS automático assim que a carga der entrada no cais de desembarque regional.",
+      "data_hora": "2026-06-23 11:12",
+      "tempo_de_ligacao": "06:20",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Atraso no estado da entrega",
+          "date": "2026-05-26"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Modificação de morada de envio",
+          "date": "2026-05-26"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Pedido de comprovativo de compra",
+          "date": "2026-06-12"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Fernando Castro",
+      "numero_do_user": "+351 964 121 212",
+      "email": "f.castro@investimentos-funchal.com",
+      "location": "Funchal, Madeira",
+      "since": "2020-01",
+      "ranking": 2.5,
+      "type": "premium",
+      "ia_note": "Telemóvel ocupado, agendada nova tentativa.",
+      "ai_note_detailed": "Tentativa de contacto urgente por parte da Engenharia para agendar a reunião presencial de contenção na Madeira. Linha dava sinal de ocupado.",
+      "suggestions": "Tentar novamente no espaço de 30 minutos ou enviar e-mail com link de agendamento Calendly.",
+      "data_hora": "2026-06-23 13:40",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Faturação - Juros não reconhecidos",
+          "date": "2026-04-14"
+        },
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Latência severa no dashboard",
+          "date": "2026-05-19"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Intenção de rescisão de contrato",
+          "date": "2026-06-17"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "António Melo",
+      "numero_do_user": "+351 915 222 333",
+      "email": "antonio.melo@sapo.pt",
+      "location": "Coimbra, Portugal",
+      "since": "2026-05",
+      "ranking": 3,
+      "type": "new",
+      "ia_note": "Chamada abandonada pelo user após tempo em espera.",
+      "ai_note_detailed": "O novo utilizador desligou o telefone após passar 1 minuto e 5 segundos na fila de espera do suporte telefónico. O histórico recente do cliente já indicava alguma quebra de confiança.",
+      "suggestions": "Efetuar uma chamada de retorno (callback) prioritária para evitar a perda do cliente no período experimental.",
+      "data_hora": "2026-06-23 14:15",
+      "tempo_de_ligacao": "01:05 (Em espera)",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Linha ocupada - Chamada abandonada",
+          "date": "2026-05-25"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Verificação de política de reembolso",
+          "date": "2026-05-28"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Pedido de extensão de trial",
+          "date": "2026-06-02"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Cláudia Vieira",
+      "numero_do_user": "+351 917 454 200",
+      "email": "claudia.v@agenciamodels.pt",
+      "location": "Lisboa, Portugal",
+      "since": "2023-11",
+      "ranking": 4.1,
+      "type": "standard",
+      "ia_note": "Resolução de erro na sincronização com a Meta API.",
+      "ai_note_detailed": "Ligação efetuada para apoiar na re-autenticação do token de acesso do Instagram. A sincronização de marketing ficou totalmente operacional durante a chamada.",
+      "suggestions": "Partilhar o artigo do help center focado no módulo avançado de design de newsletters.",
+      "data_hora": "2026-06-23 14:55",
+      "tempo_de_ligacao": "04:12",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Setup de automação de marketing",
+          "date": "2026-01-15"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Implementação de fontes customizadas",
+          "date": "2026-03-20"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Erro de sincronização Meta API",
+          "date": "2026-06-11"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Diana Reis",
+      "numero_do_user": "+351 934 111 222",
+      "email": "diana.reis@gmail.com",
+      "location": "Aveiro, Portugal",
+      "since": "2023-09",
+      "ranking": 4.6,
+      "type": "standard",
+      "ia_note": "Cliente reporta uma possível duplicação na fatura de outubro.",
+      "ai_note_detailed": "A cliente identificou duas linhas para o mesmo serviço na fatura deste mês. A equipa de faturação está a comparar o documento com os movimentos da conta antes de confirmar qualquer correção.",
+      "suggestions": "Validar a fatura e o histórico de pagamentos; enviar uma explicação clara e corrigir o documento se a duplicação se confirmar.",
+      "data_hora": "2026-10-26 09:42",
+      "tempo_de_ligacao": "04:10",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Alteração do plano",
+          "date": "2026-06-14"
+        },
+        {
+          "tipo": "Chat iniciado",
+          "motivo": "Métodos de pagamento",
+          "date": "2026-08-03"
+        },
+        {
+          "tipo": "WhatsApp recebido",
+          "motivo": "Possível duplicação na fatura",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "José Carlos",
+      "numero_do_user": "+351 961 777 999",
+      "email": "jcarlos@construcoes.pt",
+      "location": "Coimbra, Portugal",
+      "since": "2022-04",
+      "ranking": 4.3,
+      "type": "premium",
+      "ia_note": "Devolução de chamada para investigar falha na integração contabilística.",
+      "ai_note_detailed": "O cliente recebeu apoio inicial por e-mail. A chamada de retorno ficou agendada para recolher o código de erro e confirmar a hora da última sincronização com o software de contabilidade.",
+      "suggestions": "Recolher a mensagem de erro, confirmar permissões da integração e escalar para a equipa técnica se a sincronização continuar interrompida.",
+      "data_hora": "2026-10-26 10:25",
+      "tempo_de_ligacao": "06:48",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Configuração da integração",
+          "date": "2026-03-09"
+        },
+        {
+          "tipo": "E-mail recebido",
+          "motivo": "Atualização de permissões",
+          "date": "2026-07-21"
+        },
+        {
+          "tipo": "Chamada efetuada",
+          "motivo": "Acompanhamento de falha de sincronização",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "António Melo",
+      "numero_do_user": "+351 915 222 333",
+      "email": "antonio.melo@sapo.pt",
+      "location": "Coimbra, Portugal",
+      "since": "2026-05",
+      "ranking": 4,
+      "type": "new",
+      "ia_note": "Pedido de previsão de entrega da encomenda #7842.",
+      "ai_note_detailed": "O cliente perguntou pela entrega de uma encomenda confirmada a 23 de outubro. O tracking está a ser consultado para partilhar uma previsão atualizada.",
+      "suggestions": "Consultar o estado do envio e enviar a previsão por mensagem, ativando notificações de entrega se o cliente pretender.",
+      "data_hora": "2026-10-25 16:12",
+      "tempo_de_ligacao": "03:36",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Política de devoluções",
+          "date": "2026-08-30"
+        },
+        {
+          "tipo": "Encomenda criada",
+          "motivo": "Encomenda #7842",
+          "date": "2026-10-23"
+        },
+        {
+          "tipo": "Instagram recebido",
+          "motivo": "Previsão de entrega",
+          "date": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Carla Rodrigues",
+      "numero_do_user": "+351 912 888 333",
+      "email": "carla.rodrigues@email.pt",
+      "location": "TechVentures Inc",
+      "since": "2022-11",
+      "ranking": 4.8,
+      "type": "premium",
+      "ia_note": "Esclarecimento de faturação resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Carla Rodrigues. Motivo: Esclarecimento de faturação. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-26 08:00",
+      "tempo_de_ligacao": "03:10",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Esclarecimento de faturação",
+          "date": "2026-10-26"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Manuel Antunes",
+      "numero_do_user": "+351 965 123 456",
+      "email": "manuel.antunes@outlook.pt",
+      "location": "TechVentures Inc",
+      "since": "2024-05",
+      "ranking": 3.5,
+      "type": "standard",
+      "ia_note": "Acompanhamento de pedido em aberto resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Manuel Antunes. Motivo: Acompanhamento de pedido em aberto. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-25 09:11",
+      "tempo_de_ligacao": "04:11",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Acompanhamento de pedido em aberto",
+          "date": "2026-10-25"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Sara Vasconcelos",
+      "numero_do_user": "+351 928 444 555",
+      "email": "sara.vasc@madeirabiz.com",
+      "location": "TechVentures Inc",
+      "since": "2026-06",
+      "ranking": 5,
+      "type": "new",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de Sara Vasconcelos. Motivo: Apoio à configuração da conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-24 10:22",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Apoio à configuração da conta",
+          "date": "2026-10-24"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-24"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Rui Fonseca",
+      "numero_do_user": "+351 919 999 222",
+      "email": "rui.fonseca@techcorp.pt",
+      "location": "TechVentures Inc",
+      "since": "2021-03",
+      "ranking": 4.2,
+      "type": "premium",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Rui Fonseca. Motivo: Atualização do estado de entrega. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-23 11:33",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Atualização do estado de entrega",
+          "date": "2026-10-23"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Beatriz Silva",
+      "numero_do_user": "+351 934 777 111",
+      "email": "bea.silva@gmail.com",
+      "location": "TechVentures Inc",
+      "since": "2025-01",
+      "ranking": 2.9,
+      "type": "standard",
+      "ia_note": "Recuperação de acesso à conta resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Beatriz Silva. Motivo: Recuperação de acesso à conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-22 12:44",
+      "tempo_de_ligacao": "07:14",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Recuperação de acesso à conta",
+          "date": "2026-10-22"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "João Pires",
+      "numero_do_user": "+351 911 000 777",
+      "email": "jpires@Globalnet.pt",
+      "location": "TechVentures Inc",
+      "since": "2023-08",
+      "ranking": 4,
+      "type": "standard",
+      "ia_note": "Pedido de informação sobre o plano resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de João Pires. Motivo: Pedido de informação sobre o plano. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-21 13:55",
+      "tempo_de_ligacao": "08:15",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Pedido de informação sobre o plano",
+          "date": "2026-10-21"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Ana Martins",
+      "numero_do_user": "+351 912 345 678",
+      "email": "ana.martins@sapo.pt",
+      "location": "TechVentures Inc",
+      "since": "2026-02",
+      "ranking": 4.5,
+      "type": "new",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de Ana Martins. Motivo: Esclarecimento de faturação. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-20 14:06",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Esclarecimento de faturação",
+          "date": "2026-10-20"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-20"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Miguel Santos",
+      "numero_do_user": "+351 911 000 000",
+      "email": "m.santos@corporate.pt",
+      "location": "TechVentures Inc",
+      "since": "2020-05",
+      "ranking": 3.1,
+      "type": "premium",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Miguel Santos. Motivo: Acompanhamento de pedido em aberto. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-19 15:17",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Acompanhamento de pedido em aberto",
+          "date": "2026-10-19"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Diana Reis",
+      "numero_do_user": "+351 934 111 222",
+      "email": "diana.reis@gmail.com",
+      "location": "TechVentures Inc",
+      "since": "2024-09",
+      "ranking": 4.7,
+      "type": "standard",
+      "ia_note": "Apoio à configuração da conta resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Diana Reis. Motivo: Apoio à configuração da conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-18 16:28",
+      "tempo_de_ligacao": "05:18",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Apoio à configuração da conta",
+          "date": "2026-10-18"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-18"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "José Carlos",
+      "numero_do_user": "+351 961 777 999",
+      "email": "jcarlos@construcoes.pt",
+      "location": "TechVentures Inc",
+      "since": "2022-01",
+      "ranking": 4.9,
+      "type": "premium",
+      "ia_note": "Atualização do estado de entrega resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de José Carlos. Motivo: Atualização do estado de entrega. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-17 17:39",
+      "tempo_de_ligacao": "06:19",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Atualização do estado de entrega",
+          "date": "2026-10-17"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-17"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "António Melo",
+      "numero_do_user": "+351 915 222 333",
+      "email": "antonio.melo@sapo.pt",
+      "location": "TechVentures Inc",
+      "since": "2026-05",
+      "ranking": 3,
+      "type": "new",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de António Melo. Motivo: Recuperação de acesso à conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-16 08:50",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Recuperação de acesso à conta",
+          "date": "2026-10-16"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Cláudia Vieira",
+      "numero_do_user": "+351 917 454 200",
+      "email": "claudia.v@agenciamodels.pt",
+      "location": "TechVentures Inc",
+      "since": "2023-11",
+      "ranking": 4.1,
+      "type": "standard",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Cláudia Vieira. Motivo: Pedido de informação sobre o plano. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-15 09:01",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Pedido de informação sobre o plano",
+          "date": "2026-10-15"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Pedro Alves",
+      "numero_do_user": "+351 969 333 444",
+      "email": "pedro.alves99@gmail.com",
+      "location": "TechVentures Inc",
+      "since": "2025-07",
+      "ranking": 4.6,
+      "type": "standard",
+      "ia_note": "Esclarecimento de faturação resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Pedro Alves. Motivo: Esclarecimento de faturação. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-14 10:12",
+      "tempo_de_ligacao": "03:22",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Esclarecimento de faturação",
+          "date": "2026-10-14"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-14"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Francisca Borges",
+      "numero_do_user": "+351 912 151 515",
+      "email": "fborges@advogados-associados.pt",
+      "location": "TechVentures Inc",
+      "since": "2021-06",
+      "ranking": 4.4,
+      "type": "premium",
+      "ia_note": "Acompanhamento de pedido em aberto resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Francisca Borges. Motivo: Acompanhamento de pedido em aberto. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-13 11:23",
+      "tempo_de_ligacao": "04:23",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Acompanhamento de pedido em aberto",
+          "date": "2026-10-13"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-13"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Ricardo Pereira",
+      "numero_do_user": "+351 933 121 212",
+      "email": "ricardo.p@freelance.pt",
+      "location": "TechVentures Inc",
+      "since": "2026-04",
+      "ranking": 3.8,
+      "type": "new",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de Ricardo Pereira. Motivo: Apoio à configuração da conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-12 12:34",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Apoio à configuração da conta",
+          "date": "2026-10-12"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Sofia Henriques",
+      "numero_do_user": "+351 968 454 656",
+      "email": "sofia.henriques@clinica-health.pt",
+      "location": "TechVentures Inc",
+      "since": "2023-04",
+      "ranking": 4.9,
+      "type": "standard",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Sofia Henriques. Motivo: Atualização do estado de entrega. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-11 13:45",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Atualização do estado de entrega",
+          "date": "2026-10-11"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Luís Ramos",
+      "numero_do_user": "+351 910 898 767",
+      "email": "luis.ramos@logis-transportes.pt",
+      "location": "TechVentures Inc",
+      "since": "2026-06",
+      "ranking": 4,
+      "type": "new",
+      "ia_note": "Recuperação de acesso à conta resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Luís Ramos. Motivo: Recuperação de acesso à conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-10 14:56",
+      "tempo_de_ligacao": "07:26",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Recuperação de acesso à conta",
+          "date": "2026-10-10"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-10"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Catarina Santos",
+      "numero_do_user": "+351 925 676 878",
+      "email": "catarina.santos@edu-escolas.pt",
+      "location": "TechVentures Inc",
+      "since": "2024-02",
+      "ranking": 4.3,
+      "type": "standard",
+      "ia_note": "Pedido de informação sobre o plano resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Catarina Santos. Motivo: Pedido de informação sobre o plano. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-09 15:07",
+      "tempo_de_ligacao": "08:27",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Pedido de informação sobre o plano",
+          "date": "2026-10-09"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Fernando Castro",
+      "numero_do_user": "+351 964 121 212",
+      "email": "f.castro@investimentos-funchal.com",
+      "location": "TechVentures Inc",
+      "since": "2020-01",
+      "ranking": 2.5,
+      "type": "premium",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de Fernando Castro. Motivo: Esclarecimento de faturação. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-08 16:18",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Esclarecimento de faturação",
+          "date": "2026-10-08"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Inês Coelho",
+      "numero_do_user": "+351 918 323 434",
+      "email": "ines.coelho@vinhos-douro.pt",
+      "location": "TechVentures Inc",
+      "since": "2024-12",
+      "ranking": 4.6,
+      "type": "standard",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Inês Coelho. Motivo: Acompanhamento de pedido em aberto. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-07 17:29",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Acompanhamento de pedido em aberto",
+          "date": "2026-10-07"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-07"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Carla Rodrigues",
+      "numero_do_user": "+351 912 888 333",
+      "email": "carla.rodrigues@email.pt",
+      "location": "TechVentures Inc",
+      "since": "2022-11",
+      "ranking": 4.8,
+      "type": "premium",
+      "ia_note": "Apoio à configuração da conta resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Carla Rodrigues. Motivo: Apoio à configuração da conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-06 08:40",
+      "tempo_de_ligacao": "05:30",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Apoio à configuração da conta",
+          "date": "2026-10-06"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-06"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Manuel Antunes",
+      "numero_do_user": "+351 965 123 456",
+      "email": "manuel.antunes@outlook.pt",
+      "location": "TechVentures Inc",
+      "since": "2024-05",
+      "ranking": 3.5,
+      "type": "standard",
+      "ia_note": "Atualização do estado de entrega resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Manuel Antunes. Motivo: Atualização do estado de entrega. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-05 09:51",
+      "tempo_de_ligacao": "06:31",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Atualização do estado de entrega",
+          "date": "2026-10-05"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Sara Vasconcelos",
+      "numero_do_user": "+351 928 444 555",
+      "email": "sara.vasc@madeirabiz.com",
+      "location": "TechVentures Inc",
+      "since": "2026-06",
+      "ranking": 5,
+      "type": "new",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de Sara Vasconcelos. Motivo: Recuperação de acesso à conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-04 10:02",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Recuperação de acesso à conta",
+          "date": "2026-10-04"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-04"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Rui Fonseca",
+      "numero_do_user": "+351 919 999 222",
+      "email": "rui.fonseca@techcorp.pt",
+      "location": "TechVentures Inc",
+      "since": "2021-03",
+      "ranking": 4.2,
+      "type": "premium",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Rui Fonseca. Motivo: Pedido de informação sobre o plano. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-03 11:13",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Pedido de informação sobre o plano",
+          "date": "2026-10-03"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Beatriz Silva",
+      "numero_do_user": "+351 934 777 111",
+      "email": "bea.silva@gmail.com",
+      "location": "TechVentures Inc",
+      "since": "2025-01",
+      "ranking": 2.9,
+      "type": "standard",
+      "ia_note": "Esclarecimento de faturação resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de Beatriz Silva. Motivo: Esclarecimento de faturação. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-02 12:24",
+      "tempo_de_ligacao": "03:34",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Esclarecimento de faturação",
+          "date": "2026-10-02"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "João Pires",
+      "numero_do_user": "+351 911 000 777",
+      "email": "jpires@Globalnet.pt",
+      "location": "TechVentures Inc",
+      "since": "2023-08",
+      "ranking": 4,
+      "type": "standard",
+      "ia_note": "Acompanhamento de pedido em aberto resolvido durante o contacto.",
+      "ai_note_detailed": "Registo de atendimento de João Pires. Motivo: Acompanhamento de pedido em aberto. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Enviar resumo do atendimento e manter o acompanhamento habitual.",
+      "data_hora": "2026-10-01 13:35",
+      "tempo_de_ligacao": "04:35",
+      "status": "complete",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Acompanhamento de pedido em aberto",
+          "date": "2026-10-01"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Pedido concluído",
+          "date": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "incoming",
+      "nome_do_user": "Ana Martins",
+      "numero_do_user": "+351 912 345 678",
+      "email": "ana.martins@sapo.pt",
+      "location": "TechVentures Inc",
+      "since": "2026-02",
+      "ranking": 4.5,
+      "type": "new",
+      "ia_note": "Chamada não atendida; requer tentativa de retorno.",
+      "ai_note_detailed": "Registo de atendimento de Ana Martins. Motivo: Apoio à configuração da conta. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-26 14:46",
+      "tempo_de_ligacao": "00:00",
+      "status": "lost",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Apoio à configuração da conta",
+          "date": "2026-10-26"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "tipo_de_chamada": "outgoing",
+      "nome_do_user": "Miguel Santos",
+      "numero_do_user": "+351 911 000 000",
+      "email": "m.santos@corporate.pt",
+      "location": "TechVentures Inc",
+      "since": "2020-05",
+      "ranking": 3.1,
+      "type": "premium",
+      "ia_note": "Linha ocupada; agendar nova tentativa.",
+      "ai_note_detailed": "Registo de atendimento de Miguel Santos. Motivo: Atualização do estado de entrega. O agente consultou os dados da conta e documentou o resultado para assegurar continuidade.",
+      "suggestions": "Agendar tentativa de retorno e atualizar o cliente pelo canal preferido.",
+      "data_hora": "2026-10-25 15:57",
+      "tempo_de_ligacao": "00:00",
+      "status": "occupied",
+      "call_history": [
+        {
+          "tipo": "Chamada recebida",
+          "motivo": "Atualização do estado de entrega",
+          "date": "2026-10-25"
+        },
+        {
+          "tipo": "Nota de atendimento",
+          "motivo": "Acompanhamento pendente",
+          "date": "2026-10-25"
+        }
+      ]
+    }
   ]
-
 }

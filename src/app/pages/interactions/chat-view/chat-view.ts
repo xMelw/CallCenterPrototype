@@ -1,6 +1,7 @@
-import { Component, Input, signal  } from '@angular/core';
+import { Component, Input, computed, signal  } from '@angular/core';
 import { KeyValue, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SnippetsService, Snippet } from '../../../services/snippets.service';
 
 @Component({
   selector: 'app-chat-view',
@@ -10,12 +11,24 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './chat-view.css',
 })
 export class ChatView {
+  constructor(private snippetsService: SnippetsService) {}
+
   @Input() type!: 'client' | 'team';
   @Input() chatData: any;
   @Input() mode: 'client' | 'team' = 'client'
 
   priority = signal<'low' | 'medium' | 'high'>('low');
   newMessage = signal('');
+  activeSnippetIndex = signal(0);
+  snippetPickerDismissed = signal(false);
+  snippetMatches = computed(() => {
+    if (this.mode !== 'client') return [];
+    const token = this.newMessage().match(/(?:^|\s)(\/[a-zA-Z0-9_-]*)$/)?.[1]?.toLowerCase();
+    if (token === undefined) return [];
+    return this.snippetsService.snippets()
+      .filter(snippet => snippet.shortcut.toLowerCase().startsWith(token))
+      .slice(0, 6);
+  });
   categoryColors = [
     'border-blue-300 bg-blue-100 p-1 dark:border-blue-300/10 dark:bg-blue-400/10 text-blue-700 dark:text-blue-500',
     'border-cyan-300 bg-cyan-100 p-1 dark:border-cyan-300/10 dark:bg-cyan-400/10 text-cyan-700 dark:text-cyan-500',
@@ -73,15 +86,50 @@ export class ChatView {
       })
     };
 
-    this.chatData = {
-      ...this.chatData,
-      chat: [...this.chatData.chat, msg]
-    };
+    this.chatData.chat = [...(this.chatData.chat ?? []), msg];
     this.newMessage.set('');
   }
 
   updateMessage(event: Event){ //Atualiza a mensagem no chat enviada.
     this.newMessage.set((event.target as HTMLInputElement).value);
+    this.activeSnippetIndex.set(0);
+    this.snippetPickerDismissed.set(false);
+  }
+
+  onComposerKeydown(event: KeyboardEvent): void {
+    const matches = this.snippetPickerDismissed() ? [] : this.snippetMatches();
+    if (matches.length) {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const direction = event.key === 'ArrowDown' ? 1 : -1;
+        this.activeSnippetIndex.update(index => (index + direction + matches.length) % matches.length);
+        return;
+      }
+      if (event.key === 'Tab' || event.key === 'Enter') {
+        event.preventDefault();
+        this.applySnippet(matches[this.activeSnippetIndex()] ?? matches[0]);
+        return;
+      }
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        this.snippetPickerDismissed.set(true);
+        return;
+      }
+    }
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      this.sendMessage();
+    }
+  }
+
+  applySnippet(snippet: Snippet): void {
+    const draft = this.newMessage();
+    const token = /(^|\s)\/[a-zA-Z0-9_-]*$/.exec(draft);
+    const prefix = token ? draft.slice(0, token.index) + token[1] : '';
+    this.newMessage.set(`${prefix}${snippet.body}`);
+    this.snippetPickerDismissed.set(true);
+    this.activeSnippetIndex.set(0);
   }
 
   onFileSelected(event: Event){

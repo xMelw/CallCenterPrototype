@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { DataList } from "../../components/data-list/data-list";
-import { HttpClient } from '@angular/common/http';
-import { MenuService } from '../../services/menu';
+import { Component } from '@angular/core';
+import { DataList } from '../../components/data-list/data-list';
 import { NgClass } from '@angular/common';
+import { GlobalSearchService } from '../../services/global-search';
+import { AppDataService } from '../../services/app-data';
 
 @Component({
   selector: 'app-contacts',
@@ -13,9 +13,9 @@ import { NgClass } from '@angular/common';
 export class Contacts {
 
   constructor(
-    private http: HttpClient, //Obtem os dados do JSON
-    private menuService: MenuService
-  ){}
+    private appData: AppDataService,
+    private search: GlobalSearchService
+  ) {}
 
   usersContacts : any[] = [];
   agentsContacts : any[] = [];
@@ -23,31 +23,55 @@ export class Contacts {
 
   selectedContact: any = null;
 
-  currentTab: 'clients' | 'agents' | 'team' = 'clients'
-  currentPage = 1;
-  itemsPerPage = 8;
+  currentTab: 'clients' | 'agents' | 'team' = 'clients';
+  searchQuery = '';
+  loading = true;
+  loadError = false;
 
   ngOnInit(): void {
     this.loadInteractions();
-
-    this.menuService.collapsed$.subscribe(collapsed => {
-      this.itemsPerPage =
-        collapsed ? 10 : 8; // !collapsed : collapsed
-    })
+    this.search.state$.subscribe(({ scope, query }) => {
+      this.searchQuery = scope === 'contacts' || scope === 'all' ? query : '';
+      if (scope === 'contacts' && this.currentTab !== 'clients') {
+        this.currentTab = 'clients';
+        this.selectedContact = null;
+      }
+    });
   }
 
   loadInteractions(){ // Carrega as interações do arquivo JSON
-    this.http.get<any>('assets/db.json').subscribe(data => {
-      this.usersContacts = data.contacts.users;
-      this.agentsContacts = data.contacts.agents;
-      this.teamContacts = data.contacts.team;
+    this.appData.load().subscribe({
+      next: data => {
+        this.usersContacts = data.contacts.users;
+        this.agentsContacts = data.contacts.agents;
+        this.teamContacts = data.contacts.team;
+        this.loading = false;
+        this.loadError = false;
+      },
+      error: () => {
+        this.loading = false;
+        this.loadError = true;
+      }
+    });
+  }
 
+  retryLoad(): void {
+    this.loading = true;
+    this.appData.retry().subscribe({
+      next: data => {
+        this.usersContacts = data.contacts.users;
+        this.agentsContacts = data.contacts.agents;
+        this.teamContacts = data.contacts.team;
+        this.loading = false;
+        this.loadError = false;
+      },
+      error: () => { this.loading = false; this.loadError = true; }
     });
   }
 
   setTab(tab: 'clients' | 'agents' | 'team'){
     this.currentTab = tab;
-    this.currentPage = 1;
+    this.selectedContact = null;
   }
 
   get currentContacts(): any[] {
@@ -63,49 +87,30 @@ export class Contacts {
     }
   }
 
-  // ----- Paginação -----
-  get totalPages(): number {
-    return Math.ceil(this.currentContacts.length / this.itemsPerPage);
-  }
+  get filteredContacts(): any[] {
+    const query = this.normalize(this.searchQuery);
+    if (!query) return this.currentContacts;
 
-  get paginatedContacts(){
-    const start = (this.currentPage - 1) * this.itemsPerPage;
-
-    return this.currentContacts.slice(start, start + this.itemsPerPage);
-  }
-
-  get pages(): number[]{
-    return Array.from(
-      { length: this.totalPages },
-      (_, i) => i + 1
+    return this.currentContacts.filter(contact =>
+      [contact.nome, contact.email, contact.numero_de_tel, contact.location, contact.type]
+        .some(value => this.normalize(value).includes(query))
     );
   }
 
-  goToPage(page: number) {
-    this.currentPage = page;
+  get premiumContacts(): number {
+    return this.usersContacts.filter(contact => contact.type === 'premium').length;
   }
 
-  nextPage(){
-    if (this.currentPage < this.totalPages){
-      this.currentPage++;
-    }
+  get newContacts(): number {
+    return this.usersContacts.filter(contact => contact.type === 'new').length;
   }
 
-  previousPage(){
-    if (this.currentPage > 1){
-      this.currentPage--;
-    }
+  private normalize(value: unknown): string {
+    return String(value ?? '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
   }
-
-  firstPage(){
-    this.currentPage = 1;
-  }
-
-  lastPage(){
-    this.currentPage = this.totalPages;
-  }
-
-  // ----------
 
   getStars(rating: number){
     

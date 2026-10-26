@@ -1,14 +1,18 @@
 <div class="main flex flex-col gap-2">
     <div class="flex items-center gap-8 w-full" style="height: 60px;" >
         <div class="search-container flex gap-4 justify-self-start items-center">
-            <select class="flex">
-                <option value="All">Todos</option>
-                <option value="Inbox">Caixa de entrada</option>
-                <option value="Contacts">Contactos</option>
-                <option value="History">Histórico</option>
+            <select class="flex" aria-label="Pesquisar em" [(ngModel)]="searchScope" (ngModelChange)="onSearchChange()">
+                <option value="all">Tudo</option>
+                <option value="inbox">Inbox</option>
+                <option value="contacts">Contacts</option>
+                <option value="history">History</option>
+                <option value="knowledge">Knowledge</option>
             </select>
             <div class="search-input flex flex-row justify-between gap-10">
-                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar" class="search-input flex"/>
+                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar" autocomplete="off" class="search-field flex" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()"/>
+                @if(searchQuery){
+                    <button type="button" class="search-clear" aria-label="Limpar pesquisa" (click)="clearSearch()"><i class="bi bi-x-lg"></i></button>
+                }
                 <i class="bi bi-search flex items-center"></i>
             </div>
         </div>
@@ -19,7 +23,9 @@
         <div class="user-container flex justify-between items-center">
             <div class="user-info flex flex-col">
                 <span>{{userName}}</span>
-                <small class="text-xs font-normal text-emerald-600">{{userStatus === 'available' ? 'Disponível' : 'Ocupado'}}</small>
+                <small class="text-xs font-normal" [class.text-emerald-600]="userStatus === 'available'" [class.text-amber-600]="userStatus === 'away'" [class.text-rose-600]="userStatus === 'busy'">
+                    {{userStatus === 'available' ? 'Disponível' : userStatus === 'away' ? 'Ausente' : 'Ocupado'}}
+                </small>
             </div>
             <div class="avatar-content">
                 <img src="assets/jane_doe.png" alt="User Avatar" class="user-avatar" style=" object-fit: cover;">

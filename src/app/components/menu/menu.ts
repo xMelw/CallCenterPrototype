@@ -1,23 +1,24 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgClass } from '@angular/common';
 import { MenuService } from '../../services/menu';
+import { AppDataService } from '../../services/app-data';
 
 import { Recents } from '../recents/recents';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NgClass, Recents, RouterLink, RouterLinkActive],
+  imports: [NgClass, Recents],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
 })
 export class Menu {
 
   constructor(
-    private http: HttpClient, //Obtem os dados do JSON
+    private appData: AppDataService,
+    private router: Router,
     private breakpointObserver: BreakpointObserver,
     private menuService: MenuService
   ){}
@@ -32,8 +33,7 @@ export class Menu {
 
 
   ngOnInit(){ // Carrega os itens do menu a partir do arquivo JSON
-    this.http.get<any>('assets/db.json')
-    .subscribe(data => {
+    this.appData.load().subscribe(data => {
       this.menuItems = data.menu.links;
     });
 
@@ -67,6 +67,23 @@ export class Menu {
 
   getActive(): string{
     return this.menuLink;
+  }
+
+  navigate(route: string, event: MouseEvent): void {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (this.router.url.split('?')[0] !== route) {
+      void this.router.navigateByUrl(route);
+    }
+  }
+
+  isRouteActive(route: string): boolean {
+    return this.router.isActive(route, {
+      paths: 'exact',
+      queryParams: 'ignored',
+      matrixParams: 'ignored',
+      fragment: 'ignored'
+    });
   }
 
 }

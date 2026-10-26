@@ -22,6 +22,15 @@
     overscroll-behavior: contain;
 }
 
+.history-call-card {
+    min-height: 100px;
+    flex: 0 0 auto;
+}
+
+.history-call-meta {
+    min-width: 0;
+}
+
 @media (max-width: 900px) {
     .history-layout {
         grid-template-columns: minmax(0, 1fr);
@@ -31,6 +40,23 @@
 
     .history-detail-column {
         grid-row: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .history-call-meta {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 6px;
+    }
+
+    .history-call-meta > div:first-child {
+        grid-column: 1;
+    }
+
+    .history-call-meta > div:last-child {
+        grid-column: 1;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
 }
 

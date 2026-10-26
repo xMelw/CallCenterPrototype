@@ -16,7 +16,16 @@
 @if (currentView){
     @switch (currentView){
         @case ('clientsList'){
-            <app-chat-list [conversations]="clients" (selectedChat)="openClientChat($event)"/>
+            @if(loading){
+                <div class="flex flex-1 items-center justify-center rounded-2xl bg-white text-sm text-slate-400">A carregar conversas…</div>
+            } @else if(loadError){
+                <div class="flex flex-1 flex-col items-center justify-center gap-3 rounded-2xl bg-white text-sm text-slate-500">
+                    <p>Não foi possível carregar as conversas.</p>
+                    <button type="button" class="rounded-lg bg-sky-700 px-4 py-2 text-white" (click)="retryLoad()">Tentar novamente</button>
+                </div>
+            } @else {
+                <app-chat-list [conversations]="filteredClients" (selectedChat)="openClientChat($event)"/>
+            }
         }
         @case ('clientChat') {
             <div class="conversation-layout grid gap-2 flex-1 min-h-0" >

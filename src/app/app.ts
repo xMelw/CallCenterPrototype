@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Menu } from './components/menu/menu';
 import { Header } from './components/header/header';
+import { AppDataService } from './services/app-data';
 
 @Component({
   selector: 'app-root',
@@ -13,20 +13,31 @@ import { Header } from './components/header/header';
 })
 
 export class App {
-  protected readonly title = signal('CallCenterPrototype');
+  constructor(private appData: AppDataService) {}
 
-  constructor(
-    private http: HttpClient, //Obtem os dados do JSON
-  ){}
-
-  users: any[] = [];
   isCollapsed = false; // Estado de colapso do menu
+  dataReady = signal(false);
+  dataError = signal(false);
 
   ngOnInit() {
-    this.http.get<any[]>('assets/db.json').subscribe(data => {
-      this.users = data;
+    this.loadAppData();
+  }
+
+  loadAppData(): void {
+    this.dataError.set(false);
+    this.appData.load().subscribe({
+      next: () => this.dataReady.set(true),
+      error: () => this.dataError.set(true)
     });
-  
+  }
+
+  retryData(): void {
+    this.dataReady.set(false);
+    this.dataError.set(false);
+    this.appData.retry().subscribe({
+      next: () => this.dataReady.set(true),
+      error: () => this.dataError.set(true)
+    });
   }
 
   onCollapsedChange(collapsed: boolean){ // Metodo para atualizar o estado de colapso

@@ -15,10 +15,18 @@
 
         <!-- MAIN CALL HISTORY  -->
         <div class="history-items flex flex-col flex-1 min-h-0 gap-2">
-            @for (call of paginatedHistory; track call) {
+            @if(loading){
+                <div class="flex min-h-40 items-center justify-center rounded-2xl bg-white p-6 text-sm text-gray-400">A carregar histórico…</div>
+            } @else if(loadError){
+                <div class="flex min-h-40 flex-col items-center justify-center gap-3 rounded-2xl bg-white p-6 text-sm text-gray-500">
+                    <p>Não foi possível carregar o histórico.</p>
+                    <button type="button" class="rounded-lg bg-sky-700 px-4 py-2 text-white" (click)="retryLoad()">Tentar novamente</button>
+                </div>
+            } @else if(filteredHistory.length){
+            @for (call of filteredHistory; track call) {
                 
                 <!-- CALL ITEM -->
-                <div class="flex flex-col w-full h-25 p-1.5 gap-2 border-2 rounded-md bg-white transition hover:drop-shadow-md"
+                <div class="history-call-card flex flex-col w-full p-1.5 gap-2 border-2 rounded-md bg-white transition hover:drop-shadow-md"
                     [ngClass]="{
                         'border-sky-500 drop-shadow-md': selectedCall === call,
                         'border-transparent': selectedCall !== call 
@@ -55,7 +63,7 @@
                     <hr class="text-gray-300">
                      
                     <!-- ITEM BOTTOM  -->
-                    <div class="grid grid-cols-5 text-sm items-center">
+                    <div class="history-call-meta grid grid-cols-5 text-sm items-center">
 
                         <!-- AI NOTE  -->
                         <div class="col-span-3">
@@ -81,52 +89,13 @@
                 </div>
                 <!-- END CALL ITEM -->
             }
+            } @else {
+                <div class="flex min-h-40 items-center justify-center rounded-2xl bg-white p-6 text-center text-gray-400">
+                    <p>Nenhum registo encontrado para “{{searchQuery}}”.</p>
+                </div>
+            }
         </div>
         <!-- END MAIN CALL HISTORY  -->
-
-        <!-- PAGINATION  -->
-         @if(totalPages > 1){
-            <div class="flex items-center justify-end ">
-                <div class="flex bg-white h-7 w-60 gap-2 mt-6 text-sm rounded-3xl items-center justify-evenly">
-                    <button
-                        (click)="firstPage()"
-                        [disabled]="currentPage === 1">
-                        <i class="bi bi-chevron-double-left flex m-0 p-0"></i>
-                    </button>
-
-                    <button
-                        (click)="previousPage()"
-                        [disabled]="currentPage === 1">
-                        <i class="bi bi-chevron-left flex m-0 p-0"></i>
-                    </button>
-
-                    @for(page of pages; track page){
-                        <button
-                        (click)="goToPage(page)"
-                        class="h-7 w-7 rounded-lg"
-                        [class.bg-sky-600]="currentPage === page"
-                        [class.text-white]="currentPage === page">
-
-                        {{ page }}
-
-                        </button>
-                    }
-
-                    <button
-                        (click)="nextPage()"
-                        [disabled]="currentPage === totalPages">
-                        <i class="bi bi-chevron-right flex m-0 p-0"></i>
-                    </button>
-
-                    <button
-                    (click)="lastPage()"
-                    [disabled]="currentPage === totalPages">
-                        <i class="bi bi-chevron-double-right flex m-0 p-0"></i>
-                    </button>
-                </div>
-            </div>
-        }
-        <!-- --------- -->
 
 
     </div>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { DataList } from '../../components/data-list/data-list';
-import { HttpClient } from '@angular/common/http';
 import { NgClass } from '@angular/common';
+import { GlobalSearchService } from '../../services/global-search';
+import { AppDataService } from '../../services/app-data';
 
 @Component({
   selector: 'app-history',
@@ -12,23 +13,50 @@ import { NgClass } from '@angular/common';
 export class History {
 
   constructor(
-    private http: HttpClient
+    private appData: AppDataService,
+    private search: GlobalSearchService
   ){}
 
   selectedCall: any = null;
   callHistory : any[] = [];
-  currentPage = 1;
-  itemsPerPage = 5;
+  searchQuery = '';
+  loading = true;
+  loadError = false;
 
   ngOnInit(): void {
     this.loadInteractions();
+    this.search.state$.subscribe(({ scope, query }) => {
+      this.searchQuery = scope === 'history' || scope === 'all' ? query : '';
+    });
   }
 
   loadInteractions(){ // Carrega as interações do arquivo JSON
-    this.http.get<any>('assets/db.json').subscribe(data => {
-      this.callHistory = [...data.history].sort((a: any, b: any) =>
-        new Date(b.data_hora.replace(' ', 'T')).getTime() - new Date(a.data_hora.replace(' ', 'T')).getTime()
-      );
+    this.appData.load().subscribe({
+      next: data => {
+        this.callHistory = [...data.history].sort((a: any, b: any) =>
+          new Date(b.data_hora.replace(' ', 'T')).getTime() - new Date(a.data_hora.replace(' ', 'T')).getTime()
+        );
+        this.loading = false;
+        this.loadError = false;
+      },
+      error: () => {
+        this.loading = false;
+        this.loadError = true;
+      }
+    });
+  }
+
+  retryLoad(): void {
+    this.loading = true;
+    this.appData.retry().subscribe({
+      next: data => {
+        this.callHistory = [...data.history].sort((a: any, b: any) =>
+          new Date(b.data_hora.replace(' ', 'T')).getTime() - new Date(a.data_hora.replace(' ', 'T')).getTime()
+        );
+        this.loading = false;
+        this.loadError = false;
+      },
+      error: () => { this.loading = false; this.loadError = true; }
     });
   }
 
@@ -36,52 +64,21 @@ export class History {
     this.selectedCall = call;
   }
 
-   // ----- Paginação -----
+  get filteredHistory(): any[] {
+    const query = this.normalize(this.searchQuery);
+    if (!query) return this.callHistory;
 
-   get currentHistory(): any[] {
-    return this.callHistory;
-  }
-
-  get totalPages(): number {
-    return Math.ceil(this.currentHistory.length / this.itemsPerPage);
-  }
-
-  get paginatedHistory(){
-    const start = (this.currentPage - 1) * this.itemsPerPage;
-
-    return this.currentHistory.slice(start, start + this.itemsPerPage);
-  }
-
-  get pages(): number[]{
-    return Array.from(
-      { length: this.totalPages },
-      (_, i) => i + 1
+    return this.callHistory.filter(call =>
+      [call.nome_do_user, call.numero_do_user, call.email, call.location, call.ia_note, call.ai_note_detailed, call.status]
+        .some(value => this.normalize(value).includes(query))
     );
   }
 
-  goToPage(page: number) {
-    this.currentPage = page;
+  private normalize(value: unknown): string {
+    return String(value ?? '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
   }
 
-  nextPage(){
-    if (this.currentPage < this.totalPages){
-      this.currentPage++;
-    }
-  }
-
-  previousPage(){
-    if (this.currentPage > 1){
-      this.currentPage--;
-    }
-  }
-
-  firstPage(){
-    this.currentPage = 1;
-  }
-
-  lastPage(){
-    this.currentPage = this.totalPages;
-  }
-
-  // ----------
 }

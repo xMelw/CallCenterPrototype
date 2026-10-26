@@ -14,5 +14,28 @@ router-outlet {
 }
 
 .content {
+    position: relative;
     overflow: auto;
+}
+
+.app-data-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: #f8f7fc;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.loading-spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #dbeafe;
+    border-top-color: #0369a1;
+    border-radius: 50%;
+    animation: app-spin 700ms linear infinite;
+}
+
+@keyframes app-spin {
+    to { transform: rotate(360deg); }
 }

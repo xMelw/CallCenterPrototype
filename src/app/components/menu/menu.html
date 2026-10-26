@@ -15,9 +15,9 @@
             @if (item.type == 'link'){
             <!-- MenuItem com Selector -->
             <a class="menu-item text-sm"
-                [routerLink]="item.route"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}"
+                [href]="item.route"
+                (click)="navigate(item.route, $event)"
+                [class.active]="isRouteActive(item.route)"
                 [attr.aria-label]="item.title">
                 <span class="selector sel-top"></span>
                 <span class="menu-a flex items-center p-0">

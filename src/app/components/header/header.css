@@ -30,6 +30,17 @@
     background: transparent;
 }
 
+.search-field {
+    padding: 0 0 0 8px;
+    color: #54555A;
+}
+
+.search-clear {
+    flex: 0 0 auto;
+    color: #8b8b91;
+    padding: 0 2px;
+}
+
 .search-input i{
     font-size: 16px; 
     width: 30px; 

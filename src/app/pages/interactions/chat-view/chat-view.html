@@ -96,7 +96,7 @@
                 </div>
             }
             </div>
-            <div class="flex flex-1 items-center gap-2 text-gray-300 justify-between">
+            <div class="relative flex min-w-0 flex-1 items-center gap-2 text-gray-300 justify-between">
             
                 <label class="cursor-pointer p-2 rounded-full hover:bg-slate-200 active:scale-95 transition">
                     <i class="bi bi-plus"></i>
@@ -108,16 +108,34 @@
                     />
                 </label>
             
+                @if(snippetMatches().length && !snippetPickerDismissed()) {
+                    <div class="snippet-picker absolute bottom-full left-0 right-0 z-20 mb-2 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-xl dark:border-slate-700 dark:bg-slate-900" role="listbox" aria-label="Respostas rápidas">
+                        <p class="px-3 py-2 text-[11px] font-semibold uppercase tracking-wide text-slate-400">Respostas rápidas <span class="normal-case tracking-normal">· ↑↓ escolher · Tab inserir</span></p>
+                        @for(snippet of snippetMatches(); track snippet.id; let index = $index) {
+                            <button type="button" role="option" [attr.aria-selected]="index === activeSnippetIndex()"
+                                class="flex w-full items-start gap-3 rounded-xl px-3 py-2 text-left transition hover:bg-sky-50 dark:hover:bg-slate-800"
+                                [class.bg-sky-50]="index === activeSnippetIndex()" [class.dark:bg-slate-800]="index === activeSnippetIndex()"
+                                (mousedown)="$event.preventDefault()" (click)="applySnippet(snippet)">
+                                <code class="mt-0.5 shrink-0 rounded-md bg-sky-100 px-2 py-1 text-xs font-semibold text-sky-700 dark:bg-sky-950 dark:text-sky-300">{{snippet.shortcut}}</code>
+                                <span class="min-w-0 flex-1">
+                                    <span class="block text-sm font-medium text-slate-700 dark:text-slate-100">{{snippet.title}}</span>
+                                    <span class="mt-0.5 line-clamp-2 block text-xs text-slate-500 dark:text-slate-400">{{snippet.body}}</span>
+                                </span>
+                            </button>
+                        }
+                    </div>
+                }
+
                 <input
                     type="text"
-                    class="flex-1 border rounded-full px-4 py-2 text-sm
+                    class="flex-1 min-w-0 border rounded-full px-4 py-2 text-sm
                             focus:outline-none focus:ring-0 focus:ring-blue-400 focus:border-blue-400 transition"
-                    placeholder=" '/' para snippets "
-
+                    placeholder="Escreva uma mensagem ou / para respostas rápidas"
                     [value]="newMessage()"
                     (input)="updateMessage($event)"
-
-                    (keydown.enter)="sendMessage()"
+                    (keydown)="onComposerKeydown($event)"
+                    aria-label="Escrever mensagem"
+                    autocomplete="off"
                 />
 
                 <button

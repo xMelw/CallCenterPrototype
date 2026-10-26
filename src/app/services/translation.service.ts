@@ -1,6 +1,4 @@
 import { Injectable, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
 
 /**
  * Idiomas suportados pela página de Settings.
@@ -60,6 +58,7 @@ export const SETTINGS_SOURCE_STRINGS: Record<string, string> = {
   snippetDelete: 'Eliminar',
   snippetEdit: 'Editar',
   snippetEmpty: 'Ainda não existem respostas rápidas. Adicione a primeira.',
+  snippetUseHint: 'No Inbox, escreva / no campo da mensagem. Escolha uma resposta ou prima Tab para a inserir no rascunho.',
 
   notifSectionTitle: 'Notificações',
   notifSectionDesc: 'Escolha como e quando ser notificado.',
@@ -83,6 +82,44 @@ export const SETTINGS_SOURCE_STRINGS: Record<string, string> = {
   savedToast: 'Definições guardadas com sucesso.',
 };
 
+const ENGLISH_STRINGS: Record<string, string> = {
+  pageTitle: 'Settings', pageSubtitle: 'Personalize your call center agent experience.',
+  tabGeneral: 'General', tabSnippets: 'Quick replies', tabNotifications: 'Notifications', tabAudio: 'Audio',
+  langSectionTitle: 'Page language', langSectionDesc: 'Choose the display language for this settings page.',
+  themeSectionTitle: 'Appearance', themeSectionDesc: 'Switch between light and dark mode.', themeLight: 'Light', themeDark: 'Dark',
+  statusSectionTitle: 'Agent status', statusSectionDesc: 'Set your default availability when you sign in.',
+  statusAvailable: 'Available', statusAway: 'Away', statusBusy: 'Busy',
+  snippetsSectionTitle: 'Quick reply management', snippetsSectionDesc: 'Create and organize saved replies to speed up customer support.',
+  snippetAddBtn: 'Add reply', snippetTitlePlaceholder: 'Reply title', snippetBodyPlaceholder: 'Reply text...', snippetShortcutPlaceholder: 'Shortcut (e.g. /greeting)',
+  snippetSave: 'Save', snippetCancel: 'Cancel', snippetDelete: 'Delete', snippetEdit: 'Edit', snippetEmpty: 'There are no quick replies yet. Add your first one.',
+  snippetUseHint: 'In the Inbox, type / in the message field. Choose a reply or press Tab to insert it into your draft.',
+  notifSectionTitle: 'Notifications', notifSectionDesc: 'Choose how and when you want to be notified.',
+  notifNewCall: 'New incoming call', notifNewChat: 'New chat conversation', notifQueueAlert: 'High wait time queue alert',
+  notifSound: 'Notification sound', notifDesktop: 'Desktop notifications', notifEmail: 'Daily email summary',
+  audioSectionTitle: 'Audio and devices', audioSectionDesc: 'Configure your microphone, speakers, and call behavior.',
+  audioMic: 'Microphone', audioSpeaker: 'Speaker', audioRingtone: 'Ringtone', audioAutoAnswer: 'Answer calls automatically',
+  audioNoiseSuppression: 'Background noise suppression', audioTestBtn: 'Test audio', saveAllBtn: 'Save settings', savedToast: 'Settings saved successfully.',
+};
+
+const SPANISH_STRINGS: Record<string, string> = {
+  pageTitle: 'Configuración', pageSubtitle: 'Personalice su experiencia como agente de atención al cliente.',
+  tabGeneral: 'General', tabSnippets: 'Respuestas rápidas', tabNotifications: 'Notificaciones', tabAudio: 'Audio',
+  langSectionTitle: 'Idioma de la página', langSectionDesc: 'Elija el idioma de presentación de esta página de configuración.',
+  themeSectionTitle: 'Apariencia', themeSectionDesc: 'Cambie entre el modo claro y oscuro.', themeLight: 'Claro', themeDark: 'Oscuro',
+  statusSectionTitle: 'Estado del agente', statusSectionDesc: 'Defina su disponibilidad predeterminada al iniciar sesión.',
+  statusAvailable: 'Disponible', statusAway: 'Ausente', statusBusy: 'Ocupado',
+  snippetsSectionTitle: 'Gestión de respuestas rápidas', snippetsSectionDesc: 'Cree y organice respuestas guardadas para agilizar la atención.',
+  snippetAddBtn: 'Añadir respuesta', snippetTitlePlaceholder: 'Título de la respuesta', snippetBodyPlaceholder: 'Texto de la respuesta...', snippetShortcutPlaceholder: 'Atajo (p. ej. /saludo)',
+  snippetSave: 'Guardar', snippetCancel: 'Cancelar', snippetDelete: 'Eliminar', snippetEdit: 'Editar', snippetEmpty: 'Todavía no hay respuestas rápidas. Añada la primera.',
+  snippetUseHint: 'En Inbox, escriba / en el campo del mensaje. Elija una respuesta o pulse Tab para insertarla en el borrador.',
+  notifSectionTitle: 'Notificaciones', notifSectionDesc: 'Elija cómo y cuándo recibir notificaciones.',
+  notifNewCall: 'Nueva llamada entrante', notifNewChat: 'Nueva conversación de chat', notifQueueAlert: 'Alerta de espera elevada en la cola',
+  notifSound: 'Sonido de notificación', notifDesktop: 'Notificaciones de escritorio', notifEmail: 'Resumen diario por correo',
+  audioSectionTitle: 'Audio y dispositivos', audioSectionDesc: 'Configure el micrófono, los altavoces y el comportamiento de las llamadas.',
+  audioMic: 'Micrófono', audioSpeaker: 'Altavoz', audioRingtone: 'Tono de llamada', audioAutoAnswer: 'Responder llamadas automáticamente',
+  audioNoiseSuppression: 'Supresión del ruido de fondo', audioTestBtn: 'Probar audio', saveAllBtn: 'Guardar configuración', savedToast: 'Configuración guardada correctamente.',
+};
+
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
   /** Idioma atualmente selecionado para a página de Settings. */
@@ -94,18 +131,16 @@ export class TranslationService {
   readonly isLoading = signal(false);
   readonly error = signal<string | null>(null);
 
-  // Cache em memória para evitar chamadas repetidas à API.
-  private cache = new Map<SupportedLang, Record<string, string>>();
+  private readonly dictionaries: Record<SupportedLang, Record<string, string>> = {
+    'PT-PT': SETTINGS_SOURCE_STRINGS,
+    EN: ENGLISH_STRINGS,
+    ES: SPANISH_STRINGS,
+  };
 
-  /**
-   * Endpoint do backend próprio que faz proxy seguro para a API DeepL
-   * (a chave da DeepL NUNCA deve ser exposta no frontend).
-   * Ajustar para o endpoint real do backend.
-   */
-  private readonly proxyEndpoint = '/api/translate/deepl';
-
-  constructor(private http: HttpClient) {
-    this.cache.set('PT-PT', { ...SETTINGS_SOURCE_STRINGS });
+  constructor() {
+    const stored = this.readStoredLanguage();
+    this.currentLang.set(stored);
+    this.strings.set(this.dictionaries[stored]);
   }
 
   translate(key: string): string {
@@ -113,51 +148,18 @@ export class TranslationService {
   }
 
   async setLanguage(lang: SupportedLang): Promise<void> {
-    if (lang === this.currentLang()) return;
-
     this.error.set(null);
+    this.currentLang.set(lang);
+    this.strings.set(this.dictionaries[lang]);
+    try { localStorage.setItem('callcenter-settings-language', lang); } catch { /* storage can be unavailable */ }
+  }
 
-    if (this.cache.has(lang)) {
-      this.currentLang.set(lang);
-      this.strings.set(this.cache.get(lang)!);
-      return;
-    }
-
-    if (lang === 'PT-PT') {
-      this.currentLang.set(lang);
-      this.strings.set({ ...SETTINGS_SOURCE_STRINGS });
-      return;
-    }
-
-    this.isLoading.set(true);
+  private readStoredLanguage(): SupportedLang {
     try {
-      const keys = Object.keys(SETTINGS_SOURCE_STRINGS);
-      const texts = Object.values(SETTINGS_SOURCE_STRINGS);
-
-      // Chamada ao backend próprio (que por sua vez chama a API DeepL).
-      // Corpo esperado pelo proxy: { text: string[], target_lang: 'EN'|'ES'|'PT-PT', source_lang: 'PT' }
-      const response = await firstValueFrom(
-        this.http.post<{ translations: { text: string }[] }>(this.proxyEndpoint, {
-          text: texts,
-          target_lang: lang,
-          source_lang: 'PT',
-        })
-      );
-
-      const translated: Record<string, string> = {};
-      keys.forEach((key, i) => {
-        translated[key] = response.translations[i]?.text ?? SETTINGS_SOURCE_STRINGS[key];
-      });
-
-      this.cache.set(lang, translated);
-      this.strings.set(translated);
-      this.currentLang.set(lang);
-    } catch (e) {
-      console.error('Falha ao traduzir via DeepL:', e);
-      this.error.set('Não foi possível traduzir a página. A repor idioma anterior.');
-      // Mantém o idioma anterior em caso de falha, não muda currentLang.
-    } finally {
-      this.isLoading.set(false);
+      const lang = localStorage.getItem('callcenter-settings-language');
+      return lang === 'EN' || lang === 'ES' || lang === 'PT-PT' ? lang : 'PT-PT';
+    } catch {
+      return 'PT-PT';
     }
   }
 }
